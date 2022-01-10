@@ -3,60 +3,15 @@
 		<router-link to="/" class="text-3xl font-nunito font-extrabold select-none">
 			TEST
 		</router-link>
-		<ul class="hidden sm:flex flex-row-reverse items-center gap-4">
-			<li>
-				<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
-			</li>
-			<li>
-				<button class="hover:underline" @click="scrollIntoView('contact')">
-					Contact Me
-				</button>
-			</li>
-			<li>
-				<button class="hover:underline" @click="scrollIntoView('projects')">
-					Projects
-				</button>
-			</li>
-			<li>
-				<button class="hover:underline" @click="scrollIntoView('info')">
-					Info
-				</button>
-			</li>
-		</ul>
-		<button
-			class="sm:hidden flex active:outline outline-gray-600 transition-transform duration-300"
-			:class="{ '-translate-x-48': isMenuOpen }"
-			@click="changeMenu(!isMenuOpen)"
-		>
-			<ViewListIcon class="w-8 h-8" />
-		</button>
-		<div
-			class="sm:hidden fixed right-0 top-0 bottom-0 w-48 px-4 py-8 border-l border-gray-400 bg-light dark:bg-dark transition-transform duration-300"
-			:class="{ 'translate-x-0': isMenuOpen, 'translate-x-48': !isMenuOpen }"
-		>
-			<ul class="flex flex-col gap-2">
-				<li class="flex items-center gap-2">
-					<ThemeChanger :current-theme="currentTheme" is-sidemenu @set-theme="setTheme" />
-				</li>
-			</ul>
-		</div>
+		<HeaderRight :current-theme="currentTheme" @set-theme="setTheme" />
+		<HeaderRightMobile :current-theme="currentTheme" @set-theme="setTheme" />
 	</div>
 </template>
 
 <script setup lang="ts">
 import { ref } from 'vue'
-import { ViewListIcon } from '@heroicons/vue/outline'
-import ThemeChanger from './ThemeChanger.vue'
-
-const scrollIntoView = (id: string) => {
-	const el = document.getElementById(id)
-	el?.scrollIntoView({ behavior: 'smooth' })
-}
-
-const isMenuOpen = ref(false)
-const changeMenu = (isOpen: boolean) => {
-	isMenuOpen.value = isOpen
-}
+import HeaderRight from './HeaderRight.vue'
+import HeaderRightMobile from './HeaderRightMobile.vue'
 
 const currentTheme = ref(localStorage.theme)
 const setTheme = (theme: string) => {
