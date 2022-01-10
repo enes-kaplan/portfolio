@@ -8,18 +8,22 @@
 				<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
 			</li>
 			<li>
-				<button to="/#contact" class="hover:underline" @click="scrollIntoView('contact')">
+				<button class="hover:underline" @click="scrollIntoView('contact')">
 					Contact Me
 				</button>
 			</li>
 			<li>
-				<button to="/#projects" class="hover:underline" @click="scrollIntoView('projects')">
+				<button class="hover:underline" @click="scrollIntoView('projects')">
 					Projects
+				</button>
+			</li>
+			<li>
+				<button class="hover:underline" @click="scrollIntoView('info')">
+					Info
 				</button>
 			</li>
 		</ul>
 		<button
-			id="list-icon"
 			class="sm:hidden flex active:outline outline-gray-600 transition-transform duration-300"
 			:class="{ '-translate-x-48': isMenuOpen }"
 			@click="changeMenu(!isMenuOpen)"
