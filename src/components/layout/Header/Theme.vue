@@ -1,10 +1,12 @@
 <template>
 	<div>
-		Component for changing theme
+		<SunIcon class="w-8 h-8" />
 	</div>
 </template>
 
 <script setup lang="ts">
+import { SunIcon } from '@heroicons/vue/outline'
+
 // Whenever the user explicitly chooses light mode
 // localStorage.theme = 'light'
 
