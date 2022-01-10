@@ -1,8 +1,8 @@
 {
   "name": "portfolio-eneskaplan",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
-    "dev": "vite",
+    "dev": "vite --host 3000",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview"
   },
