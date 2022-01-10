@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div class="pt-header">
 		Content Area
 	</div>
 </template>

@@ -1,18 +1,27 @@
 <template>
-	<div>
+	<button v-if="currentTheme === 'light'" @click="setTheme('dark')">
 		<SunIcon class="w-8 h-8" />
-	</div>
+	</button>
+	<button v-else>
+		<MoonIcon class="w-8 h-8" @click="setTheme('light')" />
+	</button>
 </template>
 
 <script setup lang="ts">
-import { SunIcon } from '@heroicons/vue/outline'
+import { ref, onBeforeMount } from 'vue'
+import { SunIcon, MoonIcon } from '@heroicons/vue/outline'
 
-// Whenever the user explicitly chooses light mode
-// localStorage.theme = 'light'
+const currentTheme = ref(localStorage.theme)
 
-// Whenever the user explicitly chooses dark mode
-// localStorage.theme = 'dark'
-
-// Whenever the user explicitly chooses to respect the OS preference
-// localStorage.removeItem('theme')
+const setTheme = (theme: string) => {
+	currentTheme.value = theme
+	localStorage.theme = theme
+	if (theme === 'dark') {
+		console.log('DARK')
+		document.documentElement.classList.add('dark')
+	} else {
+		console.log('LIGHT')
+		document.documentElement.classList.remove('dark')
+	}
+}
 </script>
