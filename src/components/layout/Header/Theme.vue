@@ -8,7 +8,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onBeforeMount } from 'vue'
+import { ref } from 'vue'
 import { SunIcon, MoonIcon } from '@heroicons/vue/outline'
 
 const currentTheme = ref(localStorage.theme)
@@ -17,10 +17,8 @@ const setTheme = (theme: string) => {
 	currentTheme.value = theme
 	localStorage.theme = theme
 	if (theme === 'dark') {
-		console.log('DARK')
 		document.documentElement.classList.add('dark')
 	} else {
-		console.log('LIGHT')
 		document.documentElement.classList.remove('dark')
 	}
 }
