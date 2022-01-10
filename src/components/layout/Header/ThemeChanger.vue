@@ -14,7 +14,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { SunIcon, MoonIcon } from '@heroicons/vue/outline'
 
 const props = defineProps({
@@ -22,20 +22,15 @@ const props = defineProps({
 		type: Boolean,
 		required: false,
 		default: () => false
+	},
+	currentTheme: {
+		type: String,
+		required: true
 	}
 })
-
-const currentTheme = ref(localStorage.theme)
+const emit = defineEmits(['setTheme'])
 
 const setTheme = (theme: string) => {
-	currentTheme.value = theme
-	localStorage.theme = theme
-	if (theme === 'dark') {
-		document.documentElement.classList.add('dark')
-		document.documentElement.classList.remove('light')
-	} else {
-		document.documentElement.classList.add('light')
-		document.documentElement.classList.remove('dark')
-	}
+	emit('setTheme', theme)
 }
 </script>
