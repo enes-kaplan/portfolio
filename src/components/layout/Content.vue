@@ -1,6 +1,6 @@
 <template>
 	<div class="pt-header">
-		Content Area
+		<router-view />
 	</div>
 </template>
 
