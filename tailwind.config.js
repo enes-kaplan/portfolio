@@ -6,6 +6,12 @@ module.exports = {
   ],
   theme: {
     extend: {
+			colors: {
+				light: 'white',
+				'light-font': '#374151',
+				dark: '#374151', // gray-700
+				'dark-font': '#F3F4F6' // gray-100
+			},
 			spacing: {
 				header: '5rem'
 			}

@@ -3,13 +3,21 @@
 
 @layer base {
   * {
-    @apply font-poppins text-gray-700;
+    @apply font-poppins;
   }
+
+	.light {
+		@apply bg-light;
+	}
+	.light * {
+		@apply text-light-font;
+	}
+
 	.dark {
-		@apply bg-gray-700;
+		@apply bg-dark;
 	}
 	.dark * {
-		@apply text-gray-100;
+		@apply text-dark-font;
 	}
 }
 
