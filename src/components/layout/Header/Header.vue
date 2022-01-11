@@ -1,6 +1,6 @@
 <template>
 	<div class="fixed top-0 left-0 right-0 flex justify-between items-center h-header px-8 bg-light dark:bg-gray-700 border-b border-gray-400 transition-colors duration-300">
-		<router-link to="/" class="text-3xl font-nunito font-extrabold select-none">
+		<router-link to="/" class="text-3xl font-nunito font-extrabold select-none" @click="scrollToTop">
 			TEST
 		</router-link>
 		<HeaderRight :current-theme="currentTheme" @set-theme="setTheme" />
@@ -10,6 +10,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { scrollIntoView } from '@/functions/common'
 import HeaderRight from './HeaderRight.vue'
 import HeaderRightMobile from './HeaderRightMobile.vue'
 
@@ -24,5 +25,9 @@ const setTheme = (theme: string) => {
 		document.documentElement.classList.add('light')
 		document.documentElement.classList.remove('dark')
 	}
+}
+
+const scrollToTop = () => {
+	scrollIntoView('info')
 }
 </script>
