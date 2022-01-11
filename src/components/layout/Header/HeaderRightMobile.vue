@@ -15,7 +15,7 @@
 				<ThemeChanger :current-theme="currentTheme" is-sidemenu @set-theme="setTheme" />
 			</li>
 			<li>
-				<button class="hover:underline" @click="scrollAndCloseMenu('info')">
+				<button class="hover:underline" @click="scrollAndCloseMenu('landing')">
 					Info
 				</button>
 			</li>

@@ -1,11 +1,13 @@
 <template>
-	<ul class="hidden sm:flex flex-row-reverse items-center gap-4">
+	<ul class="hidden sm:flex flex-row items-center gap-4">
 		<li>
-			<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
+			<button class="hover:underline" @click="scrollIntoView('landing')">
+				Info
+			</button>
 		</li>
 		<li>
-			<button class="hover:underline" @click="scrollIntoView('contact')">
-				Contact Me
+			<button class="hover:underline" @click="scrollIntoView('about')">
+				About Me
 			</button>
 		</li>
 		<li>
@@ -14,9 +16,12 @@
 			</button>
 		</li>
 		<li>
-			<button class="hover:underline" @click="scrollIntoView('info')">
-				Info
+			<button class="hover:underline" @click="scrollIntoView('contact')">
+				Contact Me
 			</button>
+		</li>
+		<li>
+			<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
 		</li>
 	</ul>
 </template>

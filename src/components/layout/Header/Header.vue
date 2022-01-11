@@ -28,6 +28,6 @@ const setTheme = (theme: string) => {
 }
 
 const scrollToTop = () => {
-	scrollIntoView('info')
+	scrollIntoView('landing')
 }
 </script>
