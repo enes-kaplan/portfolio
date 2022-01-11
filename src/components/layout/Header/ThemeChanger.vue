@@ -1,15 +1,7 @@
 <template>
-	<button v-if="currentTheme !== 'dark'" class="flex items-center gap-2" @click="setTheme('dark')">
-		<span v-if="isSidemenu">
-			Switch Theme
-		</span>
-		<SunIcon class="w-8 h-8" :class="{ 'w-6 h-6': isSidemenu }" />
-	</button>
-	<button v-else class="flex items-center gap-2" @click="setTheme('light')">
-		<span v-if="isSidemenu">
-			Switch Theme
-		</span>
-		<MoonIcon class="w-8 h-8" :class="{ 'w-6 h-6': isSidemenu }" />
+	<button @click="switchTheme">
+		<SunIcon v-if="currentTheme !== 'dark'" class="w-8 h-8" />
+		<MoonIcon v-else class="w-8 h-8" />
 	</button>
 </template>
 
@@ -18,11 +10,6 @@ import { computed, ref } from 'vue'
 import { SunIcon, MoonIcon } from '@heroicons/vue/outline'
 
 const props = defineProps({
-	isSidemenu: {
-		type: Boolean,
-		required: false,
-		default: () => false
-	},
 	currentTheme: {
 		type: String,
 		required: true
@@ -30,7 +17,11 @@ const props = defineProps({
 })
 const emit = defineEmits(['setTheme'])
 
-const setTheme = (theme: string) => {
+const switchTheme = () => {
+	const theme = props.currentTheme !== 'dark'
+		? 'dark'
+		: 'light'
+	console.log('THEME IS:', theme)
 	emit('setTheme', theme)
 }
 </script>

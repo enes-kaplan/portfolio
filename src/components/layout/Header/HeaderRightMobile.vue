@@ -1,23 +1,25 @@
 <template>
-	<button
-			class="sm:hidden flex active:outline outline-gray-600 transition-transform duration-300"
-			:class="{ '-translate-x-48': isMenuOpen }"
-			aria-haspopup="true"
-			@click="changeMenu(!isMenuOpen)"
-		>
-		<ViewListIcon class="w-8 h-8" />
-	</button>
+	<div class="sm:hidden flex items-center gap-4">
+		<button
+				class="flex active:outline outline-gray-600 transition-transform duration-300"
+				:class="{ '-translate-x-32': isMenuOpen }"
+				aria-haspopup="true"
+				@click="changeMenu(!isMenuOpen)"
+			>
+			<ViewListIcon class="w-8 h-8" />
+		</button>
+		<button class="flex justify-center items-center active:outline outline-gray-600 transition-transform duration-300">
+			<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
+		</button>
+	</div>
 	<div
-		class="sm:hidden fixed right-0 top-0 bottom-0 w-48 px-4 py-8 border-l border-gray-400 bg-light dark:bg-dark transition-all duration-300"
+		class="sm:hidden fixed right-0 top-0 bottom-0 w-48 px-4 py-8 border-l z-50 border-gray-400 bg-light dark:bg-dark transition-all duration-300"
 		role="menu"
 		:class="{ 'translate-x-0': isMenuOpen, 'translate-x-48': !isMenuOpen }"
 		:aria-hidden="isMenuOpen === false"
 		:aria-expanded="isMenuOpen"
 	>
 		<ul class="flex flex-col gap-2">
-			<li class="flex items-center gap-2">
-				<ThemeChanger :current-theme="currentTheme" is-sidemenu @set-theme="setTheme" />
-			</li>
 			<li>
 				<button class="hover:underline" @click="scrollAndCloseMenu('landing')">
 					Info
