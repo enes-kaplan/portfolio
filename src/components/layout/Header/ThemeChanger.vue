@@ -1,5 +1,5 @@
 <template>
-	<button v-if="currentTheme === 'light'" class="flex items-center gap-2" @click="setTheme('dark')">
+	<button v-if="currentTheme !== 'dark'" class="flex items-center gap-2" @click="setTheme('dark')">
 		<span v-if="isSidemenu">
 			Switch Theme
 		</span>
