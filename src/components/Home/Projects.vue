@@ -19,7 +19,7 @@
 					<ExternalLinkIcon class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark" />
 					Demo
 				</router-link>
-				<a v-if="project.githubLink" :href="project.githubLink" class="action-link group">
+				<a v-if="project.githubLink" :href="project.githubLink" target="_blank" class="action-link group">
 					<BeakerIcon class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark" />
 					GitHub
 				</a>
