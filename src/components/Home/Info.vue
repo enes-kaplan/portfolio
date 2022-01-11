@@ -1,18 +1,24 @@
 <template>
-	<div id="info" class="flex flex-col-reverse sm:flex-row-reverse justify-around w-4/5 h-screen mx-auto">
+	<div id="info" class="flex flex-col-reverse sm:flex-row-reverse justify-around w-4/5 h-content mx-auto">
 		<BeakerIcon class="wh-icon my-auto stroke-emerald-600 dark:stroke-emerald-400 transition-colors duration-300" />
-		<div class="flex flex-col justify-between max-w-xl h-4/5 my-auto">
-			<div>
-				<h1 class="text-5xl sm:text-7xl font-bold">
+		<div class="flex flex-col justify-between max-w-xl my-auto">
+			<div class="flex flex-col gap-6 mt-4">
+				<h1 class="text-4xl sm:text-7xl font-semibold sm:font-bold">
 					Hello World!
 				</h1>
-				<h2 class="mt-3 font-semibold">
+				<h2 class="text-xl sm:text-3xl font-semibold">
 					Lorem Ipsum Dolor Sit Amet!
 				</h2>
-				<p class="mt-6 text-sm font-light sm:text-xl">
-					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+				<p class="text-sm font-light sm:text-xl">
+					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 				</p>
 			</div>
+			<button class="mt-8 px-4 py-2 text-lg font-semibold text-light-font dark:text-dark-font rounded border-2
+			border-dark hover:bg-dark hover:text-dark-font
+			dark:border-light dark:hover:bg-light dark:hover:text-light-font"
+			>
+				Get In Touch
+			</button>
 		</div>
 	</div>
 </template>
@@ -22,12 +28,13 @@ import { BeakerIcon } from '@heroicons/vue/outline'
 </script>
 
 <style scoped>
+.h-content {
+	height: calc(100vh - 5rem);
+}
 .wh-icon {
 	min-width: 12rem;
-	max-width: 24rem;
+	max-width: 16rem;
 	max-height: 80%;
-}
-h2 {
-	font-size: 2rem;
+	margin: auto;
 }
 </style>
