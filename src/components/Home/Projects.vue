@@ -1,12 +1,14 @@
 <template>
-	<div id="projects" class="flex flex-col items-center gap-12 py-8">
+	<div id="projects" class="flex flex-col items-center gap-12 py-12">
 		<div
 			v-for="(project, i) in projects"
 			:key="i"
-			class="w-1/3 min-w-project rounded overflow-hidden bg-light text-light-font dark:bg-dark dark:text-dark-font border border-dark dark:border-light"
+			class="w-1/3 min-w-project rounded overflow-hidden
+			bg-light text-light-font dark:bg-dark dark:text-dark-font border border-dark dark:border-light
+			transition-all duration-300 hover:translate-x-1 hover:translate-y-1 hover:shadow-lg dark:hover:shadow-gray-500"
 		>
 			<img :src="project.image" class="w-full max-h-48 object-cover">
-			<h3 class="mt-4 px-8 text-center text-3xl">
+			<h3 class="mt-4 px-8 text-center text-3xl font-semibold">
 				{{ project.name }}
 			</h3>
 			<p class="mt-2 px-8 text-lg">
