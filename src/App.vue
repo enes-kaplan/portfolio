@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col w-screen h-screen scroll-pt-header overflow-y-auto">
+  <div class="flex flex-col w-screen h-screen">
 		<Header />
 		<Content />
 	</div>
