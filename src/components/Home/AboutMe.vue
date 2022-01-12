@@ -7,7 +7,7 @@
 				alt="Profile picture"
 				width="240"
 				height="240"
-				class="rounded-lg border-2 border-dark dark:border-light
+				class="rounded-lg border-2 border-dark dark:border-light select-none pointer-events-none
 			transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
 			>
 			<h1>
