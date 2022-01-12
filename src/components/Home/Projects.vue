@@ -4,10 +4,10 @@
 			v-for="(project, i) in projects"
 			:key="i"
 			class="w-1/3 min-w-project rounded overflow-hidden
-			bg-light text-light-font dark:bg-dark dark:text-dark-font border border-dark dark:border-light
-			transition-all duration-300 hover:translate-x-1 hover:translate-y-1 shadow-theme-hover"
+			dark:bg-dark dark:text-dark-font border border-dark dark:border-light
+			transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
 		>
-			<img :src="project.image" class="w-full max-h-48 object-cover">
+			<img :src="project.image" class="w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light">
 			<h3 class="mt-4 px-8 text-center text-3xl font-semibold">
 				{{ project.name }}
 			</h3>
