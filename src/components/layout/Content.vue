@@ -1,5 +1,5 @@
 <template>
-	<router-view class="mt-header h-[calc(100vh-5rem)] scroll-pt-headers overflow-y-auto pageScrollbar" />
+	<router-view class="mt-header h-[calc(100vh-5rem)] scroll-pt-headers pb-20 overflow-y-auto pageScrollbar" />
 </template>
 
 <script setup lang="ts">
