@@ -1,5 +1,8 @@
 <template>
 	<section id="projects" class="flex flex-col items-center gap-12 py-12">
+		<h1>
+			Sample Projects
+		</h1>
 		<div
 			v-for="(project, i) in projects"
 			:key="i"
@@ -38,10 +41,10 @@ import GithubSvg from '@/components/SVG/Github.vue'
 
 const projects = [
 	{
-		name: 'Project 1',
+		name: 'To-do Project',
 		image: '/Project1.jpg',
-		description: 'Demo project to practice Vue 3.',
-		demoLink: '/project1',
+		description: 'To-do project to keep track of your list of tasks.',
+		demoLink: '/ToDo',
 		githubLink: 'https://github.com/enes-kaplan'
 	},
 	{
