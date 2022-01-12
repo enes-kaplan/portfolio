@@ -8,9 +8,9 @@
 			transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
 		>
 			<img :src="project.image" class="w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light">
-			<h3 class="mt-4 px-8 text-center text-3xl font-semibold">
+			<div class="mt-4 px-8 text-center text-3xl font-semibold">
 				{{ project.name }}
-			</h3>
+			</div>
 			<p class="mt-2 px-8 text-lg">
 				{{ project.description }}
 			</p>
@@ -19,7 +19,7 @@
 					<ExternalLinkIcon class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark" />
 					Demo
 				</router-link>
-				<a v-if="project.githubLink" :href="project.githubLink" target="_blank" class="action-link btn-primary group">
+				<a v-if="project.githubLink" :href="project.githubLink" target="_blank" rel="noopener" class="action-link btn-primary group">
 					<GithubSvg class="w-6 h-6 group-hover:fill-light dark:group-hover:fill-dark" />
 					GitHub
 				</a>

@@ -4,11 +4,12 @@
 				class="flex active:outline outline-gray-600 transition-transform duration-300"
 				:class="{ '-translate-x-32': isMenuOpen }"
 				aria-haspopup="true"
+				aria-label="Open menu"
 				@click="changeMenu(!isMenuOpen)"
 			>
 			<ViewListIcon class="w-8 h-8" />
 		</button>
-		<button class="flex justify-center items-center active:outline outline-gray-600 transition-transform duration-300">
+		<button class="flex justify-center items-center active:outline outline-gray-600 transition-transform duration-300" aria-label="Change theme">
 			<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
 		</button>
 	</div>
@@ -21,17 +22,17 @@
 	>
 		<ul class="flex flex-col gap-2">
 			<li>
-				<button class="hover:underline" @click="scrollAndCloseMenu('landing')">
+				<button class="hover:underline" :tabindex="isMenuOpen ? 0 : -1" @click="scrollAndCloseMenu('landing')">
 					Info
 				</button>
 			</li>
 			<li>
-				<button class="hover:underline" @click="scrollAndCloseMenu('projects')">
+				<button class="hover:underline" :tabindex="isMenuOpen ? 0 : -1" @click="scrollAndCloseMenu('projects')">
 					Projects
 				</button>
 			</li>
 			<li>
-				<button class="hover:underline" @click="scrollAndCloseMenu('contact')">
+				<button class="hover:underline" :tabindex="isMenuOpen ? 0 : -1" @click="scrollAndCloseMenu('contact')">
 					Contact Me
 				</button>
 			</li>

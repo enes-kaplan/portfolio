@@ -2,7 +2,13 @@
 	<div id="about" class="flex flex-col sm:flex-row sm:justify-between sm:items-center w-4/5 mx-auto">
 		<!-- #region About -->
 		<div class="flex flex-col gap-6 w-full sm:w-1/2 px-8 items-center">
-			<img src="/birb.jpg" class="w-60 h-60 rounded-full border-2 border-dark dark:border-light transition-all duration-300">
+			<img
+				src="/birb.jpg"
+				alt="Profile picture"
+				width="240"
+				height="240"
+				class="w-60 h-60 rounded-full border-2 border-dark dark:border-light transition-all duration-300"
+			>
 			<h1>
 				About Me.
 			</h1>
