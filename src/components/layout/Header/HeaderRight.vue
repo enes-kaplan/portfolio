@@ -21,7 +21,7 @@
 			</button>
 		</li>
 		<li>
-			<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
+		<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
 		</li>
 	</ul>
 </template>

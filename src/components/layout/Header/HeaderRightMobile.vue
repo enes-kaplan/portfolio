@@ -9,9 +9,7 @@
 			>
 			<ViewListIcon class="w-8 h-8" />
 		</button>
-		<button class="flex justify-center items-center active:outline outline-gray-600 transition-transform duration-300" aria-label="Change theme">
-			<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
-		</button>
+		<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
 	</div>
 	<div
 		class="sm:hidden fixed right-0 top-0 bottom-0 w-48 px-4 py-8 border-l z-50 border-gray-400 bg-light dark:bg-dark transition-all duration-300"
