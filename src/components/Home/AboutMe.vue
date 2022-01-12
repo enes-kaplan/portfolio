@@ -18,8 +18,8 @@
 		</div>
 		<!-- #endregion -->
 		<!-- #region Skills -->
-		<div class="w-full sm:w-1/3">
-			<p class="text-sm font-light sm:text-xl">
+		<div class="w-full mt-8 sm:w-1/3 sm:mt-0">
+			<p class="text-sm sm:text-xl">
 				Some tools, technologies or concepts I'm familiar or have worked with:
 			</p>
 			<div class="flex flex-wrap gap-y-4 mt-4">
