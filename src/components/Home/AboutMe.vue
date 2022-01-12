@@ -1,5 +1,5 @@
 <template>
-	<div id="about" class="flex flex-col sm:flex-row sm:justify-between sm:items-center w-4/5 mx-auto">
+	<section id="about" class="flex flex-col sm:flex-row sm:justify-between sm:items-center w-4/5 mx-auto">
 		<!-- #region About -->
 		<div class="flex flex-col gap-6 w-full sm:w-1/2 px-8 items-center">
 			<img
@@ -7,7 +7,8 @@
 				alt="Profile picture"
 				width="240"
 				height="240"
-				class="rounded-lg border-2 border-dark dark:border-light transition-all duration-300"
+				class="rounded-lg border-2 border-dark dark:border-light
+			transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
 			>
 			<h1>
 				About Me.
@@ -36,7 +37,7 @@
 			</div>
 		</div>
 		<!-- #endregion -->
-	</div>
+	</section>
 </template>
 
 <script setup lang="ts">

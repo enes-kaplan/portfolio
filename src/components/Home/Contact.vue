@@ -1,5 +1,5 @@
 <template>
-	<div id="contact" class="flex flex-col w-4/5 mx-auto mt-20">
+	<section id="contact" class="flex flex-col w-4/5 mx-auto mt-20">
 		<h1 class="mx-auto">
 			Contact.
 		</h1>
@@ -9,7 +9,7 @@
 		<a href="mailto:eneskaplan94@hotmail.com" class="btn-primary w-64 mt-8 mx-auto text-center">
 			Email Me
 		</a>
-	</div>
+	</section>
 </template>
 
 <script setup lang="ts">

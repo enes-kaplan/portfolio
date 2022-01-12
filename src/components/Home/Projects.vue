@@ -1,5 +1,5 @@
 <template>
-	<div id="projects" class="flex flex-col items-center gap-12 py-12">
+	<section id="projects" class="flex flex-col items-center gap-12 py-12">
 		<div
 			v-for="(project, i) in projects"
 			:key="i"
@@ -29,7 +29,7 @@
 				</a>
 			</div>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script setup lang="ts">

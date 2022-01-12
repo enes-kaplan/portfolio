@@ -1,5 +1,5 @@
 <template>
-	<div id="landing" class="flex flex-col-reverse sm:flex-row-reverse justify-around w-4/5 h-content mx-auto">
+	<section id="landing" class="flex flex-col-reverse sm:flex-row-reverse justify-around w-4/5 h-content mx-auto">
 		<BeakerIcon class="wh-icon my-auto stroke-light-accent dark:stroke-dark-accent transition-colors duration-300" />
 		<div class="flex flex-col justify-between max-w-xl my-auto">
 			<div class="flex flex-col gap-6 mt-4">
@@ -20,7 +20,7 @@
 				Get In Touch
 			</a>
 		</div>
-	</div>
+	</section>
 </template>
 
 <script setup lang="ts">
