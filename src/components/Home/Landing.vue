@@ -13,12 +13,12 @@
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 				</p>
 			</div>
-			<button class="mt-8 px-4 py-2 text-lg font-semibold text-light-font dark:text-dark-font rounded border-2
-			border-dark hover:bg-dark hover:text-dark-font
-			dark:border-light dark:hover:bg-light dark:hover:text-light-font"
+			<a
+			href="mailto:eneskaplan94@hotmail.com"
+			class="btn-primary mt-8 text-center text-lg font-semibold border-2"
 			>
 				Get In Touch
-			</button>
+			</a>
 		</div>
 	</div>
 </template>
