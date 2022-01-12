@@ -3,13 +3,13 @@
 		<BeakerIcon class="wh-icon my-auto stroke-light-accent dark:stroke-dark-accent transition-colors duration-300" />
 		<div class="flex flex-col justify-between max-w-xl my-auto">
 			<div class="flex flex-col gap-6 mt-4">
-				<h1 class="text-4xl sm:text-7xl font-semibold sm:font-bold">
+				<h1>
 					Hello World!
 				</h1>
-				<h2 class="text-xl sm:text-3xl font-semibold">
+				<h2>
 					Lorem Ipsum Dolor Sit Amet!
 				</h2>
-				<p class="text-sm font-light sm:text-xl">
+				<p>
 					Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 				</p>
 			</div>
