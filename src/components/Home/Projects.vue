@@ -20,7 +20,7 @@
 					Demo
 				</router-link>
 				<a v-if="project.githubLink" :href="project.githubLink" target="_blank" class="action-link group">
-					<BeakerIcon class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark" />
+					<GithubSvg class="w-6 h-6 group-hover:fill-light dark:group-hover:fill-dark" />
 					GitHub
 				</a>
 			</div>
@@ -29,7 +29,8 @@
 </template>
 
 <script setup lang="ts">
-import { ExternalLinkIcon, BeakerIcon } from '@heroicons/vue/outline'
+import { ExternalLinkIcon } from '@heroicons/vue/outline'
+import GithubSvg from '@/components/GithubSvg.vue'
 
 const projects = [
 	{
