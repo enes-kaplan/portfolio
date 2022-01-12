@@ -34,7 +34,7 @@
 
 <script setup lang="ts">
 import { ExternalLinkIcon } from '@heroicons/vue/outline'
-import GithubSvg from '@/components/GithubSvg.vue'
+import GithubSvg from '@/components/SVG/Github.vue'
 
 const projects = [
 	{
