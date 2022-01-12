@@ -5,10 +5,11 @@
 			:key="i"
 			:href="link.to"
 			:aria-label="link.label"
+			class="w-8"
 			target="_blank"
 			rel="noopener"
 		>
-			<component :is="link.component" class="w-8 h-8 fill-light-accent dark:fill-dark-accent" />
+			<component :is="link.component" class="w-full h-full hover:fill-light-accent dark:hover:fill-dark-accent" />
 		</a>
 	</section>
 </template>
