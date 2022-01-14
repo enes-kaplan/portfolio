@@ -1,6 +1,8 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
-import { getFirestore, collection, getDocs } from 'firebase/firestore'
+
+import type { Firestore } from 'firebase/firestore'
+import { getFirestore, query, where, collection, getDocs } from 'firebase/firestore'
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyCNFOnSVhcMYPtrTGs7QCmNM9nf4CM3o-0",
@@ -21,3 +23,12 @@ onAuthStateChanged(auth, user => {
 		console.log('No user!')
 	}
 })
+
+export const getTodos = async (db: Firestore) => {
+	const todoCol = collection(db, 'ToDo')
+	const q = query(todoCol, where('Description', '==', ''))
+	const todoSnapshot = await getDocs(q)
+	const todoList = todoSnapshot.docs.map(doc => doc.data())
+	return todoList
+}
+getTodos(db)
