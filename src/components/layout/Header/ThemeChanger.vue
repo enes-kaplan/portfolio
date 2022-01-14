@@ -21,7 +21,6 @@ const switchTheme = () => {
 	const theme = props.currentTheme !== 'dark'
 		? 'dark'
 		: 'light'
-	console.log('THEME IS:', theme)
 	emit('setTheme', theme)
 }
 </script>
