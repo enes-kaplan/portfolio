@@ -1,5 +1,5 @@
 <template>
-	<section id="contact-social" class="fixed left-4 top-header bottom-1/3 flex flex-col justify-between w-10 h-60 my-auto">
+	<section id="contact-social" class="fixed left-4 top-header bottom-1/3 mt-10 flex flex-col justify-between w-10 my-auto">
 		<a
 			v-for="(link, i) in links"
 			:key="i"
