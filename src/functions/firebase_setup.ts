@@ -1,6 +1,7 @@
 import { initializeApp } from 'firebase/app'
-import { getAuth } from 'firebase/auth'
+import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
+import store from '../store/index'
 
 const firebaseApp = initializeApp({
   apiKey: "AIzaSyCNFOnSVhcMYPtrTGs7QCmNM9nf4CM3o-0",
@@ -13,3 +14,7 @@ const firebaseApp = initializeApp({
 })
 export const auth = getAuth(firebaseApp)
 export const db = getFirestore(firebaseApp)
+
+onAuthStateChanged(auth, user => {
+	store.commit('setUser', user)
+})

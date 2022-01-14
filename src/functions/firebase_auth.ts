@@ -1,16 +1,7 @@
 import { auth } from './firebase_setup'
 import firebase from 'firebase/compat/app'
 import * as firebaseui from 'firebaseui'
-import { onAuthStateChanged } from 'firebase/auth'
 // import 'firebaseui/dist/firebaseui.css'
-
-onAuthStateChanged(auth, user => {
-	if (user !== null) {
-		console.log('Logged in!', user)
-	} else {
-		console.log('No user!')
-	}
-})
 
 export const uiConfig = {
 	signInSuccessUrl: '',
@@ -32,5 +23,7 @@ export const uiConfig = {
 	// 	window.location.assign('/privacypolicy')
 	// }
 };
-export const firebaseAuthUI = new firebaseui.auth.AuthUI(auth)
-// firebaseAuthUI.start('#firebaseui-auth-container', uiConfig)
+const firebaseAuthUI = new firebaseui.auth.AuthUI(auth)
+export const startFirebaseAuthUI = () => {
+	firebaseAuthUI.start('#firebaseui-auth-container', uiConfig)
+}
