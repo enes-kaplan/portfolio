@@ -35,6 +35,10 @@ p {
 	@apply px-4 py-2 border border-dark dark:border-light text-light-font dark:text-dark-font hover:bg-dark hover:text-light dark:hover:bg-light dark:hover:text-dark rounded;
 }
 
+.input-text {
+	@apply px-4 py-2 text-dark border border-dark dark:border-light rounded shadow dark:shadow-light resize-none focus:outline-dark;
+}
+
 .shadow-theme {
 	@apply shadow-lg dark:shadow-gray-500;
 }
