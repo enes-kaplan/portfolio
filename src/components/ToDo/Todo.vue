@@ -16,7 +16,7 @@
 					<button class="flex-grow" @click="startEdit(todo)">
 						<PencilIcon class="w-6 h-6" />
 					</button>
-					<button class="flex-grow" @click="deleteTodo">
+					<button class="flex-grow" @click="deleteTodo(todo)">
 						<TrashIcon class="w-6 h-6" />
 					</button>
 				</div>
@@ -28,7 +28,7 @@
 					rows="4"
 				/>
 				<div class="sidebuttons">
-					<button class="flex-grow" @click="saveTodo">
+					<button class="flex-grow" @click="save">
 						<CheckIcon class="w-6 h-6" />
 					</button>
 					<button class="flex-grow" @click="cancelEdit">
@@ -41,8 +41,10 @@
 </template>
 
 <script setup lang="ts">
+import store from '@/store/index'
 import { ref } from 'vue'
 import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
+import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
 
 const props = defineProps({
 	todo: {
@@ -57,12 +59,15 @@ const startEdit = (todo: any) => {
 	description.value = todo.Description
 	inEditMode.value = true
 }
-
-const deleteTodo = () => {}
+const save = () => {
+	saveTodo(props.todo, description.value)
+	const updatedTodo = { ...props.todo, Description: description.value }
+	store.commit('updateTodo', updatedTodo)
+	inEditMode.value = false
+}
 const cancelEdit = () => {
 	inEditMode.value = false
 }
-const saveTodo = () => {}
 </script>
 
 <style scoped>

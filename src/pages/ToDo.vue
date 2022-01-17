@@ -17,10 +17,10 @@
 </template>
 
 <script setup lang="ts">
+import store from '@/store/index'
 import { onMounted } from 'vue'
 import type { DocumentData } from 'firebase/firestore'
 import { getTodos } from '@/functions/firebase_todo'
-import store from '@/store/index'
 import { TodoStatus } from '@/static/enums'
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
 import Column from '@/components/ToDo/Column.vue'

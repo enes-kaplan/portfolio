@@ -33,6 +33,11 @@ const getters = {
 const mutations = {
 	updateTodoList(state: stateType, data: DocumentData[]) {
 		state.todoList = data
+	},
+	updateTodo(state: stateType, data: DocumentData) {
+		debugger
+		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
+		Object.assign(updatedTodo, data)
 	}
 }
 

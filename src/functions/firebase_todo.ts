@@ -1,6 +1,13 @@
 import type { DocumentData } from 'firebase/firestore'
 import { db, auth } from './firebase_setup'
-import { query, where, collection, getDocs } from 'firebase/firestore'
+import {
+	query,
+	where,
+	collection,
+	doc,
+	getDocs,
+	setDoc
+} from 'firebase/firestore'
 import { TodoStatus } from '../static/enums'
 
 export const getTodos = async () => {
@@ -19,4 +26,14 @@ export const getTodos = async () => {
 		})
 		return todoList
 	}
+}
+
+export const saveTodo = async (todo: DocumentData, description: String) => {
+	const todoRef = doc(db, 'ToDo', todo.Id)
+	setDoc(todoRef, { Description: description }, { merge: true })
+}
+
+export const deleteTodo = async (todo: DocumentData) => {
+	const todoRef = doc(db, 'ToDo', todo.Id)
+	setDoc(todoRef, { Status: TodoStatus.DELETED }, { merge: true })
 }
