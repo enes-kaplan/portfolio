@@ -1,12 +1,12 @@
 <template>
 	<div class="sm:hidden flex items-center gap-4">
 		<button
-				class="flex active:outline outline-gray-600 transition-transform duration-300"
-				:class="{ '-translate-x-32': isMenuOpen }"
-				aria-haspopup="true"
-				aria-label="Open menu"
-				@click="changeMenu(!isMenuOpen)"
-			>
+			class="flex active:outline outline-gray-600 transition-transform duration-300"
+			:class="{ '-translate-x-32': isMenuOpen }"
+			aria-haspopup="true"
+			aria-label="Open menu"
+			@click="changeMenu(!isMenuOpen)"
+		>
 			<ViewListIcon class="w-8 h-8" />
 		</button>
 		<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
@@ -20,17 +20,29 @@
 	>
 		<ul class="flex flex-col gap-2">
 			<li>
-				<button class="hover:underline" :tabindex="isMenuOpen ? 0 : -1" @click="scrollAndCloseMenu('landing')">
+				<button
+					class="hover:underline"
+					:tabindex="isMenuOpen ? 0 : -1"
+					@click="scrollAndCloseMenu('landing')"
+				>
 					Info
 				</button>
 			</li>
 			<li>
-				<button class="hover:underline" :tabindex="isMenuOpen ? 0 : -1" @click="scrollAndCloseMenu('projects')">
+				<button
+					class="hover:underline"
+					:tabindex="isMenuOpen ? 0 : -1"
+					@click="scrollAndCloseMenu('projects')"
+				>
 					Projects
 				</button>
 			</li>
 			<li>
-				<button class="hover:underline" :tabindex="isMenuOpen ? 0 : -1" @click="scrollAndCloseMenu('contact')">
+				<button
+					class="hover:underline"
+					:tabindex="isMenuOpen ? 0 : -1"
+					@click="scrollAndCloseMenu('contact')"
+				>
 					Contact Me
 				</button>
 			</li>

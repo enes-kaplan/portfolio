@@ -1,16 +1,16 @@
 <template>
-	<router-view class="mt-header h-[calc(100vh-5rem)] scroll-pt-headers pb-20 overflow-y-auto pageScrollbar" />
+	<router-view
+		class="mt-header h-[calc(100vh-5rem)] scroll-pt-headers pb-20 overflow-y-auto pageScrollbar"
+	/>
 </template>
 
-<script setup lang="ts">
-
-</script>
+<script setup lang="ts"></script>
 
 <style scoped>
 /** This is for Firefox */
 .pageScrollbar {
-  scrollbar-color: #0369A1 white;
-  scrollbar-width: thin;
+	scrollbar-color: #0369a1 white;
+	scrollbar-width: thin;
 	@apply transition-all duration-300;
 }
 .pageScrollbar::-webkit-scrollbar-track {
@@ -25,8 +25,8 @@
 }
 
 .dark .pageScrollbar {
-  scrollbar-color: #CA8A04 #374151;
-  scrollbar-width: thin;
+	scrollbar-color: #ca8a04 #374151;
+	scrollbar-width: thin;
 }
 .dark .pageScrollbar::-webkit-scrollbar-track {
 	@apply bg-dark;

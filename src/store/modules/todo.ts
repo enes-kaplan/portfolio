@@ -1,4 +1,4 @@
-import { DocumentData } from "firebase/firestore"
+import { DocumentData } from 'firebase/firestore'
 
 interface stateType {
 	todoList: DocumentData[]
@@ -23,8 +23,8 @@ const mutations = {
 const actions = {}
 
 export default {
-  state,
-  getters,
-  mutations,
-  actions
+	state,
+	getters,
+	mutations,
+	actions
 }

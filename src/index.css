@@ -2,9 +2,9 @@
 @tailwind components;
 
 @layer base {
-  * {
-    @apply font-poppins;
-  }
+	* {
+		@apply font-poppins;
+	}
 
 	.light {
 		@apply bg-light;

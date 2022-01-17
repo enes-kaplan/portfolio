@@ -1,4 +1,4 @@
-import type { Auth } from "firebase/auth"
+import type { Auth } from 'firebase/auth'
 
 interface stateType {
 	currentUser: 'LOADING' | null | Auth
@@ -23,8 +23,8 @@ const mutations = {
 const actions = {}
 
 export default {
-  state,
-  getters,
-  mutations,
-  actions
+	state,
+	getters,
+	mutations,
+	actions
 }

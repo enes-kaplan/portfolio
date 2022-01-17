@@ -22,7 +22,7 @@ export const uiConfig = {
 	// privacyPolicyUrl: function() {
 	// 	window.location.assign('/privacypolicy')
 	// }
-};
+}
 const firebaseAuthUI = new firebaseui.auth.AuthUI(auth)
 export const startFirebaseAuthUI = () => {
 	firebaseAuthUI.start('#firebaseui-auth-container', uiConfig)

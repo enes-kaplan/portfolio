@@ -1,14 +1,19 @@
 <template>
-	<div class="fixed top-0 left-0 right-0
-	flex justify-between items-center h-header px-8
-	bg-light dark:bg-gray-700 border-b border-gray-400
-	transition-colors duration-300 z-10"
+	<div
+		class="fixed top-0 left-0 right-0 flex justify-between items-center h-header px-8 bg-light dark:bg-gray-700 border-b border-gray-400 transition-colors duration-300 z-10"
 	>
-		<router-link to="/" class="text-3xl font-nunito font-extrabold select-none" @click="scrollToTop">
+		<router-link
+			to="/"
+			class="text-3xl font-nunito font-extrabold select-none"
+			@click="scrollToTop"
+		>
 			TEST
 		</router-link>
 		<HeaderRight :current-theme="currentTheme" @set-theme="setTheme" />
-		<HeaderRightMobile :current-theme="currentTheme" @set-theme="setTheme" />
+		<HeaderRightMobile
+			:current-theme="currentTheme"
+			@set-theme="setTheme"
+		/>
 	</div>
 </template>
 

@@ -1,33 +1,44 @@
 <template>
 	<section id="projects" class="flex flex-col items-center gap-12 py-12">
-		<h1>
-			Sample Projects
-		</h1>
+		<h1>Sample Projects</h1>
 		<div
 			v-for="(project, i) in projects"
 			:key="i"
-			class="w-1/3 min-w-project rounded overflow-hidden
-			dark:bg-dark dark:text-dark-font border border-dark dark:border-light
-			transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
+			class="w-1/3 min-w-project rounded overflow-hidden dark:bg-dark dark:text-dark-font border border-dark dark:border-light transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
 		>
 			<img
 				:src="project.image"
 				:alt="`Project image for ${project.name}`"
 				class="w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light"
-			>
+			/>
 			<div class="mt-4 px-8 text-center text-3xl font-semibold">
 				{{ project.name }}
 			</div>
 			<p class="mt-2 px-8 text-lg">
 				{{ project.description }}
 			</p>
-			<div class="flex w-full mt-4 border-t border-dark dark:border-light divide-x divide-dark dark:divide-light">
-				<router-link :to="project.demoLink" class="action-link btn-primary group">
-					<ExternalLinkIcon class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark" />
+			<div
+				class="flex w-full mt-4 border-t border-dark dark:border-light divide-x divide-dark dark:divide-light"
+			>
+				<router-link
+					:to="project.demoLink"
+					class="action-link btn-primary group"
+				>
+					<ExternalLinkIcon
+						class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark"
+					/>
 					Demo
 				</router-link>
-				<a v-if="project.githubLink" :href="project.githubLink" target="_blank" rel="noopener" class="action-link btn-primary group">
-					<GithubSvg class="w-6 h-6 group-hover:fill-light dark:group-hover:fill-dark" />
+				<a
+					v-if="project.githubLink"
+					:href="project.githubLink"
+					target="_blank"
+					rel="noopener"
+					class="action-link btn-primary group"
+				>
+					<GithubSvg
+						class="w-6 h-6 group-hover:fill-light dark:group-hover:fill-dark"
+					/>
 					GitHub
 				</a>
 			</div>

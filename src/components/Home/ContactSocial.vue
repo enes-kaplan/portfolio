@@ -1,5 +1,8 @@
 <template>
-	<section id="contact-social" class="fixed left-4 top-header bottom-1/3 mt-10 flex flex-col justify-between w-10 my-auto">
+	<section
+		id="contact-social"
+		class="fixed left-4 top-header bottom-1/3 mt-10 flex flex-col justify-between w-10 my-auto"
+	>
 		<a
 			v-for="(link, i) in links"
 			:key="i"
@@ -9,7 +12,10 @@
 			target="_blank"
 			rel="noopener"
 		>
-			<component :is="link.component" class="w-full h-full hover:fill-light-accent dark:hover:fill-dark-accent" />
+			<component
+				:is="link.component"
+				class="w-full h-full hover:fill-light-accent dark:hover:fill-dark-accent"
+			/>
 		</a>
 	</section>
 </template>
