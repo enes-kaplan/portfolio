@@ -42,4 +42,11 @@ p {
 	@apply hover:shadow-lg dark:hover:shadow-gray-500;
 }
 
+.noScrollbar {
+	-ms-overflow-style: none; /* IE and Edge */
+	scrollbar-width: none; /* Firefox */
+}
+.noScrollbar::-webkit-scrollbar {
+	display: none;
+}
 @tailwind utilities;
