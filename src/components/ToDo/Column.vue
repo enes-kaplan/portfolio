@@ -6,50 +6,15 @@
 			{{ statusTitle }}
 		</h2>
 		<div class="flex flex-col gap-6 mt-6 px-6">
-			<div
-				v-for="(todo, i) in todos"
-				:key="i"
-				class="flex w-full min-h-[6rem] border border-dark dark:border-light rounded"
-			>
-				<div v-if="!inEditMode" class="flex-grow p-4">
-					{{ todo.Description }}
-				</div>
-				<div v-else class="flex-grow p-4 w-full">
-					<textarea
-						v-model="todo.Description"
-						class="w-full input-text text-dark"
-						rows="4"
-					/>
-				</div>
-				<div
-					class="flex flex-col px-2 divide-y-2 divide-dark dark:divide-light border-l border-dark dark:border-light"
-				>
-					<template v-if="!inEditMode">
-						<button class="flex-grow" @click="startEdit">
-							<PencilIcon class="w-6 h-6" />
-						</button>
-						<button class="flex-grow" @click="deleteTodo">
-							<TrashIcon class="w-6 h-6" />
-						</button>
-					</template>
-					<template v-else>
-						<button class="flex-grow">
-							<CheckIcon class="w-6 h-6" />
-						</button>
-						<button class="flex-grow">
-							<XIcon class="w-6 h-6" />
-						</button>
-					</template>
-				</div>
-			</div>
+			<Todo v-for="(todo, i) in todos" :key="i" :todo="todo" />
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import store from '@/store/index'
-import { ref, computed } from 'vue'
-import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
+import { computed } from 'vue'
+import Todo from './Todo.vue'
 
 const props = defineProps({
 	status: {
@@ -59,15 +24,7 @@ const props = defineProps({
 })
 
 const statusTitle = store.getters.getStatusText(props.status)
-
 const todos = computed(() => {
 	return store.getters.getTodoByStatus(props.status)
 })
-
-let inEditMode = ref(false)
-const startEdit = () => {
-	inEditMode.value = true
-}
-
-const deleteTodo = () => {}
 </script>
