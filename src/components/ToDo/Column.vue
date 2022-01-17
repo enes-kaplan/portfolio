@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="border border-dark dark:border-light rounde pb-6 shadow dark:shadow-light overflow-y-auto noScrollbar"
+		class="border border-dark dark:border-light rounded pb-6 shadow dark:shadow-light overflow-y-auto noScrollbar"
 	>
 		<h2 class="sticky top-0 bg-light dark:bg-dark w-full px-4 pt-4">
 			{{ statusTitle }}

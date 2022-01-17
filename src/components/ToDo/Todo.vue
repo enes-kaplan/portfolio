@@ -1,5 +1,7 @@
 <template>
-	<div class="min-h-[6rem] border border-dark dark:border-light rounded">
+	<div
+		class="min-h-[6rem] border border-dark dark:border-light rounded shadow-md dark:shadow-sm dark:shadow-light"
+	>
 		<transition-group
 			name="fade"
 			tag="div"
@@ -9,8 +11,13 @@
 				v-if="!inEditMode"
 				class="flex absolute top-0 left-0 right-0 bottom-0"
 			>
-				<div class="flex-grow px-4 py-2">
-					{{ todo.Description }}
+				<div class="flex-grow flex flex-col h-full px-4 py-2">
+					<p class="flex-grow">
+						{{ todo.Description }}
+					</p>
+					<div class="text-xs text-opacity-75">
+						Created at {{ CreateDateF }}
+					</div>
 				</div>
 				<div class="sidebuttons">
 					<button class="flex-grow" @click="startEdit(todo)">
@@ -42,7 +49,7 @@
 
 <script setup lang="ts">
 import store from '@/store/index'
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
 
@@ -51,6 +58,13 @@ const props = defineProps({
 		type: Object, // Type: DocumentData of Todo
 		required: true
 	}
+})
+
+const CreateDateF = computed(() => {
+	const todoDate: Date = props.todo.CreateDate.toDate()
+	return `${
+		todoDate.getMonth() + 1
+	}/${todoDate.getDate()}/${todoDate.getFullYear()}`
 })
 
 const inEditMode = ref(false)

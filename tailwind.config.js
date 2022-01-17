@@ -1,11 +1,11 @@
 module.exports = {
 	darkMode: 'class',
-  content: [
-    "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}"
-  ],
-  theme: {
-    extend: {
+	content: [
+		"./index.html",
+		"./src/**/*.{vue,js,ts,jsx,tsx}"
+	],
+	theme: {
+		extend: {
 			colors: {
 				light: 'white',
 				'light-font': '#374151',
@@ -20,8 +20,8 @@ module.exports = {
 		},
 		fontFamily: {
 			nunito: ['Nunito', 'sans-serif'],
-      poppins: ['Poppins', 'sans-serif']
+			poppins: ['Poppins', 'sans-serif']
 		}
-  },
-  plugins: []
+	},
+	plugins: []
 }
