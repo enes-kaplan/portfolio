@@ -20,10 +20,18 @@
 					</div>
 				</div>
 				<div class="sidebuttons">
-					<button class="flex-grow" @click="startEdit(todo)">
+					<button
+						class="flex-grow"
+						aria-label="Edit todo"
+						@click="startEdit(todo)"
+					>
 						<PencilIcon class="w-6 h-6" />
 					</button>
-					<button class="flex-grow" @click="deleteTodo(todo)">
+					<button
+						class="flex-grow"
+						aria-label="Delete todo"
+						@click="deleteTodo(todo)"
+					>
 						<TrashIcon class="w-6 h-6" />
 					</button>
 				</div>
@@ -35,10 +43,18 @@
 					rows="4"
 				/>
 				<div class="sidebuttons">
-					<button class="flex-grow" @click="save">
+					<button
+						class="flex-grow"
+						aria-label="Save changes"
+						@click="save"
+					>
 						<CheckIcon class="w-6 h-6" />
 					</button>
-					<button class="flex-grow" @click="cancelEdit">
+					<button
+						class="flex-grow"
+						aria-label="Cancel changes"
+						@click="cancelEdit"
+					>
 						<XIcon class="w-6 h-6" />
 					</button>
 				</div>
