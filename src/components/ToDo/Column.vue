@@ -9,9 +9,21 @@
 			<div
 				v-for="(todo, i) in todos"
 				:key="i"
-				class="w-full border border-dark dark:border-light rounded p-4"
+				class="flex w-full min-h-[6rem] border border-dark dark:border-light rounded"
 			>
-				{{ todo }}
+				<div class="flex-grow p-4">
+					{{ todo.Description }}
+				</div>
+				<div
+					class="flex flex-col px-2 divide-y-2 divide-dark dark:divide-light border-l border-dark dark:border-light"
+				>
+					<button class="flex-grow" @click="editTodo">
+						<PencilIcon class="w-6 h-6" />
+					</button>
+					<button class="flex-grow" @click="deleteTodo">
+						<TrashIcon class="w-6 h-6" />
+					</button>
+				</div>
 			</div>
 		</div>
 	</div>
@@ -20,6 +32,7 @@
 <script setup lang="ts">
 import store from '@/store/index'
 import { computed } from 'vue'
+import { PencilIcon, TrashIcon } from '@heroicons/vue/outline'
 
 const props = defineProps({
 	status: {
@@ -33,4 +46,8 @@ const statusTitle = store.getters.getStatusText(props.status)
 const todos = computed(() => {
 	return store.getters.getTodoByStatus(props.status)
 })
+
+const editTodo = () => {}
+
+const deleteTodo = () => {}
 </script>
