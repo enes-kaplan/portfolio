@@ -19,6 +19,7 @@ const mutations = {
 		state.currentUser = data
 	}
 }
+
 const actions = {}
 
 export default {
