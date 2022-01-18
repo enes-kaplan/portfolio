@@ -19,7 +19,7 @@ const getters = {
 	getTodoByStatus: (state: StateType) => (status: Number) => {
 		return state.todoList.filter(f => f.Status === status)
 	},
-	getStatusText: (state: StateType) => (status: Number) => {
+	getStatusText: () => (status: Number) => {
 		switch (status) {
 			case TodoStatus.TODO:
 				return 'To-do'

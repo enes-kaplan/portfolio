@@ -1,4 +1,4 @@
-import type { DocumentData } from 'firebase/firestore'
+import { DocumentData } from 'firebase/firestore'
 import { db, auth } from './firebase_setup'
 import {
 	query,
@@ -8,7 +8,8 @@ import {
 	getDoc,
 	getDocs,
 	setDoc,
-	addDoc
+	addDoc,
+	orderBy
 } from 'firebase/firestore'
 import { TodoStatus } from '../static/enums'
 
@@ -18,13 +19,17 @@ export const getTodos = async () => {
 		const q = query(
 			todoCol,
 			where('UserId', '==', auth?.currentUser?.uid),
-			where('Status', '!=', TodoStatus.DELETED)
+			where('Status', '!=', TodoStatus.DELETED),
+			orderBy('Status'),
+			orderBy('CreateDate')
 		)
 		const todoSnapshot = await getDocs(q)
 		const todoList = todoSnapshot.docs.map(doc => {
 			const data = doc.data()
 			const Id = doc.id
-			return { Id, ...data }
+			const CreateDate = data.CreateDate.toDate()
+			const UpdateDate = data.UpdateDate.toDate()
+			return { Id, ...data, CreateDate, UpdateDate }
 		})
 		return todoList
 	}

@@ -80,10 +80,9 @@ const props = defineProps({
 })
 
 const CreateDateF = computed(() => {
-	const todoDate: Date = props.todo.CreateDate.toDate()
 	return `${
-		todoDate.getMonth() + 1
-	}/${todoDate.getDate()}/${todoDate.getFullYear()}`
+		props.todo.CreateDate.getMonth() + 1
+	}/${props.todo.CreateDate.getDate()}/${props.todo.CreateDate.getFullYear()}`
 })
 
 const inEditMode = ref(props.isInEdit)
