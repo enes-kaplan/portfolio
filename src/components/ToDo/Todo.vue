@@ -19,8 +19,44 @@
 					<p class="flex-grow">
 						{{ todo.Description }}
 					</p>
-					<div class="text-xs text-opacity-75">
-						Created at {{ CreateDateF }}
+					<div class="flex justify-between items-baseline w-full">
+						<p class="text-xs text-opacity-75">
+							Created at {{ CreateDateF }}
+						</p>
+						<select
+							class="input-text px-1 py-0"
+							@input="changeStatus($event?.target?.value)"
+						>
+							<option
+								v-if="todo.Status !== TodoStatus.TODO"
+								:value="TodoStatus.TODO"
+								class="text-dark"
+							>
+								{{
+									store.getters.getStatusText(TodoStatus.TODO)
+								}}
+							</option>
+							<option
+								v-if="todo.Status !== TodoStatus.IN_PROGRESS"
+								:value="TodoStatus.IN_PROGRESS"
+								class="text-dark"
+							>
+								{{
+									store.getters.getStatusText(
+										TodoStatus.IN_PROGRESS
+									)
+								}}
+							</option>
+							<option
+								v-if="todo.Status !== TodoStatus.DONE"
+								:value="TodoStatus.DONE"
+								class="text-dark"
+							>
+								{{
+									store.getters.getStatusText(TodoStatus.DONE)
+								}}
+							</option>
+						</select>
 					</div>
 				</div>
 				<div class="sidebuttons">
@@ -72,6 +108,7 @@ import store from '@/store/index'
 import { ref, computed } from 'vue'
 import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
+import { TodoStatus } from '@/static/enums'
 
 const setDragData = (ev: DragEvent) => {
 	if (ev && ev.dataTransfer) {
@@ -116,6 +153,11 @@ const save = () => {
 }
 const cancelEdit = () => {
 	inEditMode.value = false
+}
+const changeStatus = (value: string) => {
+	const updatedTodo = { ...props.todo, Status: parseInt(value) }
+	store.commit('updateTodo', updatedTodo)
+	saveTodo(updatedTodo)
 }
 </script>
 
