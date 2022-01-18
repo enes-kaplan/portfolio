@@ -1,8 +1,9 @@
 <template>
 	<div
-		class="todo-wrapper min-h-[6rem] select-none cursor-grab"
+		class="todo-wrapper min-h-[6rem] select-none"
 		:id="`draggable_${todo.Id}`"
-		draggable="true"
+		:class="{ 'cursor-grab': isDraggable }"
+		:draggable="isDraggable"
 		@dragstart="setDragData"
 	>
 		<transition-group
@@ -88,6 +89,10 @@ const props = defineProps({
 		type: Boolean,
 		required: false,
 		default: () => false
+	},
+	isDraggable: {
+		type: Boolean,
+		required: true
 	}
 })
 

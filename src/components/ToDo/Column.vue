@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="border border-dark dark:border-light rounded pb-6 shadow dark:shadow-light overflow-y-auto noScrollbar"
+		class="max-h-[36rem] border border-dark dark:border-light rounded pb-6 shadow dark:shadow-light overflow-y-auto noScrollbar"
 		:class="{ 'bg-gray-200 dark:bg-gray-600': dragging }"
 		dropzone="move"
 		@dragover.prevent="dragOverEv"
@@ -26,7 +26,12 @@
 					"
 				/>
 			</transition>
-			<Todo v-for="(todo, i) in todos" :key="i" :todo="todo" />
+			<Todo
+				v-for="(todo, i) in todos"
+				:key="i"
+				:todo="todo"
+				:is-draggable="isDraggable"
+			/>
 		</div>
 	</div>
 </template>
@@ -43,6 +48,10 @@ const props = defineProps({
 	status: {
 		type: Number, // Type: ToDoStatus enum
 		required: true
+	},
+	isDraggable: {
+		type: Boolean,
+		required: true
 	}
 })
 
@@ -54,7 +63,9 @@ const dragOverEv = (ev: DragEvent) => {
 	dragging.value = true
 }
 
-const statusTitle = store.getters.getStatusText(props.status)
+const statusTitle = computed(() => {
+	return store.getters.getStatusText(props.status)
+})
 const todos = computed(() => {
 	return store.getters.getTodoByStatus(props.status)
 })

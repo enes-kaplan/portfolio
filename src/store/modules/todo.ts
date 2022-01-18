@@ -30,6 +30,8 @@ const getters = {
 				return 'In progress'
 			case TodoStatus.DONE:
 				return 'Done'
+			case TodoStatus.DELETED:
+				return 'Deleted'
 			default:
 				return ''
 		}
