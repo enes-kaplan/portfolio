@@ -41,6 +41,10 @@ const mutations = {
 		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
 		Object.assign(updatedTodo, data)
 	},
+	updateTodoStatus(state: StateType, data: DocumentData) {
+		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
+		Object.assign(updatedTodo, { ...updatedTodo, Status: data.Status })
+	},
 	addNewTodo(state: StateType, status: Number) {
 		state.newTodo = {
 			UserId: auth.currentUser?.uid,

@@ -1,5 +1,10 @@
 <template>
-	<div class="todo-wrapper min-h-[6rem]">
+	<div
+		class="todo-wrapper min-h-[6rem] select-none cursor-grab"
+		:id="`draggable_${todo.Id}`"
+		draggable="true"
+		@dragstart="setDragData"
+	>
 		<transition-group
 			name="fade"
 			tag="div"
@@ -66,6 +71,13 @@ import store from '@/store/index'
 import { ref, computed } from 'vue'
 import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
+
+const setDragData = (ev: DragEvent) => {
+	if (ev && ev.dataTransfer) {
+		ev.dataTransfer.setData('text/plain', props.todo.Id)
+		ev.dataTransfer.effectAllowed = 'move'
+	}
+}
 
 const props = defineProps({
 	todo: {

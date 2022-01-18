@@ -1,6 +1,11 @@
 <template>
 	<div
 		class="border border-dark dark:border-light rounded pb-6 shadow dark:shadow-light overflow-y-auto noScrollbar"
+		:class="{ 'bg-gray-200 dark:bg-gray-600': dragging }"
+		dropzone="move"
+		@dragover.prevent="dragOverEv"
+		@drop="moveTodo"
+		@dragleave="dragging = false"
 	>
 		<div
 			class="sticky top-0 flex justify-between bg-light dark:bg-dark w-full px-4 py-4 border-b border-dark dark:border-light transition-colors duration-300 z-10"
@@ -28,7 +33,7 @@
 
 <script setup lang="ts">
 import store from '@/store/index'
-import { computed } from 'vue'
+import { ref, computed } from 'vue'
 import { PlusIcon } from '@heroicons/vue/outline'
 import NewTodo from './NewTodo.vue'
 import Todo from './Todo.vue'
@@ -40,12 +45,25 @@ const props = defineProps({
 	}
 })
 
+const dragging = ref(false)
+const dragOverEv = (ev: DragEvent) => {
+	if (ev && ev.dataTransfer) {
+		ev.dataTransfer.dropEffect = 'move'
+	}
+	dragging.value = true
+}
+
 const statusTitle = store.getters.getStatusText(props.status)
 const todos = computed(() => {
 	return store.getters.getTodoByStatus(props.status)
 })
 const addNew = () => {
 	store.commit('addNewTodo', props.status)
+}
+const moveTodo = (ev: DragEvent) => {
+	dragging.value = false
+	const Id = ev?.dataTransfer?.getData('text/plain')
+	store.commit('updateTodoStatus', { Id, Status: props.status })
 }
 </script>
 
