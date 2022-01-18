@@ -104,9 +104,9 @@ const startEdit = (todo: any) => {
 	inEditMode.value = true
 }
 const save = () => {
-	saveTodo(props.todo, description.value)
 	const updatedTodo = { ...props.todo, Description: description.value }
 	store.commit('updateTodo', updatedTodo)
+	saveTodo(updatedTodo)
 	inEditMode.value = false
 }
 const cancelEdit = () => {

@@ -19,6 +19,9 @@ const getters = {
 	getTodoByStatus: (state: StateType) => (status: Number) => {
 		return state.todoList.filter(f => f.Status === status)
 	},
+	getTodoById: (state: StateType) => (Id: String) => {
+		return state.todoList.find(f => f.Id === Id)
+	},
 	getStatusText: () => (status: Number) => {
 		switch (status) {
 			case TodoStatus.TODO:

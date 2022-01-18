@@ -37,6 +37,7 @@ import { ref, computed } from 'vue'
 import { PlusIcon } from '@heroicons/vue/outline'
 import NewTodo from './NewTodo.vue'
 import Todo from './Todo.vue'
+import { saveTodo } from '@/functions/firebase_todo'
 
 const props = defineProps({
 	status: {
@@ -61,9 +62,12 @@ const addNew = () => {
 	store.commit('addNewTodo', props.status)
 }
 const moveTodo = (ev: DragEvent) => {
-	dragging.value = false
 	const Id = ev?.dataTransfer?.getData('text/plain')
-	store.commit('updateTodoStatus', { Id, Status: props.status })
+	const todo = store.getters.getTodoById(Id)
+	const updatedTodo = { ...todo, Status: props.status }
+	store.commit('updateTodo', updatedTodo)
+	saveTodo(updatedTodo)
+	dragging.value = false
 }
 </script>
 

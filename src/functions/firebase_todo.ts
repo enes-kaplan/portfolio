@@ -41,7 +41,11 @@ export const saveTodo = async (todo: DocumentData) => {
 		const todoRef = doc(db, 'ToDo', todo.Id)
 		setDoc(
 			todoRef,
-			{ Description: description, UpdateDate: new Date() },
+			{
+				Description: todo.Description,
+				Status: todo.Status,
+				UpdateDate: new Date()
+			},
 			{ merge: true }
 		)
 	} else {
