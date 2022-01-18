@@ -37,8 +37,11 @@ const save = () => {
 		Description: description.value
 	}
 	saveTodo(todo).then((res: any) => {
-		todo.Id = res.id
-		store.commit('addTodoToList', todo)
+		store.commit('addTodoToList', {
+			...res,
+			CreateDate: res.CreateDate.toDate(),
+			UpdateDate: res.UpdateDate.toDate()
+		})
 	})
 }
 </script>

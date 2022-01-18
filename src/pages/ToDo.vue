@@ -53,5 +53,5 @@ onMounted(() => {
 	}, 2000)
 })
 
-const selectedStatus = ref(TodoStatus.DONE)
+const selectedStatus = ref(TodoStatus.TODO)
 </script>

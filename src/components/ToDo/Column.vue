@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="max-h-[36rem] border border-dark dark:border-light rounded pb-6 shadow dark:shadow-light overflow-y-auto noScrollbar"
+		class="max-h-[34rem] border border-dark dark:border-light rounded pb-6 shadow dark:shadow-light overflow-y-auto noScrollbar"
 		:class="{ 'bg-gray-200 dark:bg-gray-600': dragging }"
 		dropzone="move"
 		@dragover.prevent="dragOverEv"

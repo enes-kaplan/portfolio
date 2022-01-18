@@ -53,7 +53,7 @@ export const saveTodo = async (todo: DocumentData) => {
 		const addedDocRef = await addDoc(todoCol, todo)
 		const docSnapshot = await getDoc(addedDocRef)
 		const docData = docSnapshot.data()
-		return { Id: addedDocRef.id, docData }
+		return { ...docData, Id: addedDocRef.id }
 	}
 }
 
