@@ -1,5 +1,5 @@
 <template>
-	<div class="todo-wrapper">
+	<div class="todo-wrapper min-h-[6rem]">
 		<transition-group
 			name="fade"
 			tag="div"

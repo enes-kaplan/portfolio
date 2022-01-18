@@ -2,7 +2,7 @@
 	<div class="todo-wrapper flex">
 		<textarea
 			v-model="description"
-			class="flex-grow w-full input-text text-dark rounded-none"
+			class="flex-grow w-full input-text text-dark rounded-none overflow-y-hidden"
 			rows="4"
 		/>
 		<div class="sidebuttons">

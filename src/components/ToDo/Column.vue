@@ -13,12 +13,14 @@
 			</button>
 		</div>
 		<div class="flex flex-col gap-6 px-6 pt-8 pb-6">
-			<NewTodo
-				v-if="
-					$store.state.todo.newTodo !== null &&
-					$store.state.todo.newTodo.Status === status
-				"
-			/>
+			<transition name="scale">
+				<NewTodo
+					v-if="
+						$store.state.todo.newTodo !== null &&
+						$store.state.todo.newTodo.Status === status
+					"
+				/>
+			</transition>
 			<Todo v-for="(todo, i) in todos" :key="i" :todo="todo" />
 		</div>
 	</div>
@@ -49,9 +51,24 @@ const addNew = () => {
 
 <style>
 .todo-wrapper {
-	@apply min-h-[6rem] border border-dark dark:border-light rounded shadow-md dark:shadow-sm dark:shadow-light;
+	@apply border border-dark dark:border-light rounded shadow-md dark:shadow-sm dark:shadow-light overflow-hidden;
 }
 .sidebuttons {
 	@apply flex flex-col px-2 divide-y-2 divide-dark dark:divide-light border-l-2 border-dark dark:border-light;
+}
+
+.scale-enter-active {
+	animation: scale 0.3s ease-in-out;
+}
+.scale-leave-active {
+	animation: scale 0.3s reverse ease-in-out;
+}
+@keyframes scale {
+	0% {
+		max-height: 0;
+	}
+	100% {
+		max-height: 8rem;
+	}
 }
 </style>
