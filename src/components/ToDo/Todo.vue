@@ -2,8 +2,8 @@
 	<div
 		class="todo-wrapper min-h-[6rem] select-none"
 		:id="`draggable_${todo.Id}`"
-		:class="{ 'cursor-grab': isDraggable }"
-		:draggable="isDraggable"
+		:class="{ 'cursor-grab': isDraggable === true }"
+		:draggable="isDraggable === true"
 		@dragstart="setDragData"
 	>
 		<transition-group
