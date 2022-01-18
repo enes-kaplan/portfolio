@@ -70,7 +70,7 @@
 					<button
 						class="flex-grow"
 						aria-label="Delete todo"
-						@click="deleteTodo(todo)"
+						@click="deleteItem"
 					>
 						<TrashIcon class="w-6 h-6" />
 					</button>
@@ -150,6 +150,11 @@ const save = () => {
 	store.commit('updateTodo', updatedTodo)
 	saveTodo(updatedTodo)
 	inEditMode.value = false
+}
+const deleteItem = () => {
+	const updatedTodo = { ...props.todo, Status: TodoStatus.DELETED }
+	store.commit('updateTodo', updatedTodo)
+	deleteTodo(props.todo)
 }
 const cancelEdit = () => {
 	inEditMode.value = false
