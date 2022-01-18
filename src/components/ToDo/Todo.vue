@@ -25,7 +25,7 @@
 						</p>
 						<select
 							class="input-text px-1 py-0"
-							@input="changeStatus($event?.target?.value)"
+							@input="changeStatus($event)"
 						>
 							<option
 								v-if="todo.Status !== TodoStatus.TODO"
@@ -159,8 +159,10 @@ const deleteItem = () => {
 const cancelEdit = () => {
 	inEditMode.value = false
 }
-const changeStatus = (value: string) => {
-	const updatedTodo = { ...props.todo, Status: parseInt(value) }
+const changeStatus = (ev: Event) => {
+	const inputEl = <HTMLInputElement>ev.target
+	const Status = inputEl.value ? parseInt(inputEl.value) : TodoStatus.TODO
+	const updatedTodo = { ...props.todo, Status }
 	store.commit('updateTodo', updatedTodo)
 	saveTodo(updatedTodo)
 }
