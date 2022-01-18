@@ -5,8 +5,10 @@ import {
 	where,
 	collection,
 	doc,
+	getDoc,
 	getDocs,
-	setDoc
+	setDoc,
+	addDoc
 } from 'firebase/firestore'
 import { TodoStatus } from '../static/enums'
 
@@ -28,12 +30,29 @@ export const getTodos = async () => {
 	}
 }
 
-export const saveTodo = async (todo: DocumentData, description: String) => {
-	const todoRef = doc(db, 'ToDo', todo.Id)
-	setDoc(todoRef, { Description: description }, { merge: true })
+export const saveTodo = async (todo: DocumentData) => {
+	if (todo?.Id) {
+		// If editing an existing todo, just update description and UpdateDate
+		const todoRef = doc(db, 'ToDo', todo.Id)
+		setDoc(
+			todoRef,
+			{ Description: description, UpdateDate: new Date() },
+			{ merge: true }
+		)
+	} else {
+		const todoCol = collection(db, 'ToDo')
+		const addedDocRef = await addDoc(todoCol, todo)
+		const docSnapshot = await getDoc(addedDocRef)
+		const docData = docSnapshot.data()
+		return { Id: addedDocRef.id, docData }
+	}
 }
 
 export const deleteTodo = async (todo: DocumentData) => {
 	const todoRef = doc(db, 'ToDo', todo.Id)
-	setDoc(todoRef, { Status: TodoStatus.DELETED }, { merge: true })
+	setDoc(
+		todoRef,
+		{ Status: TodoStatus.DELETED, UpdateDate: new Date() },
+		{ merge: true }
+	)
 }

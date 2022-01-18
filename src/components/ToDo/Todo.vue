@@ -1,7 +1,5 @@
 <template>
-	<div
-		class="min-h-[6rem] border border-dark dark:border-light rounded shadow-md dark:shadow-sm dark:shadow-light"
-	>
+	<div class="todo-wrapper">
 		<transition-group
 			name="fade"
 			tag="div"
@@ -73,6 +71,11 @@ const props = defineProps({
 	todo: {
 		type: Object, // Type: DocumentData of Todo
 		required: true
+	},
+	isInEdit: {
+		type: Boolean,
+		required: false,
+		default: () => false
 	}
 })
 
@@ -83,7 +86,7 @@ const CreateDateF = computed(() => {
 	}/${todoDate.getDate()}/${todoDate.getFullYear()}`
 })
 
-const inEditMode = ref(false)
+const inEditMode = ref(props.isInEdit)
 const description = ref('')
 const startEdit = (todo: any) => {
 	description.value = todo.Description
@@ -101,10 +104,6 @@ const cancelEdit = () => {
 </script>
 
 <style scoped>
-.sidebuttons {
-	@apply flex flex-col px-2 divide-y-2 divide-dark dark:divide-light border-l-2 border-dark dark:border-light;
-}
-
 .fade {
 	@apply relative;
 }

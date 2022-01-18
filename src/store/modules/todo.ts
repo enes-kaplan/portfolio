@@ -1,22 +1,25 @@
 import type { DocumentData } from 'firebase/firestore'
+import { auth } from '../../functions/firebase_setup'
 import { TodoStatus } from '../../static/enums'
 
-interface stateType {
+interface StateType {
 	todoList: DocumentData[]
+	newTodo: Object | null
 }
 
-const state: stateType = {
-	todoList: []
+const state: StateType = {
+	todoList: [],
+	newTodo: null
 }
 
 const getters = {
-	getTodoList: (state: stateType) => {
+	getTodoList: (state: StateType): DocumentData[] => {
 		return state.todoList
 	},
-	getTodoByStatus: (state: stateType) => (status: Number) => {
+	getTodoByStatus: (state: StateType) => (status: Number) => {
 		return state.todoList.filter(f => f.Status === status)
 	},
-	getStatusText: (state: stateType) => (status: Number) => {
+	getStatusText: (state: StateType) => (status: Number) => {
 		switch (status) {
 			case TodoStatus.TODO:
 				return 'To-do'
@@ -31,13 +34,29 @@ const getters = {
 }
 
 const mutations = {
-	updateTodoList(state: stateType, data: DocumentData[]) {
+	updateTodoList(state: StateType, data: DocumentData[]) {
 		state.todoList = data
 	},
-	updateTodo(state: stateType, data: DocumentData) {
-		debugger
+	updateTodo(state: StateType, data: DocumentData) {
 		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
 		Object.assign(updatedTodo, data)
+	},
+	addNewTodo(state: StateType, status: Number) {
+		state.newTodo = {
+			UserId: auth.currentUser?.uid,
+			Title: '',
+			Description: '',
+			CreateDate: new Date(),
+			UpdateDate: new Date(),
+			Status: status
+		}
+	},
+	addTodoToList(state: StateType, todo: DocumentData) {
+		state.todoList.push(todo)
+		state.newTodo = null
+	},
+	cancelNewTodo(state: StateType) {
+		state.newTodo = null
 	}
 }
 
