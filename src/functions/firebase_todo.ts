@@ -1,21 +1,21 @@
-import { DocumentData } from 'firebase/firestore'
-import { db, auth } from './firebase_setup'
+import type { Todo } from './firebase_types'
 import {
 	query,
 	where,
-	collection,
 	doc,
 	getDoc,
 	getDocs,
 	setDoc,
 	addDoc,
-	orderBy
+	orderBy,
+	DocumentReference
 } from 'firebase/firestore'
+import { firestore, auth } from './firebase_setup'
 import { TodoStatus } from '../static/enums'
+import { todoCol } from './firebase_db'
 
-export const getTodos = async () => {
+export const getTodos = async (): Promise<Todo[] | undefined> => {
 	if (auth?.currentUser?.uid) {
-		const todoCol = collection(db, 'ToDo')
 		const q = query(
 			todoCol,
 			where('UserId', '==', auth?.currentUser?.uid),
@@ -26,21 +26,20 @@ export const getTodos = async () => {
 		const todoSnapshot = await getDocs(q)
 		const todoList = todoSnapshot.docs.map(doc => {
 			const data = doc.data()
-			const Id = doc.id
-			const CreateDate = data.CreateDate.toDate()
-			const UpdateDate = data.UpdateDate.toDate()
-			return { Id, ...data, CreateDate, UpdateDate }
+			data.Id = doc.id
+			return data
 		})
 		return todoList
 	}
 }
 
-export const saveTodo = async (todo: DocumentData) => {
+export const saveTodo = async (todo: Todo): Promise<Todo | undefined> => {
+	let docRef: DocumentReference<Todo>
 	if (todo?.Id) {
-		// If editing an existing todo, just update description and UpdateDate
-		const todoRef = doc(db, 'ToDo', todo.Id)
-		setDoc(
-			todoRef,
+		// If editing an existing todo, just update the changed fields
+		docRef = doc(todoCol, todo.Id)
+		await setDoc(
+			docRef,
 			{
 				Description: todo.Description,
 				Status: todo.Status,
@@ -49,16 +48,16 @@ export const saveTodo = async (todo: DocumentData) => {
 			{ merge: true }
 		)
 	} else {
-		const todoCol = collection(db, 'ToDo')
-		const addedDocRef = await addDoc(todoCol, todo)
-		const docSnapshot = await getDoc(addedDocRef)
-		const docData = docSnapshot.data()
-		return { ...docData, Id: addedDocRef.id }
+		docRef = await addDoc(todoCol, todo)
 	}
+	const docSnapshot = await getDoc(docRef)
+	const docData = docSnapshot.data()
+	docData!.Id = docRef.id
+	return docData
 }
 
-export const deleteTodo = async (todo: DocumentData) => {
-	const todoRef = doc(db, 'ToDo', todo.Id)
+export const deleteTodo = async (todo: Todo) => {
+	const todoRef = doc(todoCol, todo.Id)
 	setDoc(
 		todoRef,
 		{ Status: TodoStatus.DELETED, UpdateDate: new Date() },

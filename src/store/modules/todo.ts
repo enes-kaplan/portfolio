@@ -1,10 +1,11 @@
-import type { DocumentData } from 'firebase/firestore'
+import type { Todo } from '@/functions/firebase_types'
+import { Timestamp } from 'firebase/firestore'
 import { auth } from '../../functions/firebase_setup'
 import { TodoStatus } from '../../static/enums'
 
 interface StateType {
-	todoList: DocumentData[]
-	newTodo: Object | null
+	todoList: Todo[]
+	newTodo: Todo | null
 }
 
 const state: StateType = {
@@ -13,7 +14,7 @@ const state: StateType = {
 }
 
 const getters = {
-	getTodoList: (state: StateType): DocumentData[] => {
+	getTodoList: (state: StateType): Todo[] => {
 		return state.todoList
 	},
 	getTodoByStatus: (state: StateType) => (status: Number) => {
@@ -39,28 +40,29 @@ const getters = {
 }
 
 const mutations = {
-	updateTodoList(state: StateType, data: DocumentData[]) {
+	updateTodoList(state: StateType, data: Todo[]) {
 		state.todoList = data
 	},
-	updateTodo(state: StateType, data: DocumentData) {
+	updateTodo(state: StateType, data: Todo) {
 		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
 		Object.assign(updatedTodo, data)
 	},
-	updateTodoStatus(state: StateType, data: DocumentData) {
+	updateTodoStatus(state: StateType, data: Todo) {
 		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
 		Object.assign(updatedTodo, { ...updatedTodo, Status: data.Status })
 	},
-	addNewTodo(state: StateType, status: Number) {
+	createNewTodo(state: StateType, status: TodoStatus) {
+		const currentTimestamp = Timestamp.fromDate(new Date())
 		state.newTodo = {
 			UserId: auth.currentUser?.uid,
 			Title: '',
 			Description: '',
-			CreateDate: new Date(),
-			UpdateDate: new Date(),
+			CreateDate: currentTimestamp,
+			UpdateDate: currentTimestamp,
 			Status: status
 		}
 	},
-	addTodoToList(state: StateType, todo: DocumentData) {
+	addTodoToList(state: StateType, todo: Todo) {
 		state.todoList.push(todo)
 		state.newTodo = null
 	},

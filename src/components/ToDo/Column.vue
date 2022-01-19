@@ -70,7 +70,7 @@ const todos = computed(() => {
 	return store.getters.getTodoByStatus(props.status)
 })
 const addNew = () => {
-	store.commit('addNewTodo', props.status)
+	store.commit('createNewTodo', props.status)
 }
 const moveTodo = (ev: DragEvent) => {
 	const Id = ev?.dataTransfer?.getData('text/plain')

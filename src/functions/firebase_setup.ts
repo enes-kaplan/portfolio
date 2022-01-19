@@ -13,7 +13,7 @@ const firebaseApp = initializeApp({
 	measurementId: 'G-D3RZG0VMZ7'
 })
 export const auth = getAuth(firebaseApp)
-export const db = getFirestore(firebaseApp)
+export const firestore = getFirestore(firebaseApp)
 
 onAuthStateChanged(auth, user => {
 	store.commit('setUser', user)
