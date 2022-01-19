@@ -24,20 +24,16 @@
 							Created at {{ CreateDateF }}
 						</p>
 						<select
+							:value="props.todo.Status"
 							class="input-text px-1 py-0"
 							@input="changeStatus($event)"
 						>
-							<option
-								v-if="todo.Status !== TodoStatus.TODO"
-								:value="TodoStatus.TODO"
-								class="text-dark"
-							>
+							<option :value="TodoStatus.TODO" class="text-dark">
 								{{
 									store.getters.getStatusText(TodoStatus.TODO)
 								}}
 							</option>
 							<option
-								v-if="todo.Status !== TodoStatus.IN_PROGRESS"
 								:value="TodoStatus.IN_PROGRESS"
 								class="text-dark"
 							>
@@ -47,11 +43,7 @@
 									)
 								}}
 							</option>
-							<option
-								v-if="todo.Status !== TodoStatus.DONE"
-								:value="TodoStatus.DONE"
-								class="text-dark"
-							>
+							<option :value="TodoStatus.DONE" class="text-dark">
 								{{
 									store.getters.getStatusText(TodoStatus.DONE)
 								}}
@@ -162,9 +154,11 @@ const cancelEdit = () => {
 const changeStatus = (ev: Event) => {
 	const inputEl = <HTMLInputElement>ev.target
 	const Status = inputEl.value ? parseInt(inputEl.value) : TodoStatus.TODO
-	const updatedTodo = { ...props.todo, Status }
-	store.commit('updateTodo', updatedTodo)
-	saveTodo(updatedTodo)
+	if (Status !== props.todo.Status) {
+		const updatedTodo = { ...props.todo, Status }
+		store.commit('updateTodo', updatedTodo)
+		saveTodo(updatedTodo)
+	}
 }
 </script>
 
