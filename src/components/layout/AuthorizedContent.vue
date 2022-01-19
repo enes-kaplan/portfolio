@@ -10,11 +10,13 @@
 </template>
 
 <script setup lang="ts">
-import { watch, onMounted, nextTick } from 'vue'
-import store from '../../store'
+import { watch, nextTick } from 'vue'
+import { useStore } from '@/store/index'
 import { auth } from '@/functions/firebase_setup'
 import { startFirebaseAuthUI } from '@/functions/firebase_auth'
 import 'firebaseui/dist/firebaseui.css'
+
+const store = useStore()
 
 watch(
 	() => store.getters.getCurrentUser,

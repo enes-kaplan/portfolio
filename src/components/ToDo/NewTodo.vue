@@ -21,10 +21,12 @@
 </template>
 
 <script setup lang="ts">
-import store from '@/store/index'
+import { useStore } from '@/store/index'
 import { ref } from 'vue'
 import { CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo } from '@/functions/firebase_todo'
+
+const store = useStore()
 
 const description = ref('')
 

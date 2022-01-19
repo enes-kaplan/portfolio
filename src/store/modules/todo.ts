@@ -3,24 +3,24 @@ import { Timestamp } from 'firebase/firestore'
 import { auth } from '../../functions/firebase_setup'
 import { TodoStatus } from '../../static/enums'
 
-interface StateType {
+interface TodoState {
 	todoList: Todo[]
 	newTodo: Todo | null
 }
 
-const state: StateType = {
+const state: TodoState = {
 	todoList: [],
 	newTodo: null
 }
 
 const getters = {
-	getTodoList: (state: StateType): Todo[] => {
+	getTodoList: (state: TodoState): Todo[] => {
 		return state.todoList
 	},
-	getTodoByStatus: (state: StateType) => (status: Number) => {
+	getTodoByStatus: (state: TodoState) => (status: Number) => {
 		return state.todoList.filter(f => f.Status === status)
 	},
-	getTodoById: (state: StateType) => (Id: String) => {
+	getTodoById: (state: TodoState) => (Id: String) => {
 		return state.todoList.find(f => f.Id === Id)
 	},
 	getStatusText: () => (status: Number) => {
@@ -40,18 +40,18 @@ const getters = {
 }
 
 const mutations = {
-	updateTodoList(state: StateType, data: Todo[]) {
+	updateTodoList(state: TodoState, data: Todo[]) {
 		state.todoList = data
 	},
-	updateTodo(state: StateType, data: Todo) {
+	updateTodo(state: TodoState, data: Todo) {
 		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
 		Object.assign(updatedTodo, data)
 	},
-	updateTodoStatus(state: StateType, data: Todo) {
+	updateTodoStatus(state: TodoState, data: Todo) {
 		const updatedTodo = state.todoList.find(f => f.Id === data.Id)
 		Object.assign(updatedTodo, { ...updatedTodo, Status: data.Status })
 	},
-	createNewTodo(state: StateType, status: TodoStatus) {
+	createNewTodo(state: TodoState, status: TodoStatus) {
 		const currentTimestamp = Timestamp.fromDate(new Date())
 		state.newTodo = {
 			UserId: auth.currentUser?.uid,
@@ -62,11 +62,11 @@ const mutations = {
 			Status: status
 		}
 	},
-	addTodoToList(state: StateType, todo: Todo) {
+	addTodoToList(state: TodoState, todo: Todo) {
 		state.todoList.push(todo)
 		state.newTodo = null
 	},
-	cancelNewTodo(state: StateType) {
+	cancelNewTodo(state: TodoState) {
 		state.newTodo = null
 	}
 }

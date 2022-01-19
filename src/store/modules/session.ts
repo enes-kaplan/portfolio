@@ -1,21 +1,21 @@
 import type { Auth } from 'firebase/auth'
 
-interface stateType {
+interface SessionState {
 	currentUser: 'LOADING' | null | Auth
 }
 
-const state: stateType = {
+const state: SessionState = {
 	currentUser: 'LOADING'
 }
 
 const getters = {
-	getCurrentUser: (state: stateType) => {
+	getCurrentUser: (state: SessionState) => {
 		return state.currentUser
 	}
 }
 
 const mutations = {
-	setUser(state: stateType, data: Auth) {
+	setUser(state: SessionState, data: Auth) {
 		state.currentUser = data
 	}
 }

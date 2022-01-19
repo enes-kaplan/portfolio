@@ -1,7 +1,7 @@
 import { initializeApp } from 'firebase/app'
 import { getAuth, onAuthStateChanged } from 'firebase/auth'
 import { getFirestore } from 'firebase/firestore'
-import store from '../store/index'
+import { store } from '../store/index' // useStore didn't work here :(
 
 const firebaseApp = initializeApp({
 	apiKey: 'AIzaSyCNFOnSVhcMYPtrTGs7QCmNM9nf4CM3o-0',

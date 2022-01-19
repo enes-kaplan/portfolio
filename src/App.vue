@@ -12,6 +12,7 @@
 import { onBeforeMount } from 'vue'
 import Header from '@/components/layout/Header/Header.vue'
 import Content from '@/components/layout/Content.vue'
+import './functions/firebase_setup'
 
 onBeforeMount(() => {
 	// On page load or when changing themes, best to add inline in `head` to avoid FOUC

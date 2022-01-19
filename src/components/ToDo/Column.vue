@@ -37,13 +37,14 @@
 </template>
 
 <script setup lang="ts">
-import store from '@/store/index'
+import { useStore } from '@/store/index'
 import { ref, computed } from 'vue'
 import { PlusIcon } from '@heroicons/vue/outline'
 import NewTodo from './NewTodo.vue'
 import Todo from './Todo.vue'
 import { saveTodo } from '@/functions/firebase_todo'
 
+const store = useStore()
 const props = defineProps({
 	status: {
 		type: Number, // Type: ToDoStatus enum

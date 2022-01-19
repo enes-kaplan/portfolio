@@ -96,13 +96,14 @@
 </template>
 
 <script setup lang="ts">
-import store from '@/store/index'
+import { useStore } from '@/store/index'
 import { ref, computed, PropType } from 'vue'
 import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
 import { TodoStatus } from '@/static/enums'
 import { Todo } from '@/functions/firebase_types'
 
+const store = useStore()
 const props = defineProps({
 	todo: {
 		type: Object as PropType<Todo>,

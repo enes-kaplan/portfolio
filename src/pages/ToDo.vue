@@ -34,7 +34,7 @@
 </template>
 
 <script setup lang="ts">
-import store from '@/store/index'
+import { useStore } from '@/store/index'
 import { ref, onMounted } from 'vue'
 import type { DocumentData } from 'firebase/firestore'
 import { getTodos } from '@/functions/firebase_todo'
@@ -42,6 +42,7 @@ import { TodoStatus } from '@/static/enums'
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
 import Column from '@/components/ToDo/Column.vue'
 
+const store = useStore()
 
 onMounted(() => {
 	setTimeout(() => {
