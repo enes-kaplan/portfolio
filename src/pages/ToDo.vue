@@ -42,7 +42,7 @@ import { TodoStatus } from '@/static/enums'
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
 import Column from '@/components/ToDo/Column.vue'
 
-let isLoading = true
+
 onMounted(() => {
 	setTimeout(() => {
 		getTodos().then((todoList: DocumentData[]) => {

@@ -149,7 +149,7 @@ const cancelEdit = () => {
 
 const setDragData = (ev: DragEvent) => {
 	if (ev && ev.dataTransfer) {
-		ev.dataTransfer.setData('text/plain', props.todo.Id)
+		ev.dataTransfer.setData('text/plain', props.todo.Id!)
 		ev.dataTransfer.effectAllowed = 'move'
 	}
 }
