@@ -102,13 +102,6 @@ import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
 import { TodoStatus } from '@/static/enums'
 
-const setDragData = (ev: DragEvent) => {
-	if (ev && ev.dataTransfer) {
-		ev.dataTransfer.setData('text/plain', props.todo.Id)
-		ev.dataTransfer.effectAllowed = 'move'
-	}
-}
-
 const props = defineProps({
 	todo: {
 		type: Object, // Type: DocumentData of Todo
@@ -150,6 +143,13 @@ const deleteItem = () => {
 }
 const cancelEdit = () => {
 	inEditMode.value = false
+}
+
+const setDragData = (ev: DragEvent) => {
+	if (ev && ev.dataTransfer) {
+		ev.dataTransfer.setData('text/plain', props.todo.Id)
+		ev.dataTransfer.effectAllowed = 'move'
+	}
 }
 const changeStatus = (ev: Event) => {
 	const inputEl = <HTMLInputElement>ev.target
