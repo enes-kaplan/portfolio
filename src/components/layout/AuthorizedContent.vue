@@ -19,13 +19,17 @@ import LoaderSVG from '../SVG/Loader.vue'
 const sessionStore = useSessionStore()
 const { getCurrentUser } = storeToRefs(sessionStore)
 
+const emit = defineEmits(['authorized'])
+
 watch(
-	() => getCurrentUser,
+	() => getCurrentUser.value,
 	newValue => {
 		if (newValue === null) {
 			nextTick(() => {
 				startFirebaseAuthUI()
 			})
+		} else {
+			emit('authorized')
 		}
 	}
 )

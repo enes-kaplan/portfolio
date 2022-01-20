@@ -1,5 +1,5 @@
 <template>
-	<AuthorizedContent>
+	<AuthorizedContent @authorized="getTodoList">
 		<h1 class="text-3xl sm:text-5xl text-center my-4">👍 Get it done 👍</h1>
 		<!-- #region Desktop screen -->
 		<div class="hidden sm:flex gap-12 mt-12 px-20 h-full">
@@ -42,15 +42,11 @@ import Column from '@/components/ToDo/Column.vue'
 
 const { getStatusText, updateTodoList } = useTodoStore()
 
-onMounted(() => {
-	setTimeout(() => {
-		getTodos().then((todoList: DocumentData[]) => {
-			if (todoList) {
-				updateTodoList(todoList)
-			}
-		})
-	}, 2000)
-})
-
 const selectedStatus = ref(TodoStatus.TODO)
+
+const getTodoList = () => {
+	getTodos().then((todoList: DocumentData[]) => {
+		updateTodoList(todoList)
+	})
+}
 </script>
