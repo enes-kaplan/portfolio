@@ -1,5 +1,7 @@
 <template>
-	<div v-if="getCurrentUser === 'LOADING'">LOADER</div>
+	<div v-if="getCurrentUser === 'LOADING'">
+		<LoaderSVG />
+	</div>
 	<div v-else-if="getCurrentUser === null" id="firebaseui-auth-container" />
 	<div v-else>
 		<slot />
@@ -12,6 +14,7 @@ import { startFirebaseAuthUI } from '@/functions/firebase_auth'
 import 'firebaseui/dist/firebaseui.css'
 import { useSessionStore } from '@/store/session'
 import { storeToRefs } from 'pinia'
+import LoaderSVG from '../SVG/Loader.vue'
 
 const sessionStore = useSessionStore()
 const { getCurrentUser } = storeToRefs(sessionStore)
