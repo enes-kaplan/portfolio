@@ -74,9 +74,11 @@ const dragOverEv = (ev: DragEvent) => {
 const moveTodo = (ev: DragEvent) => {
 	const Id = ev?.dataTransfer?.getData('text/plain')
 	const todo = getTodoById(Id!)
-	const updatedTodo = { ...todo, Status: props.status }
-	updateTodo(updatedTodo)
-	saveTodo(updatedTodo)
+	if (todo?.Status !== props.status) {
+		const updatedTodo = { ...todo, Status: props.status }
+		updateTodo(updatedTodo)
+		saveTodo(updatedTodo)
+	}
 	dragging.value = false
 }
 </script>

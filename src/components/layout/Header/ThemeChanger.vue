@@ -10,7 +10,6 @@
 </template>
 
 <script setup lang="ts">
-import { computed, ref } from 'vue'
 import { SunIcon, MoonIcon } from '@heroicons/vue/outline'
 
 const props = defineProps({
