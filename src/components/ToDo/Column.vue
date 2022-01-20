@@ -11,9 +11,9 @@
 			class="sticky top-0 flex justify-between bg-light dark:bg-dark w-full px-4 py-4 border-b border-dark dark:border-light transition-colors duration-300 z-10"
 		>
 			<h2>
-				{{ statusTitle }}
+				{{ getStatusText(status) }}
 			</h2>
-			<button aria-label="Add new todo" @click="addNew">
+			<button aria-label="Add new todo" @click="createNewTodo(status)">
 				<PlusIcon class="w-6 h-6" />
 			</button>
 		</div>
@@ -21,13 +21,13 @@
 			<transition name="scale">
 				<NewTodo
 					v-if="
-						$store.state.todo.newTodo !== null &&
-						$store.state.todo.newTodo.Status === status
+						todoStore.newTodo !== null &&
+						todoStore.newTodo.Status === status
 					"
 				/>
 			</transition>
 			<Todo
-				v-for="(todo, i) in todos"
+				v-for="(todo, i) in getTodoByStatus(status)"
 				:key="i"
 				:todo="todo"
 				:is-draggable="isDraggable"
@@ -37,14 +37,21 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store/index'
-import { ref, computed } from 'vue'
+import { useTodoStore } from '@/store/todo'
+import { ref } from 'vue'
 import { PlusIcon } from '@heroicons/vue/outline'
+import { saveTodo } from '@/functions/firebase_todo'
 import NewTodo from './NewTodo.vue'
 import Todo from './Todo.vue'
-import { saveTodo } from '@/functions/firebase_todo'
 
-const store = useStore()
+const todoStore = useTodoStore()
+const {
+	getStatusText,
+	getTodoByStatus,
+	getTodoById,
+	createNewTodo,
+	updateTodo
+} = todoStore
 const props = defineProps({
 	status: {
 		type: Number, // Type: ToDoStatus enum
@@ -64,20 +71,11 @@ const dragOverEv = (ev: DragEvent) => {
 	dragging.value = true
 }
 
-const statusTitle = computed(() => {
-	return store.getters.getStatusText(props.status)
-})
-const todos = computed(() => {
-	return store.getters.getTodoByStatus(props.status)
-})
-const addNew = () => {
-	store.commit('createNewTodo', props.status)
-}
 const moveTodo = (ev: DragEvent) => {
 	const Id = ev?.dataTransfer?.getData('text/plain')
-	const todo = store.getters.getTodoById(Id)
+	const todo = getTodoById(Id!)
 	const updatedTodo = { ...todo, Status: props.status }
-	store.commit('updateTodo', updatedTodo)
+	updateTodo(updatedTodo)
 	saveTodo(updatedTodo)
 	dragging.value = false
 }

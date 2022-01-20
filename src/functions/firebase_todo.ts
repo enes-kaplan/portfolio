@@ -10,7 +10,7 @@ import {
 	orderBy,
 	DocumentReference
 } from 'firebase/firestore'
-import { firestore, auth } from './firebase_setup'
+import { auth } from './firebase_setup'
 import { TodoStatus } from '../static/enums'
 import { todoCol } from './firebase_db'
 

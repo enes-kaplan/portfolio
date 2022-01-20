@@ -1,9 +1,6 @@
 <template>
-	<div v-if="$store.getters.getCurrentUser === 'LOADING'">LOADER</div>
-	<div
-		v-else-if="$store.getters.getCurrentUser === null"
-		id="firebaseui-auth-container"
-	/>
+	<div v-if="getCurrentUser === 'LOADING'">LOADER</div>
+	<div v-else-if="getCurrentUser === null" id="firebaseui-auth-container" />
 	<div v-else>
 		<slot />
 	</div>
@@ -11,15 +8,16 @@
 
 <script setup lang="ts">
 import { watch, nextTick } from 'vue'
-import { useStore } from '@/store/index'
-import { auth } from '@/functions/firebase_setup'
 import { startFirebaseAuthUI } from '@/functions/firebase_auth'
 import 'firebaseui/dist/firebaseui.css'
+import { useSessionStore } from '@/store/session'
+import { storeToRefs } from 'pinia'
 
-const store = useStore()
+const sessionStore = useSessionStore()
+const { getCurrentUser } = storeToRefs(sessionStore)
 
 watch(
-	() => store.getters.getCurrentUser,
+	() => getCurrentUser,
 	newValue => {
 		if (newValue === null) {
 			nextTick(() => {

@@ -29,24 +29,16 @@
 							@input="changeStatus($event)"
 						>
 							<option :value="TodoStatus.TODO" class="text-dark">
-								{{
-									store.getters.getStatusText(TodoStatus.TODO)
-								}}
+								{{ getStatusText(TodoStatus.TODO) }}
 							</option>
 							<option
 								:value="TodoStatus.IN_PROGRESS"
 								class="text-dark"
 							>
-								{{
-									store.getters.getStatusText(
-										TodoStatus.IN_PROGRESS
-									)
-								}}
+								{{ getStatusText(TodoStatus.IN_PROGRESS) }}
 							</option>
 							<option :value="TodoStatus.DONE" class="text-dark">
-								{{
-									store.getters.getStatusText(TodoStatus.DONE)
-								}}
+								{{ getStatusText(TodoStatus.DONE) }}
 							</option>
 						</select>
 					</div>
@@ -96,14 +88,15 @@
 </template>
 
 <script setup lang="ts">
-import { useStore } from '@/store/index'
+import { useTodoStore } from '@/store/todo'
 import { ref, computed, PropType } from 'vue'
 import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
 import { TodoStatus } from '@/static/enums'
 import { Todo } from '@/functions/firebase_types'
 
-const store = useStore()
+const todoStore = useTodoStore()
+const { getStatusText, updateTodo } = todoStore
 const props = defineProps({
 	todo: {
 		type: Object as PropType<Todo>,
@@ -135,13 +128,13 @@ const startEdit = (todo: any) => {
 }
 const save = () => {
 	const updatedTodo = { ...props.todo, Description: description.value }
-	store.commit('updateTodo', updatedTodo)
+	updateTodo(updatedTodo)
 	saveTodo(updatedTodo)
 	inEditMode.value = false
 }
 const deleteItem = () => {
 	const updatedTodo = { ...props.todo, Status: TodoStatus.DELETED }
-	store.commit('updateTodo', updatedTodo)
+	updateTodo(updatedTodo)
 	deleteTodo(props.todo)
 }
 const cancelEdit = () => {
@@ -159,7 +152,7 @@ const changeStatus = (ev: Event) => {
 	const Status = inputEl.value ? parseInt(inputEl.value) : TodoStatus.TODO
 	if (Status !== props.todo.Status) {
 		const updatedTodo = { ...props.todo, Status }
-		store.commit('updateTodo', updatedTodo)
+		updateTodo(updatedTodo)
 		saveTodo(updatedTodo)
 	}
 }
