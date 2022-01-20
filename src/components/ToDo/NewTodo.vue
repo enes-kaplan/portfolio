@@ -21,27 +21,28 @@
 </template>
 
 <script setup lang="ts">
-import store from '@/store/index'
+import { useTodoStore } from '@/store/todo'
 import { ref } from 'vue'
 import { CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo } from '@/functions/firebase_todo'
+import { storeToRefs } from 'pinia'
+
+const todoStore = useTodoStore()
+const { newTodo, cancelNewTodo, addTodoToList } = todoStore
+const {} = storeToRefs(todoStore)
 
 const description = ref('')
 
 const cancelEdit = () => {
-	store.commit('cancelNewTodo')
+	cancelNewTodo()
 }
 const save = () => {
 	const todo = {
-		...store.state.todo.newTodo,
+		...newTodo,
 		Description: description.value
 	}
 	saveTodo(todo).then((res: any) => {
-		store.commit('addTodoToList', {
-			...res,
-			CreateDate: res.CreateDate.toDate(),
-			UpdateDate: res.UpdateDate.toDate()
-		})
+		addTodoToList(res)
 	})
 }
 </script>

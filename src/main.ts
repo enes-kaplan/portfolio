@@ -1,8 +1,10 @@
 import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router/index'
-import store from './store/index'
 import './index.css'
-import './functions/firebase_setup'
+import { createPinia } from 'pinia'
 
-createApp(App).use(router).use(store).mount('#app')
+const app = createApp(App)
+app.use(router)
+app.use(createPinia())
+app.mount('#app')
