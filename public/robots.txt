@@ -1,0 +1,3 @@
+user-agent: *
+allow: /
+sitemap: https://enes-kaplan.netlify.app/sitemap.xml
