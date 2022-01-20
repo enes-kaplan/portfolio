@@ -1,8 +1,9 @@
 <template>
 	<div class="todo-wrapper flex">
 		<textarea
-			v-model="description"
+			v-model="state.description"
 			class="flex-grow w-full input-text text-dark rounded-none overflow-y-hidden"
+			:class="{ 'border-error': v$.description.$error }"
 			rows="4"
 		/>
 		<div class="sidebuttons">
@@ -21,17 +22,23 @@
 </template>
 
 <script setup lang="ts">
-import { useTodoStore } from '@/store/todo'
-import { ref } from 'vue'
+import { reactive } from 'vue'
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import { CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo } from '@/functions/firebase_todo'
+import { useTodoStore } from '@/store/todo'
 import { storeToRefs } from 'pinia'
+
+const state = reactive({ description: '' })
+const rules = {
+	description: { required }
+}
+const v$ = useVuelidate(rules, state, { $autoDirty: true })
 
 const todoStore = useTodoStore()
 const { newTodo, cancelNewTodo, addTodoToList } = todoStore
 const {} = storeToRefs(todoStore)
-
-const description = ref('')
 
 const cancelEdit = () => {
 	cancelNewTodo()
@@ -39,7 +46,7 @@ const cancelEdit = () => {
 const save = () => {
 	const todo = {
 		...newTodo,
-		Description: description.value
+		Description: state.description
 	}
 	saveTodo(todo).then((res: any) => {
 		addTodoToList(res)

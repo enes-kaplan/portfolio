@@ -38,6 +38,9 @@ p {
 .input-text {
 	@apply px-4 py-2 text-dark border border-dark dark:border-light rounded shadow dark:shadow-light resize-none focus:outline-dark;
 }
+.border-error {
+	@apply border-red-400 focus:outline-red-400 !important;
+}
 
 .shadow-theme {
 	@apply shadow-lg dark:shadow-gray-500;

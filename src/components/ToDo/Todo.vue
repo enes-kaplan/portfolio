@@ -62,8 +62,9 @@
 			</div>
 			<div v-else class="flex absolute top-0 left-0 right-0 bottom-0">
 				<textarea
-					v-model="description"
+					v-model="state.description"
 					class="flex-grow w-full input-text text-dark rounded-none"
+					:class="{ 'border-error': v$.description.$error }"
 					rows="4"
 				/>
 				<div class="sidebuttons">
@@ -88,8 +89,10 @@
 </template>
 
 <script setup lang="ts">
+import { ref, reactive, computed, PropType } from 'vue'
+import useVuelidate from '@vuelidate/core'
+import { required } from '@vuelidate/validators'
 import { useTodoStore } from '@/store/todo'
-import { ref, computed, PropType } from 'vue'
 import { PencilIcon, TrashIcon, CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo, deleteTodo } from '@/functions/firebase_todo'
 import { TodoStatus } from '@/static/enums'
@@ -113,6 +116,12 @@ const props = defineProps({
 	}
 })
 
+const state = reactive({ description: '' })
+const rules = {
+	description: { required }
+}
+const v$ = useVuelidate(rules, state, { $autoDirty: true })
+
 const CreateDateF = computed(() => {
 	const createDate = props.todo.CreateDate?.toDate()
 	return `${createDate!.getMonth() + 1}/
@@ -121,13 +130,12 @@ const CreateDateF = computed(() => {
 })
 
 const inEditMode = ref(props.isInEdit)
-const description = ref('')
 const startEdit = (todo: any) => {
-	description.value = todo.Description
+	state.description = todo.Description
 	inEditMode.value = true
 }
 const save = () => {
-	const updatedTodo = { ...props.todo, Description: description.value }
+	const updatedTodo = { ...props.todo, Description: state.description }
 	updateTodo(updatedTodo)
 	saveTodo(updatedTodo)
 	inEditMode.value = false
