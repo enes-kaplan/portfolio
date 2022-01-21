@@ -9,7 +9,12 @@
 			<img
 				:src="project.image"
 				:alt="`Project image for ${project.name}`"
-				class="w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light"
+				class="dark:hidden w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light"
+			/>
+			<img
+				:src="project.imageDark"
+				:alt="`Project image for ${project.name}`"
+				class="hidden dark:block w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light"
 			/>
 			<div class="mt-4 px-8 text-center text-3xl font-semibold">
 				{{ project.name }}
@@ -53,7 +58,8 @@ import GithubSvg from '@/components/SVG/Github.vue'
 const projects = [
 	{
 		name: 'To-do Project',
-		image: '/Project1.jpg',
+		image: '/todo_light.jpg',
+		imageDark: '/todo_dark.jpg',
 		description: 'To-do project to keep track of your list of tasks.',
 		demoLink: '/ToDo',
 		githubLink: 'https://github.com/enes-kaplan'
@@ -61,6 +67,7 @@ const projects = [
 	{
 		name: 'Project 2',
 		image: '/Project2.jpg',
+		imageDark: '/Project2.jpg',
 		description: 'Demo icon project to showcase the component.',
 		demoLink: '/project2',
 		githubLink: 'https://github.com/enes-kaplan'
