@@ -14,7 +14,7 @@
 		>
 			<component
 				:is="link.component"
-				class="w-full h-full hover:fill-light-accent dark:hover:fill-dark-accent"
+				class="w-full h-full fill-theme-hover"
 			/>
 		</a>
 	</section>

@@ -49,6 +49,13 @@ p {
 	@apply hover:shadow-lg dark:hover:shadow-gray-500;
 }
 
+.fill-theme {
+	@apply fill-light-accent dark:fill-dark-accent !important;
+}
+.fill-theme-hover {
+	@apply hover:fill-light-accent dark:hover:fill-dark-accent !important;
+}
+
 .noScrollbar {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */
