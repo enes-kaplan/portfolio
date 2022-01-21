@@ -5,13 +5,17 @@
 	>
 		<!-- #region About -->
 		<div class="flex flex-col gap-6 w-full sm:w-1/2 px-8 items-center">
-			<img
-				src="/profile.jpg"
-				alt="Profile picture"
-				width="240"
-				height="240"
-				class="rounded-lg border-2 border-dark dark:border-light select-none pointer-events-none transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
-			/>
+			<div
+				class="transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
+			>
+				<img
+					src="/profile.jpg"
+					alt="Profile picture"
+					width="240"
+					height="240"
+					class="rounded-lg border-2 border-dark dark:border-light select-none pointer-events-none"
+				/>
+			</div>
 			<h1>About Me.</h1>
 			<p>
 				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
