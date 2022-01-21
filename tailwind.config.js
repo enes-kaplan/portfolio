@@ -15,7 +15,7 @@ module.exports = {
 				'dark-accent': '#EAB308' // yellow-500
 			},
 			spacing: {
-				header: '5rem'
+				header: '6rem'
 			}
 		},
 		fontFamily: {
