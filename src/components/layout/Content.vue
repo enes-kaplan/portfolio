@@ -25,7 +25,7 @@
 }
 
 .dark .pageScrollbar {
-	scrollbar-color: #ca8a04 #374151;
+	scrollbar-color: #eab308 #374151;
 	scrollbar-width: thin;
 }
 .dark .pageScrollbar::-webkit-scrollbar-track {
