@@ -1,6 +1,6 @@
 <template>
 	<section
-		id="contact-social"
+		id="social"
 		class="fixed left-4 top-header bottom-1/3 mt-10 flex flex-col justify-between w-10 my-auto"
 	>
 		<a
