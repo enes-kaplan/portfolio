@@ -28,7 +28,7 @@ h2 {
 	@apply text-xl sm:text-3xl font-semibold;
 }
 p {
-	@apply text-sm font-light sm:text-xl;
+	@apply text-lg sm:text-xl font-light;
 }
 
 .btn-primary {
