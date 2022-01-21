@@ -49,7 +49,9 @@
 					:key="i"
 					class="flex items-center gap-2 w-1/2 text-lg"
 				>
-					<ChevronDoubleRightIcon class="w-5 h-5" />
+					<ChevronDoubleRightIcon
+						class="flex-shrink-0 min-w-5 w-5 min-h-5 h-5"
+					/>
 					{{ skill }}
 				</div>
 			</div>
@@ -68,7 +70,7 @@ const skillList = [
 	'React',
 	'Remix',
 	'Microsoft SQL',
-	'PostgreSQL',
+	'Postgre SQL',
 	'C#',
 	'ASP.NET',
 	'.NET Core',
