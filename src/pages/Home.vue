@@ -11,15 +11,31 @@
 <script setup lang="ts">
 import type { Ref } from 'vue'
 import { onMounted, onUnmounted, nextTick, ref } from 'vue'
+import { useRouter } from 'vue-router'
 import ContactSocial from '@/components/Home/ContactSocial.vue'
 import Landing from '@/components/Home/Landing.vue'
 import AboutMe from '@/components/Home/AboutMe.vue'
 import Projects from '@/components/Home/Projects.vue'
 import Contact from '@/components/Home/Contact.vue'
+import { scrollIntoView } from '@/functions/common'
 
 let fadeInElements: Ref<Element[]> = ref([])
 let fadedInElementIds: Ref<string[]> = ref([])
 
+const sectionClass = (id: string) => {
+	const elementInArray = fadedInElementIds.value.find(f => f === id)
+	return elementInArray || router.currentRoute.value.hash !== ''
+		? 'fade-in'
+		: 'fade-out'
+}
+const setUpScroll = () => {
+	const contentEl = document.getElementById('content')
+	contentEl?.addEventListener('scroll', handleScroll)
+	fadeInElements.value = Array.from(
+		document.getElementsByClassName('sect-anim')
+	)
+	fadedInElementIds.value.push('landing')
+}
 const handleScroll = () => {
 	for (let i = 0; i < fadeInElements.value.length; i++) {
 		const el = fadeInElements.value[i]
@@ -29,25 +45,25 @@ const handleScroll = () => {
 		}
 	}
 }
-const sectionClass = (id: string) => {
-	const elementInArray = fadedInElementIds.value.find(f => f === id)
-	return elementInArray ? 'fade-in' : 'fade-out'
-}
 const isElVisible = (el: Element): boolean => {
 	var rect = el.getBoundingClientRect()
 	var elTop = rect.top - 50 // pixels of buffer
 	return elTop < window.innerHeight
 }
 
+const router = useRouter()
+const scrollToElement = () => {
+	if (router.currentRoute.value.hash !== '') {
+		const elementId = router.currentRoute.value.hash.split('#')[1]
+		scrollIntoView(elementId)
+	}
+}
+
 onMounted(() => {
 	nextTick(() => {
-		const contentEl = document.getElementById('content')
-		contentEl?.addEventListener('scroll', handleScroll)
-		fadeInElements.value = Array.from(
-			document.getElementsByClassName('sect-anim')
-		)
-		fadedInElementIds.value.push('landing')
+		setUpScroll()
 		handleScroll()
+		scrollToElement()
 	})
 })
 onUnmounted(() => {

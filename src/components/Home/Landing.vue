@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="landing"
-		class="flex flex-col sm:flex-row-reverse justify-around w-4/5 min-h-content mx-auto pt-8 sm:pt-0"
+		class="flex flex-col sm:flex-row-reverse justify-around w-4/5 min-h-content mx-auto py-12"
 	>
 		<div class="flex flex-col gap-4 wh-icon">
 			<img
@@ -41,9 +41,7 @@
 				<p class="sm:text-2xl sm:leading-relaxed">
 					I'm a passionate computer engineer located in Turkey who
 					strives to deliver web applications that are accessible,
-					maintainable and usable. I like reading 📖, travelling 🗺️
-					and playing videogames 🎮. I also work on side projects at
-					times ⌨️.
+					maintainable and usable.
 				</p>
 			</div>
 			<a

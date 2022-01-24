@@ -1,5 +1,5 @@
 <template>
-	<section id="contact" class="flex flex-col w-4/5 mx-auto mt-20">
+	<section id="contact" class="flex flex-col w-4/5 mx-auto py-12">
 		<h1 class="mx-auto">Contact.</h1>
 		<p class="mx-auto text-center">
 			You can contact me by email, just click the link below.

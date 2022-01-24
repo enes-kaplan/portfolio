@@ -1,5 +1,6 @@
 <template>
 	<div class="sm:hidden flex items-center gap-4">
+		<!-- TODO: Fix navigation from non-homepage -->
 		<button
 			class="flex active:outline outline-gray-600 transition-transform duration-300"
 			:class="{ '-translate-x-32': isMenuOpen }"
@@ -32,6 +33,15 @@
 				<button
 					class="hover:underline"
 					:tabindex="isMenuOpen ? 0 : -1"
+					@click="scrollAndCloseMenu('about')"
+				>
+					About Me
+				</button>
+			</li>
+			<li>
+				<button
+					class="hover:underline"
+					:tabindex="isMenuOpen ? 0 : -1"
 					@click="scrollAndCloseMenu('projects')"
 				>
 					Projects
@@ -52,6 +62,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { ViewListIcon } from '@heroicons/vue/outline'
 import { scrollIntoView } from '@/functions/common'
 import ThemeChanger from './ThemeChanger.vue'
@@ -64,6 +75,7 @@ const props = defineProps({
 })
 
 const emit = defineEmits(['setTheme'])
+const router = useRouter()
 
 const setTheme = (theme: string) => {
 	emit('setTheme', theme)
@@ -74,7 +86,11 @@ const changeMenu = (isOpen: boolean) => {
 	isMenuOpen.value = isOpen
 }
 const scrollAndCloseMenu = (id: string) => {
-	scrollIntoView(id)
-	changeMenu(false)
+	if (router.currentRoute.value.path === '/') {
+		scrollIntoView(id)
+		changeMenu(false)
+	} else {
+		router.push(`/#${id}`)
+	}
 }
 </script>

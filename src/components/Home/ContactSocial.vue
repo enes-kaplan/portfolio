@@ -14,7 +14,7 @@
 		>
 			<component
 				:is="link.component"
-				class="w-full h-full fill-theme-hover"
+				class="w-full h-full duration-200 ease-out fill-theme-hover"
 			/>
 		</a>
 	</section>
