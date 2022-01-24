@@ -1,6 +1,14 @@
+/** Possible values for todo items */
 export enum TodoStatus {
-	TODO = 1,
-	IN_PROGRESS = 2,
-	DONE = 3,
-	DELETED = 4
+	TODO,
+	IN_PROGRESS,
+	DONE,
+	DELETED
+}
+
+/** Possible values for tic-tac-toe tiles */
+export enum TileValues {
+	EMPTY,
+	X,
+	O
 }
