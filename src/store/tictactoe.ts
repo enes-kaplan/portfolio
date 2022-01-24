@@ -9,7 +9,7 @@ export const useTictactoeStore = defineStore('tictactoe', {
 	state: (): State => ({
 		board: [
 			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
-			[TileValues.X, TileValues.X, TileValues.O],
+			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
 			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY]
 		]
 	}),
@@ -59,7 +59,16 @@ export const useTictactoeStore = defineStore('tictactoe', {
 				}
 
 				return false
-			}
+			},
+		hasPlayerWon(): boolean {
+			return this.hasWon(TileValues.X)
+		},
+		hasAIWon(): boolean {
+			return this.hasWon(TileValues.O)
+		},
+		isGameCompleted(): boolean {
+			return this.hasPlayerWon || this.hasAIWon
+		}
 	},
 	actions: {
 		doMove(x: number, y: number, value: TileValues) {
