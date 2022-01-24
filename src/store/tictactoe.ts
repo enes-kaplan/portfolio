@@ -65,7 +65,11 @@ export const useTictactoeStore = defineStore('tictactoe', {
 			return this.hasWon(TileValues.O)
 		},
 		isGameCompleted(): boolean {
-			return this.hasPlayerWon || this.hasAIWon
+			return (
+				this.hasPlayerWon ||
+				this.hasAIWon ||
+				this.getPossibleMoves.length === 0
+			)
 		},
 		getPossibleMoves: state => {
 			let moves = []
