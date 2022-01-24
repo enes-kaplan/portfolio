@@ -1,8 +1,9 @@
 <template>
 	<section id="projects" class="flex flex-col items-center gap-12 py-12">
 		<h1>Sample Projects</h1>
-		<div
+		<router-link
 			v-for="(project, i) in projects"
+			:to="project.demoLink"
 			:key="i"
 			class="w-1/3 min-w-project pb-6 rounded overflow-hidden dark:bg-dark dark:text-dark-font border border-dark dark:border-light transition-all duration-200 ease-out hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
 		>
@@ -22,55 +23,25 @@
 			<p class="mt-2 px-8 text-lg">
 				{{ project.description }}
 			</p>
-			<div
-				class="flex w-full mt-4 border-t border-dark dark:border-light divide-x divide-dark dark:divide-light"
-			>
-				<router-link
-					:to="project.demoLink"
-					class="action-link btn-primary group"
-				>
-					<ExternalLinkIcon
-						class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark"
-					/>
-					Demo
-				</router-link>
-				<a
-					v-if="project.githubLink"
-					:href="project.githubLink"
-					target="_blank"
-					rel="noopener"
-					class="action-link btn-primary group"
-				>
-					<GithubSvg
-						class="w-6 h-6 group-hover:fill-light dark:group-hover:fill-dark"
-					/>
-					GitHub
-				</a>
-			</div>
-		</div>
+		</router-link>
 	</section>
 </template>
 
 <script setup lang="ts">
-import { ExternalLinkIcon } from '@heroicons/vue/outline'
-import GithubSvg from '@/components/SVG/Github.vue'
-
 const projects = [
 	{
 		name: 'To-do Project',
 		image: '/todo_light.jpg',
 		imageDark: '/todo_dark.jpg',
 		description: 'To-do project to keep track of your list of tasks.',
-		demoLink: '/ToDo',
-		githubLink: 'https://github.com/enes-kaplan'
+		demoLink: '/todo'
 	},
 	{
 		name: 'Project 2',
 		image: '/Project2.jpg',
 		imageDark: '/Project2.jpg',
 		description: 'Demo icon project to showcase the component.',
-		demoLink: '/project2',
-		githubLink: 'https://github.com/enes-kaplan'
+		demoLink: '/project2'
 	}
 ]
 </script>
