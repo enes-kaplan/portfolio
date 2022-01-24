@@ -80,6 +80,13 @@ export const useTictactoeStore = defineStore('tictactoe', {
 		},
 		aiMove() {
 			// TODO: Calculate AI move with the minimax algorithm
+		},
+		resetBoard() {
+			this.board = [
+				[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
+				[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
+				[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY]
+			]
 		}
 	}
 })

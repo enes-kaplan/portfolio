@@ -4,7 +4,7 @@
 	>
 		<CrossSVG
 			v-if="tileVal === TileValues.X"
-			class="w-12 h-12 fill-light-accent dark:fill-dark-accent"
+			class="w-12 h-12 fill-light-accent hover:fill-light-accent dark:fill-dark-accent"
 		/>
 		<CircleSVG v-else-if="tileVal === TileValues.O" class="w-12 h-12" />
 		<button v-else class="w-full h-full" @click="markTile" />
