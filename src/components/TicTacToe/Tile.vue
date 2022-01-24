@@ -17,7 +17,7 @@ import { useTictactoeStore } from '@/store/tictactoe'
 import CircleSVG from '@/components/SVG/Circle.vue'
 import CrossSVG from '@/components/SVG/Cross.vue'
 
-const { doMove } = useTictactoeStore()
+const { playerMove } = useTictactoeStore()
 
 const props = defineProps({
 	tileVal: {
@@ -35,6 +35,6 @@ const props = defineProps({
 })
 
 const markTile = () => {
-	doMove(props.x, props.y, TileValues.X)
+	playerMove(props.x, props.y)
 }
 </script>

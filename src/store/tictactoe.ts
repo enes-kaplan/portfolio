@@ -73,6 +73,13 @@ export const useTictactoeStore = defineStore('tictactoe', {
 	actions: {
 		doMove(x: number, y: number, value: TileValues) {
 			this.board[x][y] = value
+		},
+		playerMove(x: number, y: number) {
+			this.doMove(x, y, TileValues.X)
+			this.aiMove()
+		},
+		aiMove() {
+			// TODO: Calculate AI move with the minimax algorithm
 		}
 	}
 })
