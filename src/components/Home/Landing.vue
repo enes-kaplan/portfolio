@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="landing"
-		class="flex flex-col sm:flex-row-reverse justify-around w-4/5 min-h-content mx-auto pt-8 sm:pt-0"
+		class="flex flex-col sm:flex-row-reverse justify-around w-4/5 min-h-content mx-auto py-12"
 	>
 		<div class="flex flex-col gap-4 wh-icon">
 			<img

@@ -1,7 +1,7 @@
 <template>
 	<router-view
 		id="content"
-		class="mt-header h-[calc(100vh-5rem)] scroll-pt-headers pb-20 overflow-y-auto pageScrollbar"
+		class="mt-header h-[calc(100vh-5rem)] scroll-pt-8 scroll-smooth overflow-y-auto pageScrollbar"
 	/>
 </template>
 

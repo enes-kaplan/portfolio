@@ -1,7 +1,7 @@
 <template>
 	<section
 		id="about"
-		class="flex flex-col sm:flex-row sm:justify-between sm:items-center w-4/5 mx-auto"
+		class="flex flex-col sm:flex-row sm:justify-between sm:items-center w-4/5 mx-auto py-12"
 	>
 		<!-- #region About -->
 		<div class="flex flex-col gap-6 w-full sm:w-1/2 px-8 items-center">
@@ -13,7 +13,7 @@
 					alt="Profile picture"
 					width="240"
 					height="240"
-					class="rounded-lg border-2 border-dark dark:border-light select-none pointer-events-none"
+					class="rounded-lg border-2 border-light-accent dark:border-dark-accent select-none pointer-events-none"
 				/>
 			</div>
 			<h1>About Me.</h1>
