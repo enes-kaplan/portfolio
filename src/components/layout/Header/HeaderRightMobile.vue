@@ -2,7 +2,7 @@
 	<div class="sm:hidden flex items-center gap-4">
 		<!-- TODO: Fix navigation from non-homepage -->
 		<button
-			class="flex active:outline outline-gray-600 transition-transform duration-300"
+			class="flex active:outline outline-gray-600 transition-transform ease-out duration-100"
 			:class="{ '-translate-x-32': isMenuOpen }"
 			aria-haspopup="true"
 			aria-label="Open menu"

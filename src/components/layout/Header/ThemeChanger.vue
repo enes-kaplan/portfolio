@@ -1,6 +1,6 @@
 <template>
 	<button
-		class="flex justify-center items-center active:outline outline-gray-600 transition-transform duration-300"
+		class="flex justify-center items-center active:outline outline-gray-600 transition-transform ease-out duration-100"
 		aria-label="Change theme"
 		@click="switchTheme"
 	>
