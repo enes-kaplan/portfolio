@@ -9,11 +9,58 @@ export const useTictactoeStore = defineStore('tictactoe', {
 	state: (): State => ({
 		board: [
 			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
-			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
+			[TileValues.X, TileValues.X, TileValues.O],
 			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY]
 		]
 	}),
-	getters: {},
+	getters: {
+		/**
+		 * @param {TileValues} playerTile - The player to check the win condition for
+		 * @returns
+		 */
+		hasWon:
+			state =>
+			(playerTile: TileValues): boolean => {
+				// Horizontal rows
+				for (let i = 0; i < 3; i++) {
+					if (
+						state.board[0][i] === playerTile &&
+						state.board[1][i] === playerTile &&
+						state.board[2][i] === playerTile
+					) {
+						return true
+					}
+				}
+
+				// Vertical rows
+				for (let i = 0; i < 3; i++) {
+					if (
+						state.board[i][0] === playerTile &&
+						state.board[i][1] === playerTile &&
+						state.board[i][2] === playerTile
+					) {
+						return true
+					}
+				}
+
+				if (
+					state.board[0][0] === playerTile &&
+					state.board[1][1] === playerTile &&
+					state.board[2][2] === playerTile
+				) {
+					return true
+				}
+				if (
+					state.board[0][2] === playerTile &&
+					state.board[1][1] === playerTile &&
+					state.board[2][0] === playerTile
+				) {
+					return true
+				}
+
+				return false
+			}
+	},
 	actions: {
 		doMove(x: number, y: number, value: TileValues) {
 			this.board[x][y] = value
