@@ -5,13 +5,11 @@ interface State {
 	board: TileValues[][]
 }
 
+const initialRow = [TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY]
+
 export const useTictactoeStore = defineStore('tictactoe', {
 	state: (): State => ({
-		board: [
-			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
-			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
-			[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY]
-		]
+		board: [[...initialRow], [...initialRow], [...initialRow]]
 	}),
 	getters: {
 		/**
@@ -82,11 +80,7 @@ export const useTictactoeStore = defineStore('tictactoe', {
 			// TODO: Calculate AI move with the minimax algorithm
 		},
 		resetBoard() {
-			this.board = [
-				[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
-				[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY],
-				[TileValues.EMPTY, TileValues.EMPTY, TileValues.EMPTY]
-			]
+			this.board = [[...initialRow], [...initialRow], [...initialRow]]
 		}
 	}
 })
