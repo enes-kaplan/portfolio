@@ -4,7 +4,7 @@
 		<div
 			v-for="(project, i) in projects"
 			:key="i"
-			class="w-1/3 min-w-project rounded overflow-hidden dark:bg-dark dark:text-dark-font border border-dark dark:border-light transition-all duration-300 hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
+			class="w-1/3 min-w-project pb-6 rounded overflow-hidden dark:bg-dark dark:text-dark-font border border-dark dark:border-light transition-all duration-200 ease-out hover:translate-x-0.5 hover:translate-y-0.5 shadow-theme-hover"
 		>
 			<img
 				:src="project.image"
