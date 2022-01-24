@@ -41,9 +41,7 @@
 				<p class="sm:text-2xl sm:leading-relaxed">
 					I'm a passionate computer engineer located in Turkey who
 					strives to deliver web applications that are accessible,
-					maintainable and usable. I like reading 📖, travelling 🗺️
-					and playing videogames 🎮. I also work on side projects at
-					times ⌨️.
+					maintainable and usable.
 				</p>
 			</div>
 			<a

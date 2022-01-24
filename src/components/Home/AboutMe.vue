@@ -18,22 +18,21 @@
 			</div>
 			<h1>About Me.</h1>
 			<p>
-				Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-				eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-				enim ad minim veniam, quis nostrud exercitation ullamco laboris
-				nisi ut aliquip ex ea commodo consequat.
+				Hello, I'm Enes. I am a developer who creates web applications
+				with care and love. I have graduated in Computer Engineering in
+				2017.
 			</p>
 			<p>
-				Duis aute irure dolor in reprehenderit in voluptate velit esse
-				cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
-				cupidatat non proident, sunt in culpa qui officia deserunt
-				mollit anim id est laborum.
+				I was working on a company before being graduated and I have
+				worked with different programming languages and tools since
+				then. Started programming by writing backend APIs but loved
+				writing frontend more and specialized more in frontend
+				development.
 			</p>
 			<p>
-				Sed ut perspiciatis unde omnis iste natus error sit voluptatem
-				accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
-				quae ab illo inventore veritatis et quasi architecto beatae
-				vitae dicta sunt explicabo.
+				In my free time, I like spending time with my family 👫, reading
+				📖, travelling 🗺️ and playing videogames 🎮. I also work on side
+				projects at times ⌨️.
 			</p>
 		</div>
 		<!-- #endregion -->
