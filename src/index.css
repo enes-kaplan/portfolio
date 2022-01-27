@@ -63,6 +63,10 @@ p {
 	@apply hover:fill-light-accent dark:hover:fill-dark-accent !important;
 }
 
+.transition-hover {
+	@apply transition-all duration-200 ease-out;
+}
+
 .noScrollbar {
 	-ms-overflow-style: none; /* IE and Edge */
 	scrollbar-width: none; /* Firefox */

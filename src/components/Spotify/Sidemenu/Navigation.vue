@@ -3,15 +3,10 @@
 		<li
 			v-for="(menu, i) in menuList"
 			:key="i"
-			class="group flex items-center gap-4 w-full cursor-pointer"
+			class="sidemenu-row transition-hover"
 		>
-			<component
-				:is="menu.icon"
-				class="fill-spotify-inactive group-hover:fill-white"
-			/>
-			<span
-				class="text-xs font-semibold text-spotify-inactive group-hover:text-white"
-			>
+			<component :is="menu.icon" class="fill-white" />
+			<span class="sidemenu-text">
 				{{ menu.text }}
 			</span>
 		</li>

@@ -17,7 +17,7 @@ import Content from '@/components/Spotify/Content.vue'
 <style>
 /** This is for Firefox */
 .spotifyScrollbar {
-	scrollbar-color: #5a5a5a white;
+	scrollbar-color: rgba(255, 255, 255, 0.3) white;
 	scrollbar-width: thin;
 	@apply transition-all duration-300;
 }
@@ -29,6 +29,6 @@ import Content from '@/components/Spotify/Content.vue'
 	height: 4px;
 }
 .spotifyScrollbar::-webkit-scrollbar-thumb {
-	background-color: #5a5a5a;
+	background-color: rgba(255, 255, 255, 0.3);
 }
 </style>
