@@ -38,8 +38,8 @@ const projects = [
 	},
 	{
 		name: 'Tic-Tac-Toe',
-		image: '/Project2.jpg',
-		imageDark: '/Project2.jpg',
+		image: '/tictactoe.png',
+		imageDark: '/tictactoe_dark.png',
 		description: 'Play tic-tac-toe against AI using minimax algorithm.',
 		demoLink: '/tictactoe'
 	}
