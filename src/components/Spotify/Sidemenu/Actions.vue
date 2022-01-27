@@ -6,9 +6,7 @@
 					<PlusSVG class="w-full h-full fill-black" />
 				</div>
 			</div>
-			<span class="text-xs font-semibold text-white">
-				Create a playlist
-			</span>
+			<span class="sidemenu-text"> Create a playlist </span>
 		</li>
 		<li class="sidemenu-row transition-hover">
 			<div class="flex justify-center items-center">
@@ -16,7 +14,7 @@
 					<HeartSVG class="w-full h-full fill-white" />
 				</div>
 			</div>
-			<span class="text-xs font-semibold text-white"> Liked songs </span>
+			<span class="sidemenu-text"> Liked songs </span>
 		</li>
 	</ul>
 </template>

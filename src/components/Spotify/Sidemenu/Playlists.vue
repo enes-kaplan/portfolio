@@ -3,7 +3,7 @@
 		<li
 			v-for="(playlist, i) in playlists"
 			:key="i"
-			class="sidemenu-row cursor-default py-1"
+			class="sidemenu-row transition-hover cursor-default py-1"
 		>
 			<span class="sidemenu-text text-sm font-light truncate">
 				{{ playlist }}

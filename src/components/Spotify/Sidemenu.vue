@@ -30,6 +30,6 @@ import InstallApp from './Sidemenu/InstallApp.vue'
 	@apply flex items-center gap-4 w-full cursor-pointer opacity-75 hover:opacity-100;
 }
 .sidemenu-text {
-	@apply text-xs font-semibold text-white;
+	@apply text-xs font-semibold text-white tracking-wider;
 }
 </style>
