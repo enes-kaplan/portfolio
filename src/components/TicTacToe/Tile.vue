@@ -1,16 +1,18 @@
 <template>
 	<div
-		class="flex justify-center items-center text-5xl border border-dark dark:border-light transition-colors duration-300 ease-out shadow-"
+		class="flex justify-center items-center text-5xl border border-dark dark:border-light transition-all duration-300 ease-out"
 		:class="{
 			'shadow-hover': tileVal === TileValues.EMPTY
-			// 'hover:bg-dark dark:hover:bg-light': tileVal === TileValues.EMPTY
 		}"
 	>
 		<CrossSVG
 			v-if="tileVal === TileValues.X"
-			class="w-12 h-12 fill-light-accent hover:fill-light-accent dark:fill-dark-accent"
+			class="w-12 h-12 fill-light-accent hover:fill-light-accent dark:fill-dark-accent transition-all duration-300 ease-out"
 		/>
-		<CircleSVG v-else-if="tileVal === TileValues.O" class="w-12 h-12" />
+		<CircleSVG
+			v-else-if="tileVal === TileValues.O"
+			class="w-12 h-12 transition-all duration-300 ease-out"
+		/>
 		<button v-else class="w-full h-full" @click="markTile" />
 	</div>
 </template>

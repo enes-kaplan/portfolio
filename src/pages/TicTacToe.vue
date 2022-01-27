@@ -1,5 +1,6 @@
 <template>
-	<div class="flex flex-col items-center gap-12 py-24">
+	<div class="flex flex-col items-center gap-12 pt-12 pb-24">
+		<h1>Play tic-tac-toe against AI</h1>
 		<Board />
 		<template v-if="isGameCompleted">
 			<span
