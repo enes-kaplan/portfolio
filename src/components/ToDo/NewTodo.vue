@@ -28,7 +28,6 @@ import { required } from '@vuelidate/validators'
 import { CheckIcon, XIcon } from '@heroicons/vue/outline'
 import { saveTodo } from '@/functions/firebase_todo'
 import { useTodoStore } from '@/store/todo'
-import { storeToRefs } from 'pinia'
 
 const state = reactive({ description: '' })
 const rules = {
@@ -38,7 +37,6 @@ const v$ = useVuelidate(rules, state, { $autoDirty: true })
 
 const todoStore = useTodoStore()
 const { newTodo, cancelNewTodo, addTodoToList } = todoStore
-const {} = storeToRefs(todoStore)
 
 const cancelEdit = () => {
 	cancelNewTodo()

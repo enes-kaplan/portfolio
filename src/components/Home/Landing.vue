@@ -46,7 +46,7 @@
 			</div>
 			<a
 				href="mailto:eneskaplan94@hotmail.com"
-				class="btn-primary mt-8 text-center text-lg font-semibold border-2 select-none"
+				class="btn btn-primary justify-center mt-8 text-lg font-semibold border-2 select-none"
 			>
 				Get In Touch
 			</a>

@@ -31,8 +31,11 @@ p {
 	@apply text-lg sm:text-xl font-light;
 }
 
+.btn {
+	@apply flex items-center gap-4 px-4 py-2;
+}
 .btn-primary {
-	@apply px-4 py-2 border border-dark dark:border-light
+	@apply border border-dark dark:border-light
 	text-light-font dark:text-dark-font
 	hover:bg-dark hover:text-light
 	dark:hover:bg-light dark:hover:text-dark rounded

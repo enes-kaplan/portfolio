@@ -37,11 +37,11 @@ const projects = [
 		demoLink: '/todo'
 	},
 	{
-		name: 'Project 2',
+		name: 'Tic-Tac-Toe',
 		image: '/Project2.jpg',
 		imageDark: '/Project2.jpg',
-		description: 'Demo icon project to showcase the component.',
-		demoLink: '/project2'
+		description: 'Play tic-tac-toe against AI using minimax algorithm.',
+		demoLink: '/tictactoe'
 	}
 ]
 </script>
