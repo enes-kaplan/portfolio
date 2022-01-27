@@ -1,5 +1,5 @@
 <template>
-	<section class="flex items-center h-16 bg-black">Header</section>
+	<header class="flex items-center h-16 bg-black">Header</header>
 </template>
 
 <script setup lang="ts"></script>

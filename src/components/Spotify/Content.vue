@@ -1,9 +1,9 @@
 <template>
-	<section
+	<main
 		class="w-full h-full bg-spotify-darker overflow-y-auto spotifyScrollbar"
 	>
 		Content
-	</section>
+	</main>
 </template>
 
 <script setup lang="ts"></script>

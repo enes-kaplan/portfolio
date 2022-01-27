@@ -1,6 +1,6 @@
 <template>
 	<svg
-		class="fill-current hover:fill-current"
+		class="fill-current hover:fill-current dark:hover:fill-current"
 		role="img"
 		height="24"
 		width="24"
