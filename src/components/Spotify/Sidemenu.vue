@@ -2,11 +2,18 @@
 	<nav
 		id="sidemenu"
 		aria-label="Sidemenu"
-		class="flex-shrink-0 w-64 px-6 bg-black"
+		class="flex-shrink-0 flex flex-col w-64 px-6 bg-black"
 	>
 		<LogoSvg class="w-32 h-16 mt-4 fill-white" />
 		<Navigation />
 		<Actions />
+		<hr class="my-6 border-[#282828]" />
+		<div
+			class="relative flex-grow flex flex-col overflow-y-auto spotifyScrollbar"
+		>
+			<Playlists />
+			<InstallApp />
+		</div>
 	</nav>
 </template>
 
@@ -14,6 +21,8 @@
 import LogoSvg from '@/components/SVG/Spotify/Logo.vue'
 import Navigation from './Sidemenu/Navigation.vue'
 import Actions from './Sidemenu/Actions.vue'
+import Playlists from './Sidemenu/Playlists.vue'
+import InstallApp from './Sidemenu/InstallApp.vue'
 </script>
 
 <style>

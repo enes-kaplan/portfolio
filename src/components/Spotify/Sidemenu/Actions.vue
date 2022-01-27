@@ -1,5 +1,5 @@
 <template>
-	<ul class="flex flex-col gap-4 mt-8">
+	<ul class="flex flex-col gap-4 mt-12">
 		<li class="sidemenu-row transition-hover">
 			<div class="flex justify-center items-center">
 				<div class="w-6 h-6 p-1 bg-white rounded-xs">
