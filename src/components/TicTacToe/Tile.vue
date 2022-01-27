@@ -1,6 +1,10 @@
 <template>
 	<div
-		class="flex justify-center items-center text-5xl border border-dark dark:border-light"
+		class="flex justify-center items-center text-5xl border border-dark dark:border-light transition-colors duration-300 ease-out shadow-"
+		:class="{
+			'shadow-hover': tileVal === TileValues.EMPTY
+			// 'hover:bg-dark dark:hover:bg-light': tileVal === TileValues.EMPTY
+		}"
 	>
 		<CrossSVG
 			v-if="tileVal === TileValues.X"
@@ -38,3 +42,12 @@ const markTile = () => {
 	playerMove(props.x, props.y)
 }
 </script>
+
+<style scoped>
+.shadow-hover:hover {
+	box-shadow: inset 0 4px 40px 0 rgb(3 105 161 / 0.5);
+}
+.dark .shadow-hover:hover {
+	box-shadow: inset 0 4px 40px 0 rgb(234 179 8 / 0.5);
+}
+</style>
