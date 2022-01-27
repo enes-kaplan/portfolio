@@ -13,9 +13,12 @@ module.exports = {
 				dark: '#374151', // gray-700
 				'dark-font': '#F3F4F6', // gray-100
 				'dark-accent': '#EAB308', // yellow-500
+				'spotify-darkest': '#070707',
 				'spotify-darker': '#121212',
 				'spotify-dark': '#181818',
-				'spotify-inactive': '#B3B3B3'
+				'spotify-gray': '#282828',
+				'spotify-gray-light': '#3E3E3E',
+				'spotify-button': '#0A0A0A'
 			},
 			spacing: {
 				header: '6rem'

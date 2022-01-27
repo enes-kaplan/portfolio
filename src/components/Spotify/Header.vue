@@ -1,5 +1,7 @@
 <template>
-	<header class="flex justify-between items-center h-16 px-8 bg-black">
+	<header
+		class="flex justify-between items-center h-16 px-8 bg-spotify-darkest"
+	>
 		<HeaderLeft />
 		<HeaderRight />
 	</header>
