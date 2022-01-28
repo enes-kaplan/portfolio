@@ -10,6 +10,8 @@
 					'rounded-full': content.isCircle,
 					'rounded-lg': !content.isCircle
 				}"
+				width="160"
+				height="160"
 				alt="Content image"
 			/>
 			<div
