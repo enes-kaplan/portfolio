@@ -1,6 +1,6 @@
 <template>
 	<div
-		class="group flex flex-col p-4 bg-spotify-dark transition-all duration-300 ease-in-out hover:bg-spotify-gray rounded cursor-pointer"
+		class="group flex flex-col w-48 p-4 bg-spotify-dark transition-all duration-300 ease-in-out hover:bg-spotify-gray rounded cursor-pointer"
 	>
 		<div class="relative w-40 h-40">
 			<img

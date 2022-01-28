@@ -49,10 +49,34 @@ const contentSections = [
 		description: 'Non-stop music based on your favorite songs and artists.',
 		sectionContents: [
 			{
-				title: '',
-				description: '',
-				image: '',
-				isCircle: true
+				title: 'Daily Mix 1',
+				description: 'Egypt Central, Linkin Park, Downplay and...',
+				image: '/spotify/mix1.jpg',
+				isCircle: false
+			},
+			{
+				title: 'Daily Mix 2',
+				description: 'Dorothy, Black Rebel Motorcycle Club,...',
+				image: '/spotify/mix2.jpg',
+				isCircle: false
+			},
+			{
+				title: 'Daily Mix 3',
+				description: "Blackmore's Night, Karliene, Lunatica...",
+				image: '/spotify/mix3.jpg',
+				isCircle: false
+			},
+			{
+				title: 'Daily Mix 4',
+				description: 'Borislav Slavov, Video Games Live, Vomitro...',
+				image: '/spotify/mix4.jpg',
+				isCircle: false
+			},
+			{
+				title: 'Daily Mix 5',
+				description: 'Watsky, Hoodie Allen, TomPepe...',
+				image: '/spotify/mix5.jpg',
+				isCircle: false
 			}
 		]
 	},
