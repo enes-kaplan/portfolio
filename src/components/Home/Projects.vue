@@ -10,14 +10,16 @@
 			<img
 				:src="project.image"
 				:alt="`Project image for ${project.name}`"
-				class="dark:hidden w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light"
+				class="dark:hidden w-full object-cover border-b border-opacity-50 border-dark dark:border-light"
 			/>
 			<img
 				:src="project.imageDark"
 				:alt="`Project image for ${project.name}`"
-				class="hidden dark:block w-full max-h-48 object-cover border-b border-opacity-50 border-dark dark:border-light"
+				class="hidden dark:block object-cover border-b border-opacity-50 border-dark dark:border-light"
 			/>
-			<div class="mt-4 px-8 text-center text-3xl font-semibold">
+			<div
+				class="mt-4 px-8 text-center text-3xl font-semibold text-light-accent dark:text-dark-accent"
+			>
 				{{ project.name }}
 			</div>
 			<p class="mt-2 px-8 text-lg">
@@ -30,17 +32,25 @@
 <script setup lang="ts">
 const projects = [
 	{
+		name: 'Spotify Design Clone',
+		image: '/spotify.png',
+		imageDark: '/spotify.png',
+		description:
+			'Spotify design clone project for showcasing design implementations.',
+		demoLink: '/spotify'
+	},
+	{
 		name: 'To-do Project',
 		image: '/todo_light.jpg',
 		imageDark: '/todo_dark.jpg',
-		description: 'To-do project to keep track of your list of tasks.',
+		description: 'To-do project to keep track of your tasks.',
 		demoLink: '/todo'
 	},
 	{
 		name: 'Tic-Tac-Toe',
 		image: '/tictactoe.png',
 		imageDark: '/tictactoe_dark.png',
-		description: 'Play tic-tac-toe against AI using minimax algorithm.',
+		description: 'Play tic-tac-toe against AI using the minimax algorithm.',
 		demoLink: '/tictactoe'
 	}
 ]
@@ -49,8 +59,5 @@ const projects = [
 <style scoped>
 .min-w-project {
 	min-width: 16rem;
-}
-.action-link {
-	@apply flex-grow flex justify-center items-center gap-2 py-2 border-0 rounded-none;
 }
 </style>
