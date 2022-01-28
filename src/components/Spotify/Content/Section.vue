@@ -4,7 +4,9 @@
 		<div v-if="section.description" class="text-sm text-spotify-text-light">
 			{{ section.description }}
 		</div>
-		<div class="flex gap-6 w-full mt-8 overflow-hidden">
+		<div
+			class="flex gap-6 w-full mt-8 sm:overflow-hidden overflow-x-auto noScrollbar"
+		>
 			<ContentBox
 				v-for="(content, i) in section.sectionContents"
 				:key="i"
