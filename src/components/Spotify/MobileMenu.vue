@@ -1,6 +1,6 @@
 <template>
 	<ul
-		class="fixed bottom-0 left-0 right-0 flex justify-around items-end pt-2 bg-spotify-gray"
+		class="fixed bottom-0 left-0 right-0 flex justify-around items-end pt-2 pb-0.5 bg-spotify-gray"
 	>
 		<li
 			v-for="(menu, i) in menus"
@@ -16,7 +16,7 @@
 				}"
 			/>
 			<span
-				class="text-sm"
+				class="text-xs"
 				:class="{
 					'text-white': i === 0,
 					'text-spotify-text-light': i !== 0
