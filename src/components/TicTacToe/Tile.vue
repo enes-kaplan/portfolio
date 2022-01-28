@@ -13,7 +13,12 @@
 			v-else-if="tileVal === TileValues.O"
 			class="w-12 h-12 transition-all duration-300 ease-out"
 		/>
-		<button v-else class="w-full h-full" @click="markTile" />
+		<button
+			v-else
+			class="w-full h-full"
+			aria-label="Mark the tile"
+			@click="markTile"
+		/>
 	</div>
 </template>
 
