@@ -1,6 +1,6 @@
 <template>
 	<ul
-		class="fixed bottom-0 left-0 right-0 flex justify-around items-end pt-2 bg-spotify-gray-light"
+		class="fixed bottom-0 left-0 right-0 flex justify-around items-end pt-2 bg-spotify-gray"
 	>
 		<li
 			v-for="(menu, i) in menus"
