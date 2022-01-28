@@ -37,9 +37,27 @@ const contentSections = [
 		description: '',
 		sectionContents: [
 			{
-				title: '',
-				description: '',
+				title: 'Potacast',
+				description: 'Socrates Dergi, Orkun Çolakoğlu, Kaan Kura',
 				image: '/spotify/potacast.jpg',
+				isCircle: false
+			},
+			{
+				title: 'Dr.RedPill',
+				description: 'Dr.RedPill',
+				image: '/spotify/drredpill.jpg',
+				isCircle: false
+			},
+			{
+				title: 'Codefiction Podcast',
+				description: 'Codefiction Community',
+				image: '/spotify/codefiction.jpg',
+				isCircle: false
+			},
+			{
+				title: 'Philosophize This!',
+				description: 'Stephen West',
+				image: '/spotify/philosophize.jpg',
 				isCircle: false
 			}
 		]
