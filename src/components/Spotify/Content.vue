@@ -17,11 +17,17 @@ const contentSections = [
 	{
 		title: 'Recently played',
 		description: '',
-		content: [
+		sectionContents: [
 			{
 				title: 'First Aid Kit',
 				description: 'Artist',
 				image: '/spotify/firstaidkit.jpg',
+				isCircle: true
+			},
+			{
+				title: 'Linkin Park',
+				description: 'Artist',
+				image: '/spotify/linkinpark.jpg',
 				isCircle: true
 			}
 		]
@@ -29,19 +35,19 @@ const contentSections = [
 	{
 		title: 'Shows you might like',
 		description: '',
-		content: [
+		sectionContents: [
 			{
 				title: '',
 				description: '',
-				image: '',
-				isCircle: true
+				image: '/spotify/potacast.jpg',
+				isCircle: false
 			}
 		]
 	},
 	{
 		title: 'Recommended radio',
 		description: 'Non-stop music based on your favorite songs and artists.',
-		content: [
+		sectionContents: [
 			{
 				title: '',
 				description: '',
@@ -53,7 +59,7 @@ const contentSections = [
 	{
 		title: 'Best of artists',
 		description: 'Bringing together the top songs from an artist.',
-		content: [
+		sectionContents: [
 			{
 				title: '',
 				description: '',

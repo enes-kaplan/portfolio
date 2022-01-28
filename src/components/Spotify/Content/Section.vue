@@ -4,17 +4,19 @@
 		<div v-if="section.description" class="text-sm text-spotify-text-light">
 			{{ section.description }}
 		</div>
-		<div class="flex gap-4 w-full overflow-hidden">
+		<div class="flex gap-6 w-full py-12 overflow-hidden">
 			<ContentBox
-				v-for="(item, i) in section.content"
+				v-for="(content, i) in section.sectionContents"
 				:key="i"
-				:content="item"
+				:content="content"
 			/>
 		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
+import ContentBox from './Box.vue'
+
 const props = defineProps({
 	section: {
 		type: Object,
