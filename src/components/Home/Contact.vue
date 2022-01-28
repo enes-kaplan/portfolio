@@ -6,7 +6,7 @@
 		</p>
 		<a
 			href="mailto:eneskaplan94@hotmail.com"
-			class="btn-primary w-64 mt-8 mx-auto text-center select-none"
+			class="btn btn-primary justify-center w-64 mx-auto mt-8 text-lg font-semibold border-2 select-none"
 		>
 			Email Me
 		</a>
