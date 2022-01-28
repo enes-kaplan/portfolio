@@ -74,7 +74,7 @@ const contentSections = [
 			},
 			{
 				title: 'Daily Mix 2',
-				description: 'Dorothy, Black Rebel Motorcycle Club,...',
+				description: 'Dorothy, Black Rebel Motorcycle Club...',
 				image: '/spotify/mix2.jpg',
 				isCircle: false
 			},
@@ -103,10 +103,30 @@ const contentSections = [
 		description: 'Bringing together the top songs from an artist.',
 		sectionContents: [
 			{
-				title: '',
-				description: '',
-				image: '',
-				isCircle: true
+				title: 'This is Duman',
+				description: 'This is Duman. The essential tracks, all in...',
+				image: '/spotify/thisis_duman.jpg',
+				isCircle: false
+			},
+			{
+				title: 'This is First Aid Kit',
+				description:
+					'This is First Aid Kit. The essential tracks, all in...',
+				image: '/spotify/thisis_firstaidkit.jpg',
+				isCircle: false
+			},
+			{
+				title: 'This is Linkin Park',
+				description:
+					'This is Linkin Park. The essential tracks, all in...',
+				image: '/spotify/thisis_linkinpark.jpg',
+				isCircle: false
+			},
+			{
+				title: 'This is Watsky',
+				description: 'This is Watsky. The essential tracks, all in...',
+				image: '/spotify/thisis_watsky.jpg',
+				isCircle: false
 			}
 		]
 	}

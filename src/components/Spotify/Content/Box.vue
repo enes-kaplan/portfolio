@@ -18,10 +18,10 @@
 				<PlaySVG />
 			</div>
 		</div>
-		<span class="text-lg font-semibold mt-6">
+		<span class="font-semibold mt-6">
 			{{ content.title }}
 		</span>
-		<span class="text-sm text-spotify-text-light">
+		<span class="mt-1 text-sm text-spotify-text-light clamp-2">
 			{{ content.description }}
 		</span>
 	</div>
@@ -37,3 +37,9 @@ const props = defineProps({
 	}
 })
 </script>
+
+<style scoped>
+.clamp-2 {
+	-webkit-line-clamp: 2;
+}
+</style>
