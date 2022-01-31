@@ -1,5 +1,5 @@
 import { Timestamp } from 'firebase/firestore'
-import { TodoStatus } from '@/static/enums'
+import { TodoStatus, BalanceType } from '@/static/enums'
 
 export interface Todo {
 	Id?: string
@@ -9,4 +9,18 @@ export interface Todo {
 	Description?: string
 	CreateDate?: Timestamp
 	UpdateDate?: Timestamp
+}
+
+export interface Balance {
+	Id?: string
+	Type: BalanceType
+	CustomName: string
+	Amount: number
+	Year: number
+	Month: number
+	Note: string
+	Order: number
+	CreateDate: Timestamp
+	UpdateDate: Timestamp
+	isDeleted: boolean
 }

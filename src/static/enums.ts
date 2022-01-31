@@ -12,3 +12,17 @@ export enum TileValues {
 	X,
 	O
 }
+
+export enum BalanceType {
+	ELECTRICITY = 'ELECTRICITY',
+	WATER = 'WATER',
+	GAS = 'GAS',
+	INTERNET = 'INTERNET',
+	PHONE = 'PHONE',
+	RENT = 'RENT',
+	CREDIT = 'CREDIT',
+	MARKET = 'MARKET',
+	SALARY = 'SALARY',
+	EXPENDITURE = 'EXPENDITURE',
+	INCOME = 'INCOME'
+}

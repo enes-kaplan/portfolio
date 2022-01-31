@@ -4,7 +4,7 @@ import {
 	CollectionReference
 } from 'firebase/firestore'
 import { firestore } from './firebase_setup'
-import { Todo } from './firebase_types'
+import { Todo, Balance } from './firebase_types'
 
 // This is just a helper to add the type to the db responses
 const createCollection = <T = DocumentData>(collectionName: string) => {
@@ -12,3 +12,4 @@ const createCollection = <T = DocumentData>(collectionName: string) => {
 }
 
 export const todoCol = createCollection<Todo>('ToDo')
+export const balanceCol = createCollection<Balance>('Balance')
