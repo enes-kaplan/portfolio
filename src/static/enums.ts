@@ -22,7 +22,7 @@ export enum BalanceType {
 	RENT = 'RENT',
 	CREDIT = 'CREDIT',
 	MARKET = 'MARKET',
-	SALARY = 'SALARY',
 	EXPENDITURE = 'EXPENDITURE',
+	SALARY = 'SALARY',
 	INCOME = 'INCOME'
 }
