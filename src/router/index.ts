@@ -5,6 +5,7 @@ import Home from '../pages/Home.vue'
 import ToDo from '../pages/ToDo.vue'
 import TicTacToe from '../pages/TicTacToe.vue'
 import Spotify from '../pages/Spotify.vue'
+import Balance from '../pages/Balance.vue'
 
 const router: Router = createRouter({
 	history: createWebHistory(),
@@ -35,6 +36,13 @@ const router: Router = createRouter({
 					path: '/tictactoe',
 					components: {
 						main: TicTacToe
+					}
+				},
+				{
+					name: 'balance',
+					path: '/balance',
+					components: {
+						main: Balance
 					}
 				}
 			]
