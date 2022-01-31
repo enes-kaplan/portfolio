@@ -11,16 +11,24 @@ export interface Todo {
 	UpdateDate?: Timestamp
 }
 
-export interface Balance {
+export interface BalanceItem {
 	Id?: string
 	Type: BalanceType
 	CustomName: string
 	Amount: number
-	Year: number
-	Month: number
 	Note: string
 	Order: number
 	CreateDate: Timestamp
 	UpdateDate: Timestamp
+	isDeleted: boolean
+}
+
+export interface Balance {
+	Id?: string
+	UserId: string
+	Year: number
+	Month: number
+	TotalIncome: number
+	TotalExpenditure: number
 	isDeleted: boolean
 }
