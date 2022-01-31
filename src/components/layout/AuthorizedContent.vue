@@ -1,10 +1,14 @@
 <template>
-	<div v-if="getCurrentUser === 'LOADING'">
-		<LoaderSVG />
-	</div>
-	<div v-else-if="getCurrentUser === null" id="firebaseui-auth-container" />
-	<div v-else>
-		<slot />
+	<div>
+		<div id="firebaseui-auth-container">
+			<div v-if="getCurrentUser === 'LOADING'">
+				<LoaderSVG />
+			</div>
+			<div v-else-if="getCurrentUser === null" />
+			<div v-else>
+				<slot />
+			</div>
+		</div>
 	</div>
 </template>
 
