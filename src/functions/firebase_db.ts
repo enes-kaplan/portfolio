@@ -12,7 +12,7 @@ const createCollection = <T = DocumentData>(collectionName: string) => {
 	return collection(firestore, collectionName) as CollectionReference<T>
 }
 /** Returns sub-collection of a document with associated types */
-export const createCollectionFromDocument = <T>(
+export const createSubCollectionFromDocId = <T>(
 	colRef: CollectionReference,
 	docId: string,
 	subCollectionName: string

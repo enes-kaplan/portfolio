@@ -1,7 +1,7 @@
 import type { Balance, BalanceItem } from './firebase_types'
 import { query, where, getDocs } from 'firebase/firestore'
 import { auth } from './firebase_setup'
-import { balanceCol, createCollectionFromDocument } from './firebase_db'
+import { balanceCol, createSubCollectionFromDocId } from './firebase_db'
 
 const createDocId = (userId: string, year: number, month: number) => {
 	return `${userId}_${year}-${month}`
@@ -56,7 +56,7 @@ export const getItemsOfMonth = async (
 	month: number
 ): Promise<BalanceItem[] | undefined> => {
 	if (auth?.currentUser?.uid) {
-		const itemsRef = createCollectionFromDocument<BalanceItem>(
+		const itemsRef = createSubCollectionFromDocId<BalanceItem>(
 			balanceCol,
 			createDocId(auth.currentUser.uid, year, month),
 			'Item'
