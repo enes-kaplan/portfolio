@@ -1,10 +1,12 @@
 <template>
-	<table>
-		<thead>
+	<table
+		class="w-full max-w-table mx-auto border border-dark dark:border-light rounded-lg border-collapse overflow-y-auto tableScrollbar"
+	>
+		<thead class="border-b-2 border-dark dark:border-light">
 			<tr>
-				<th>Type</th>
-				<th>Name</th>
-				<th>Amount</th>
+				<th class="text-center py-4">Type</th>
+				<th class="text-left">Name</th>
+				<th class="text-right">Amount</th>
 				<th>Actions</th>
 			</tr>
 		</thead>
@@ -26,3 +28,9 @@ const props = defineProps({
 	}
 })
 </script>
+
+<style>
+.max-w-table {
+	max-width: 600px;
+}
+</style>

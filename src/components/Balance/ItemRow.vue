@@ -1,6 +1,6 @@
 <template>
-	<tr class="h-12">
-		<td>
+	<tr>
+		<td class="flex justify-center py-4">
 			<TypeIcon :type="item.Type" />
 		</td>
 		<td>
@@ -18,7 +18,7 @@
 			<template v-if="isExpenditure(item.Type)">-</template>
 			{{ item.Amount }}
 		</td>
-		<td class="relative">
+		<td class="relative flex justify-center">
 			<button
 				aria-label="Show options"
 				@click="showOptions = !showOptions"
