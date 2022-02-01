@@ -5,6 +5,9 @@
 	>
 		<div
 			class="w-full text-center text-xl font-semibold border-b border-dark dark:border-light"
+			:class="{
+				'text-light-accent dark:text-dark-accent': isCurrentMonth
+			}"
 		>
 			{{ getMonthName(props.month) }}
 		</div>
@@ -26,7 +29,11 @@ const props = defineProps({
 const store = useBalanceStore()
 const { getMonthName, getSummary } = store
 const { selectedYear } = storeToRefs(store)
-const monthLink = computed(() => {
-	return `/balance/${selectedYear.value}/${props.month}`
+const monthLink = computed(
+	() => `/balance/${selectedYear.value}/${props.month}`
+)
+const isCurrentMonth = computed(() => {
+	const currentDate = new Date()
+	return currentDate.getMonth() + 1 === props.month
 })
 </script>
