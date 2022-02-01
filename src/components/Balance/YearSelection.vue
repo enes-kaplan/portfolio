@@ -1,37 +1,38 @@
 <template>
 	<div class="flex justify-center items-center gap-4">
-		<span class="font-semibold text-lg"> Year </span>
-		<select
-			:value="selectedYear"
-			class="input-text w-32"
-			@change="changeYear($event)"
-		>
-			<option
-				v-for="(year, i) in yearList"
-				:key="i"
-				:value="year"
-				class="text-dark"
+		<div class="flex items-center gap-4">
+			<button
+				title="Go to previous year"
+				aria-label="Previous year"
+				@click="changeYear(-1)"
 			>
-				{{ year }}
-			</option>
-		</select>
+				<ChevronLeftIcon class="w-8 h-8" />
+			</button>
+			<div class="font-semibold text-2xl">
+				{{ selectedYear }}
+			</div>
+			<button
+				title="Go to next year"
+				aria-label="Next year"
+				@click="changeYear(1)"
+			>
+				<ChevronRightIcon class="w-8 h-8" />
+			</button>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useBalanceStore } from '@/store/balance'
+import { ChevronLeftIcon, ChevronRightIcon } from '@heroicons/vue/outline'
 
 const store = useBalanceStore()
-const { yearList, selectedYear } = storeToRefs(store)
+const { selectedYear } = storeToRefs(store)
 const { getSummariesOfYear } = store
 
-const changeYear = (ev: Event) => {
-	const inputEl = <HTMLInputElement>ev.target
-	const year = inputEl.value ? parseInt(inputEl.value) : selectedYear.value
-	if (year !== selectedYear.value) {
-		selectedYear.value = year
-		getSummariesOfYear(year)
-	}
+const changeYear = (increment: number) => {
+	selectedYear.value = selectedYear.value + increment
+	getSummariesOfYear()
 }
 </script>

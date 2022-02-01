@@ -3,12 +3,10 @@ import { defineStore } from 'pinia'
 import { getSummariesOfYear } from '@/functions/firebase_balance'
 
 interface State {
-	yearList: number[]
 	selectedYear: number
 	summariesOfYear: Balance[]
 }
 
-const yearList = [2022, 2021, 2020, 2019, 2018]
 const monthNames = [
 	'January',
 	'February',
@@ -25,8 +23,7 @@ const monthNames = [
 ]
 export const useBalanceStore = defineStore('balance', {
 	state: (): State => ({
-		yearList: yearList,
-		selectedYear: yearList[0],
+		selectedYear: new Date().getFullYear(),
 		summariesOfYear: []
 	}),
 	getters: {
@@ -40,8 +37,8 @@ export const useBalanceStore = defineStore('balance', {
 		}
 	},
 	actions: {
-		async getSummariesOfYear(year: number) {
-			const summariesOfYear = await getSummariesOfYear(year)
+		async getSummariesOfYear() {
+			const summariesOfYear = await getSummariesOfYear(this.selectedYear)
 			this.summariesOfYear = summariesOfYear ?? []
 		}
 	}
