@@ -13,7 +13,7 @@
 </template>
 
 <script setup lang="ts">
-import { watch, nextTick } from 'vue'
+import { nextTick, watch, onMounted } from 'vue'
 import { startFirebaseAuthUI } from '@/functions/firebase_auth'
 import 'firebaseui/dist/firebaseui.css'
 import { useSessionStore } from '@/store/session'
@@ -37,4 +37,9 @@ watch(
 		}
 	}
 )
+onMounted(() => {
+	if (getCurrentUser.value !== null && getCurrentUser.value !== 'LOADING') {
+		emit('authorized')
+	}
+})
 </script>
