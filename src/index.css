@@ -63,6 +63,9 @@ p {
 	@apply hover:fill-light-accent dark:hover:fill-dark-accent !important;
 }
 
+.transition-default {
+	@apply transition-all duration-300 ease-out;
+}
 .transition-hover {
 	@apply transition-all duration-200 ease-out;
 }
