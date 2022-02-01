@@ -1,6 +1,6 @@
 <template>
 	<ul
-		class="absolute top-full right-0 flex flex-col w-32 bg-indigo-100 dark:bg-gray-500 border border-indigo-300 dark:border-gray-600 rounded shadow-theme transition-default transform overflow-hidden"
+		class="absolute top-full right-0 flex flex-col w-32 bg-indigo-100 dark:bg-gray-500 border border-indigo-300 dark:border-gray-600 rounded shadow-theme transition-default transform overflow-hidden z-10"
 		:class="{
 			'translate-y-0': showOptions,
 			'translate-y-6 opacity-0': !showOptions

@@ -1,7 +1,7 @@
 <template>
 	<AuthorizedContent @authorized="getItems">
 		<div class="flex flex-wrap gap-12 w-full p-24">
-			<ItemBox v-for="item in itemsOfMonth" :key="item.Id" :item="item" />
+			<ItemTable :items="itemsOfMonth" />
 		</div>
 	</AuthorizedContent>
 </template>
@@ -11,7 +11,7 @@ import { useRouter } from 'vue-router'
 import { useBalanceStore } from '@/store/balance'
 import { storeToRefs } from 'pinia'
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
-import ItemBox from '@/components/Balance/ItemBox.vue'
+import ItemTable from '@/components/Balance/ItemTable.vue'
 
 const router = useRouter()
 const store = useBalanceStore()

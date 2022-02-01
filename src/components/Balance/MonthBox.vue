@@ -4,7 +4,7 @@
 		class="w-96 h-48 p-2 border-2 border-dark dark:border-light rounded"
 	>
 		<div
-			class="w-full text-center text-xl font-semibold border-b-2 border-dark dark:border-light"
+			class="w-full pt-1 pb-3 text-center text-xl font-semibold border-b-2 border-dark dark:border-light"
 			:class="{
 				'text-light-accent dark:text-dark-accent': isCurrentMonth
 			}"
