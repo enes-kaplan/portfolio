@@ -3,10 +3,15 @@
 		class="flex flex-col w-96 h-48 p-2 border-2 border-dark dark:border-light rounded"
 	>
 		<div
-			class="flex gap-4 px-2 pt-1 pb-3 font-semibold border-b-2 border-dark dark:border-light"
+			class="flex justify-between px-2 pt-1 pb-3 font-semibold border-b-2 border-dark dark:border-light"
 		>
-			<TypeIcon :type="item.Type" />
-			<span>{{ item.CustomName }}</span>
+			<div class="flex items-center gap-4">
+				<TypeIcon :type="item.Type" />
+				<span>{{ item.CustomName }}</span>
+			</div>
+			<button aria-label="Show options" @click="showOptions = true">
+				<DotsHorizontalIcon class="w-6 h-6" />
+			</button>
 		</div>
 	</div>
 </template>
@@ -14,6 +19,8 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type { BalanceItem } from '@/functions/firebase_types'
+import { ref } from 'vue'
+import { DotsHorizontalIcon } from '@heroicons/vue/outline'
 import TypeIcon from './TypeIcon.vue'
 
 const props = defineProps({
@@ -22,4 +29,6 @@ const props = defineProps({
 		required: true
 	}
 })
+
+const showOptions = ref(true)
 </script>
