@@ -48,7 +48,6 @@ export const useBalanceStore = defineStore('balance', {
 		},
 		async getItemsOfMonth(year: number, month: number) {
 			const itemsOfMonth = await getItemsOfMonth(year, month)
-			debugger
 			this.itemsOfMonth = itemsOfMonth ?? []
 		}
 	}
