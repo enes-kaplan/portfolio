@@ -1,8 +1,5 @@
 <template>
-	<AuthorizedContent
-		class="pb-24"
-		@authorized="getSummariesOfYear(selectedYear)"
-	>
+	<AuthorizedContent class="pb-24" @authorized="getSummariesOfYear">
 		<h1 class="text-3xl sm:text-5xl text-center my-4">
 			💵 Keep track of your income and expenditures 💵
 		</h1>
@@ -14,7 +11,6 @@
 </template>
 
 <script setup lang="ts">
-import { onMounted, nextTick } from 'vue'
 import { useBalanceStore } from '@/store/balance'
 
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
@@ -22,5 +18,5 @@ import YearSelection from '@/components/Balance/YearSelection.vue'
 import MonthBox from '@/components/Balance/MonthBox.vue'
 
 const store = useBalanceStore()
-const { selectedYear, getSummariesOfYear } = store
+const { getSummariesOfYear } = store
 </script>

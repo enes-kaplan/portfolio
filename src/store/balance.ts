@@ -1,10 +1,14 @@
-import type { Balance } from '@/functions/firebase_types'
+import type { Balance, BalanceItem } from '@/functions/firebase_types'
 import { defineStore } from 'pinia'
-import { getSummariesOfYear } from '@/functions/firebase_balance'
+import {
+	getSummariesOfYear,
+	getItemsOfMonth
+} from '@/functions/firebase_balance'
 
 interface State {
 	selectedYear: number
 	summariesOfYear: Balance[]
+	itemsOfMonth: BalanceItem[]
 }
 
 const monthNames = [
@@ -24,7 +28,8 @@ const monthNames = [
 export const useBalanceStore = defineStore('balance', {
 	state: (): State => ({
 		selectedYear: new Date().getFullYear(),
-		summariesOfYear: []
+		summariesOfYear: [],
+		itemsOfMonth: []
 	}),
 	getters: {
 		getSummary: state => (month: number) => {
@@ -40,6 +45,11 @@ export const useBalanceStore = defineStore('balance', {
 		async getSummariesOfYear() {
 			const summariesOfYear = await getSummariesOfYear(this.selectedYear)
 			this.summariesOfYear = summariesOfYear ?? []
+		},
+		async getItemsOfMonth(year: number, month: number) {
+			const itemsOfMonth = await getItemsOfMonth(year, month)
+			debugger
+			this.itemsOfMonth = itemsOfMonth ?? []
 		}
 	}
 })
