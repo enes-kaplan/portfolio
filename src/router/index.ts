@@ -6,6 +6,7 @@ import ToDo from '../pages/ToDo.vue'
 import TicTacToe from '../pages/TicTacToe.vue'
 import Spotify from '../pages/Spotify.vue'
 import Balance from '../pages/Balance.vue'
+import BalanceMonth from '../pages/BalanceMonth.vue'
 
 const router: Router = createRouter({
 	history: createWebHistory(),
@@ -43,6 +44,13 @@ const router: Router = createRouter({
 					path: '/balance',
 					components: {
 						main: Balance
+					}
+				},
+				{
+					name: 'balance_month',
+					path: '/balance/:year/:month',
+					components: {
+						main: BalanceMonth
 					}
 				}
 			]

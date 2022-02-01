@@ -9,6 +9,20 @@ interface State {
 }
 
 const yearList = [2022, 2021, 2020, 2019, 2018]
+const monthNames = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December'
+]
 export const useBalanceStore = defineStore('balance', {
 	state: (): State => ({
 		yearList: yearList,
@@ -20,6 +34,9 @@ export const useBalanceStore = defineStore('balance', {
 			return state.summariesOfYear.find(
 				f => f.Year === state.selectedYear && f.Month === month
 			)
+		},
+		getMonthName: () => (month: number) => {
+			return monthNames[month - 1]
 		}
 	},
 	actions: {
