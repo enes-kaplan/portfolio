@@ -21,11 +21,18 @@
 		<td class="relative flex justify-center">
 			<button
 				aria-label="Show options"
-				class="opacity-75 hover:opacity-100"
+				:class="{
+					'opacity-100': showOptions,
+					'opacity-75 hover:opacity-100': !showOptions
+				}"
 				@click="showOptions = !showOptions"
 			>
 				<DotsHorizontalIcon
 					class="w-6 h-6 hover:stroke-light-accent dark:hover:stroke-dark-accent"
+					:class="{
+						'stroke-light-accent dark:stroke-dark-accent':
+							showOptions
+					}"
 				/>
 			</button>
 			<HeaderMenu
