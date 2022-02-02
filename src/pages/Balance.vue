@@ -14,8 +14,8 @@
 import { useBalanceStore } from '@/store/balance'
 
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
-import YearSelection from '@/components/Balance/YearSelection.vue'
-import MonthBox from '@/components/Balance/MonthBox.vue'
+import YearSelection from '@/components/Balance/Year/YearSelection.vue'
+import MonthBox from '@/components/Balance/Year/MonthBox.vue'
 
 const store = useBalanceStore()
 const { getSummariesOfYear } = store
