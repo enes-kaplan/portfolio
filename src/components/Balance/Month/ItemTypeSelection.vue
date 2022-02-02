@@ -23,7 +23,7 @@ import { computed } from 'vue'
 import { storeToRefs } from 'pinia'
 import { useBalanceStore } from '@/store/balance'
 import { BalanceType } from '@/static/enums'
-import TypeIcon from './TypeIcon.vue'
+import TypeIcon from '../TypeIcon.vue'
 
 const store = useBalanceStore()
 const { getTypeName } = store

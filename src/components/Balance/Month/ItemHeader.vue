@@ -27,7 +27,7 @@ import type { PropType } from 'vue'
 import type { BalanceItem } from '@/functions/firebase_types'
 import { ref } from 'vue'
 import { DotsHorizontalIcon } from '@heroicons/vue/outline'
-import TypeIcon from './TypeIcon.vue'
+import TypeIcon from '../TypeIcon.vue'
 import HeaderMenu from './HeaderMenu.vue'
 
 const props = defineProps({

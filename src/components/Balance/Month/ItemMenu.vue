@@ -38,7 +38,7 @@ import type { BalanceItem } from '@/functions/firebase_types'
 import { ref } from 'vue'
 import { useBalanceStore } from '@/store/balance'
 import { PencilAltIcon, TrashIcon } from '@heroicons/vue/outline'
-import DeleteModal from './DeleteModal.vue'
+import DeleteModal from '../DeleteModal.vue'
 
 const props = defineProps({
 	showOptions: {

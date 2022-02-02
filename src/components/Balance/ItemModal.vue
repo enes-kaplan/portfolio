@@ -55,7 +55,7 @@
 import { useBalanceStore } from '@/store/balance'
 import { storeToRefs } from 'pinia'
 import { XIcon, SaveIcon } from '@heroicons/vue/outline'
-import ItemTypeSelection from './ItemTypeSelection.vue'
+import ItemTypeSelection from './Month/ItemTypeSelection.vue'
 import Modal from '@/components/Modal.vue'
 
 const store = useBalanceStore()

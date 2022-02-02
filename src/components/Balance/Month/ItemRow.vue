@@ -50,7 +50,7 @@ import type { BalanceItem } from '@/functions/firebase_types'
 import { ref } from 'vue'
 import { isExpenditure } from '@/functions/firebase_balance'
 import { DotsHorizontalIcon } from '@heroicons/vue/outline'
-import TypeIcon from './TypeIcon.vue'
+import TypeIcon from '../TypeIcon.vue'
 import ItemMenu from './ItemMenu.vue'
 
 const props = defineProps({

@@ -23,7 +23,7 @@
 <script setup lang="ts">
 import { storeToRefs } from 'pinia'
 import { useBalanceStore } from '@/store/balance'
-import ItemModal from './ItemModal.vue'
+import ItemModal from '../ItemModal.vue'
 
 const store = useBalanceStore()
 const { createNewItem } = store

@@ -14,8 +14,8 @@ import { useRouter } from 'vue-router'
 import { storeToRefs } from 'pinia'
 import { useBalanceStore } from '@/store/balance'
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
-import ItemTable from '@/components/Balance/ItemTable.vue'
-import ItemButtons from '@/components/Balance/ItemButtons.vue'
+import ItemTable from '@/components/Balance/Month/ItemTable.vue'
+import ItemButtons from '@/components/Balance/Month/ItemButtons.vue'
 
 const router = useRouter()
 const store = useBalanceStore()
