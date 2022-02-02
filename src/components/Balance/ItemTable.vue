@@ -1,6 +1,6 @@
 <template>
 	<table
-		class="w-full max-w-table mx-auto mb-12 bg-gray-100 dark:bg-gray-600 rounded-lg overflow-hidden"
+		class="w-full max-w-table mx-auto mb-12 bg-gray-100 dark:bg-gray-600 rounded-lg"
 	>
 		<thead
 			class="border-b-2 border-dark dark:border-light border-opacity-40 dark:border-opacity-40"
