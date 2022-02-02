@@ -1,7 +1,7 @@
 <template>
 	<router-link
 		:to="monthLink"
-		class="w-month h-48 p-2 border-2 border-dark dark:border-light rounded"
+		class="flex-box max-w-sm h-48 p-2 border-2 border-dark dark:border-light rounded"
 	>
 		<div
 			class="w-full pt-1 pb-3 text-center text-xl font-semibold border-b-2 border-dark dark:border-light"
@@ -87,8 +87,7 @@ const summaryBalance = computed(() => {
 </script>
 
 <style>
-.w-month {
-	min-width: min(360px, 95vw);
-	max-width: min(360px, 95vw);
+.flex-box {
+	flex: 1 1 100%;
 }
 </style>
