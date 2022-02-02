@@ -110,6 +110,9 @@ export const useBalanceStore = defineStore('balance', {
 		},
 		async saveItem(year: number, month: number) {
 			const item = await saveItem(this.editedItem!, year, month)
+			if (item) {
+				this.itemsOfMonth.push(item)
+			}
 			this.clearEditedItem()
 		},
 		clearEditedItem() {

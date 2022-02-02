@@ -13,7 +13,9 @@
 			Add new income
 		</button>
 		<teleport to="body">
-			<ItemModal v-if="editedItem" :year="year" :month="month" />
+			<transition name="fade">
+				<ItemModal v-if="editedItem" :year="year" :month="month" />
+			</transition>
 		</teleport>
 	</div>
 </template>
@@ -42,3 +44,15 @@ const addItem = (isExpenditure: boolean) => {
 	createNewItem(isExpenditure)
 }
 </script>
+
+<style>
+.fade-enter-active,
+.fade-leave-active {
+	transition: opacity 0.3s ease-in-out;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+	opacity: 0;
+}
+</style>
