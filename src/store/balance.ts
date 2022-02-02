@@ -106,7 +106,7 @@ export const useBalanceStore = defineStore('balance', {
 		},
 		editItem(item: BalanceItem) {
 			this.isExpenditure = isExpenditure(item.Type)
-			this.editedItem = item
+			this.editedItem = { ...item }
 		},
 		async saveItem(year: number, month: number) {
 			const item = await saveItem(this.editedItem!, year, month)
