@@ -11,6 +11,7 @@ import {
 
 interface State {
 	selectedYear: number
+	selectedMonth: number
 	summariesOfYear: Balance[]
 	itemsOfMonth: BalanceItem[]
 	editedItem?: BalanceItem
@@ -34,6 +35,7 @@ const monthNames = [
 export const useBalanceStore = defineStore('balance', {
 	state: (): State => ({
 		selectedYear: new Date().getFullYear(),
+		selectedMonth: new Date().getMonth() + 1,
 		summariesOfYear: [],
 		itemsOfMonth: [],
 		editedItem: undefined,

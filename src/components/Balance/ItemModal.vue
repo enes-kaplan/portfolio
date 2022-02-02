@@ -29,10 +29,22 @@
 			/>
 		</div>
 		<template #buttons>
-			<button class="btn btn-primary" @click="clearEditedItem">
+			<button
+				class="group btn btn-primary gap-1 font-medium"
+				@click="clearEditedItem"
+			>
+				<XIcon
+					class="w-6 h-6 group-hover:stroke-light dark:group-hover:stroke-dark transition-hover"
+				/>
 				CLOSE
 			</button>
-			<button class="btn btn-accent" @click="saveItem(year, month)">
+			<button
+				class="group btn btn-accent gap-1 font-medium"
+				@click="saveItem(selectedYear, selectedMonth)"
+			>
+				<SaveIcon
+					class="w-6 h-6 stroke-light-accent dark:stroke-dark-accent group-hover:stroke-dark-accent dark:group-hover:stroke-light-accent"
+				/>
 				SAVE
 			</button>
 		</template>
@@ -42,21 +54,11 @@
 <script setup lang="ts">
 import { useBalanceStore } from '@/store/balance'
 import { storeToRefs } from 'pinia'
+import { XIcon, SaveIcon } from '@heroicons/vue/outline'
 import ItemTypeSelection from './ItemTypeSelection.vue'
 import Modal from '@/components/Modal.vue'
 
-const props = defineProps({
-	year: {
-		type: Number,
-		required: true
-	},
-	month: {
-		type: Number,
-		required: true
-	}
-})
-
 const store = useBalanceStore()
 const { clearEditedItem, saveItem } = store
-const { editedItem } = storeToRefs(store)
+const { selectedYear, selectedMonth, editedItem } = storeToRefs(store)
 </script>
