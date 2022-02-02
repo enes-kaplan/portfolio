@@ -1,15 +1,19 @@
 <template>
-	<div v-if="getCurrentUser === 'LOADING'">
-		<LoaderSVG />
-	</div>
-	<div v-else-if="getCurrentUser === null" id="firebaseui-auth-container" />
-	<div v-else>
-		<slot />
+	<div>
+		<div id="firebaseui-auth-container">
+			<div v-if="getCurrentUser === 'LOADING'">
+				<LoaderSVG />
+			</div>
+			<div v-else-if="getCurrentUser === null" />
+			<div v-else>
+				<slot />
+			</div>
+		</div>
 	</div>
 </template>
 
 <script setup lang="ts">
-import { watch, nextTick } from 'vue'
+import { nextTick, watch, onMounted } from 'vue'
 import { startFirebaseAuthUI } from '@/functions/firebase_auth'
 import 'firebaseui/dist/firebaseui.css'
 import { useSessionStore } from '@/store/session'
@@ -33,4 +37,11 @@ watch(
 		}
 	}
 )
+onMounted(() => {
+	if (getCurrentUser.value === null) {
+		startFirebaseAuthUI()
+	} else if (getCurrentUser.value !== 'LOADING') {
+		emit('authorized')
+	}
+})
 </script>

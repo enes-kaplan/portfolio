@@ -32,16 +32,24 @@ p {
 }
 
 .btn {
-	@apply flex items-center gap-4 px-4 py-2;
+	@apply flex items-center gap-4 px-4 py-2 rounded transition-colors duration-200 ease-out;
 }
 .btn-primary {
 	@apply border border-dark dark:border-light
 	text-light-font dark:text-dark-font
 	hover:bg-dark hover:text-light
-	dark:hover:bg-light dark:hover:text-dark rounded
-	transition-colors duration-200 ease-out;
+	dark:hover:bg-light dark:hover:text-dark;
+}
+.btn-accent {
+	@apply border border-light-accent dark:border-dark-accent
+	text-light-accent dark:text-dark-accent
+	hover:bg-dark hover:text-dark-accent hover:border-dark-accent
+	dark:hover:bg-light dark:hover:text-light-accent dark:hover:border-light-accent;
 }
 
+.input-label {
+	@apply text-gray-700 dark:text-gray-300;
+}
 .input-text {
 	@apply px-4 py-2 text-dark border border-dark dark:border-light rounded shadow dark:shadow-light resize-none focus:outline-dark;
 }
@@ -63,8 +71,39 @@ p {
 	@apply hover:fill-light-accent dark:hover:fill-dark-accent !important;
 }
 
+.transition-default {
+	@apply transition-all duration-300 ease-out;
+}
 .transition-hover {
 	@apply transition-all duration-200 ease-out;
+}
+
+/** This is for Firefox */
+.pageScrollbar {
+	scrollbar-color: #0369a1 white;
+	scrollbar-width: thin;
+	@apply transition-all duration-300;
+}
+.pageScrollbar::-webkit-scrollbar-track {
+	@apply bg-light;
+}
+.pageScrollbar::-webkit-scrollbar {
+	width: 8px;
+	height: 4px;
+}
+.pageScrollbar::-webkit-scrollbar-thumb {
+	@apply bg-light-accent;
+}
+
+.dark .pageScrollbar {
+	scrollbar-color: #eab308 #374151;
+	scrollbar-width: thin;
+}
+.dark .pageScrollbar::-webkit-scrollbar-track {
+	@apply bg-dark;
+}
+.dark .pageScrollbar::-webkit-scrollbar-thumb {
+	@apply bg-dark-accent;
 }
 
 .noScrollbar {
