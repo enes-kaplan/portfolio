@@ -4,7 +4,7 @@
 			💵 Keep track of your income and expenditures 💵
 		</h1>
 		<YearSelection />
-		<div class="flex flex-wrap gap-12 mt-12 px-24">
+		<div class="flex justify-center flex-wrap gap-12 mt-12 px-24">
 			<MonthBox v-for="month in 12" :key="month" :month="month" />
 		</div>
 	</AuthorizedContent>

@@ -19,7 +19,7 @@
 					Income
 				</div>
 				<div
-					class="text-emerald-700 dark:text-emerald-500 transition-default"
+					class="w-24 text-right text-emerald-700 dark:text-emerald-500 transition-default"
 				>
 					{{ summary.TotalIncome.toFixed(2) }}
 				</div>
@@ -30,7 +30,9 @@
 				<div class="text-red-700 dark:text-red-500 transition-default">
 					Expenditure
 				</div>
-				<div class="text-red-700 dark:text-red-500 transition-default">
+				<div
+					class="w-24 text-right text-red-700 dark:text-red-500 transition-default"
+				>
 					{{ summary.TotalExpenditure.toFixed(2) }}
 				</div>
 			</li>
