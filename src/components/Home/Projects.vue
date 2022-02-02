@@ -32,24 +32,32 @@
 <script setup lang="ts">
 const projects = [
 	{
+		name: 'Expense Tracker',
+		image: '/projects/balance_light.png',
+		imageDark: '/projects/balance_dark.png',
+		description:
+			'An application to keep track of your incomes and expenses',
+		demoLink: '/balance'
+	},
+	{
 		name: 'Spotify Design Clone',
-		image: '/spotify.png',
-		imageDark: '/spotify.png',
+		image: '/projects/spotify.png',
+		imageDark: '/projects/spotify.png',
 		description:
 			'Spotify design clone project for showcasing design implementations.',
 		demoLink: '/spotify'
 	},
 	{
 		name: 'To-do Project',
-		image: '/todo_light.jpg',
-		imageDark: '/todo_dark.jpg',
+		image: '/projects/todo_light.jpg',
+		imageDark: '/projects/todo_dark.jpg',
 		description: 'To-do project to keep track of your tasks.',
 		demoLink: '/todo'
 	},
 	{
 		name: 'Tic-Tac-Toe',
-		image: '/tictactoe.png',
-		imageDark: '/tictactoe_dark.png',
+		image: '/projects/tictactoe.png',
+		imageDark: '/projects/tictactoe_dark.png',
 		description: 'Play tic-tac-toe against AI using the minimax algorithm.',
 		demoLink: '/tictactoe'
 	}
