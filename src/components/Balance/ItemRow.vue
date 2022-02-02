@@ -35,7 +35,7 @@
 					}"
 				/>
 			</button>
-			<HeaderMenu
+			<ItemMenu
 				:item="item"
 				:show-options="showOptions"
 				@close="showOptions = false"
@@ -51,7 +51,7 @@ import { ref } from 'vue'
 import { isExpenditure } from '@/functions/firebase_balance'
 import { DotsHorizontalIcon } from '@heroicons/vue/outline'
 import TypeIcon from './TypeIcon.vue'
-import HeaderMenu from './HeaderMenu.vue'
+import ItemMenu from './ItemMenu.vue'
 
 const props = defineProps({
 	item: {

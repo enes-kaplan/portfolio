@@ -12,12 +12,12 @@
 		>
 			Add new income
 		</button>
-		<teleport to="body">
-			<transition name="fade">
-				<ItemModal v-if="editedItem" :year="year" :month="month" />
-			</transition>
-		</teleport>
 	</div>
+	<teleport to="body">
+		<transition name="fade">
+			<ItemModal v-if="editedItem" :year="year" :month="month" />
+		</transition>
+	</teleport>
 </template>
 
 <script setup lang="ts">
