@@ -13,7 +13,7 @@
 			Add new income
 		</button>
 		<teleport to="body">
-			<ItemModal v-if="editedItem" />
+			<ItemModal v-if="editedItem" :year="year" :month="month" />
 		</teleport>
 	</div>
 </template>
@@ -22,6 +22,17 @@
 import { storeToRefs } from 'pinia'
 import { useBalanceStore } from '@/store/balance'
 import ItemModal from './ItemModal.vue'
+
+const props = defineProps({
+	year: {
+		type: Number,
+		required: true
+	},
+	month: {
+		type: Number,
+		required: true
+	}
+})
 
 const store = useBalanceStore()
 const { createNewItem } = store

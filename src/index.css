@@ -47,6 +47,9 @@ p {
 	dark:hover:bg-light dark:hover:text-light-accent dark:hover:border-light-accent;
 }
 
+.input-label {
+	@apply text-gray-700 dark:text-gray-300;
+}
 .input-text {
 	@apply px-4 py-2 text-dark border border-dark dark:border-light rounded shadow dark:shadow-light resize-none focus:outline-dark;
 }

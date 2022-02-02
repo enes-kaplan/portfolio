@@ -5,7 +5,8 @@ import { BalanceType } from '@/static/enums'
 import {
 	getSummariesOfYear,
 	getItemsOfMonth,
-	isExpenditure
+	isExpenditure,
+	saveItem
 } from '@/functions/firebase_balance'
 
 interface State {
@@ -92,7 +93,9 @@ export const useBalanceStore = defineStore('balance', {
 				Type: isExpenditure
 					? BalanceType.ELECTRICITY
 					: BalanceType.SALARY,
-				CustomName: '',
+				CustomName: isExpenditure
+					? this.getTypeName(BalanceType.ELECTRICITY)
+					: this.getTypeName(BalanceType.SALARY),
 				Amount: 0,
 				Note: '',
 				Order: 1,
@@ -104,6 +107,10 @@ export const useBalanceStore = defineStore('balance', {
 		editItem(item: BalanceItem) {
 			this.isExpenditure = isExpenditure(item.Type)
 			this.editedItem = item
+		},
+		async saveItem(year: number, month: number) {
+			const item = await saveItem(this.editedItem!, year, month)
+			this.clearEditedItem()
 		},
 		clearEditedItem() {
 			this.editedItem = undefined

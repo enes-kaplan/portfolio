@@ -3,7 +3,7 @@
 		<div class="flex justify-center my-8 font-semibold text-2xl">
 			{{ monthName }} {{ year }}
 		</div>
-		<ItemButtons />
+		<ItemButtons :year="yearNum" :month="monthNum" />
 		<ItemTable :items="itemsOfMonth" />
 	</AuthorizedContent>
 </template>
@@ -22,12 +22,19 @@ const store = useBalanceStore()
 const { getMonthName, getItemsOfMonth } = store
 const { itemsOfMonth } = storeToRefs(store)
 
-const monthName = ref('')
+const yearNum = ref(new Date().getFullYear())
+const monthNum = ref(new Date().getMonth())
+
 const year = ref('')
+const monthName = ref('')
+
 const getItems = () => {
 	const routeParams = router.currentRoute.value.params
 	const monthParam = parseInt(<string>routeParams.month)
 	const yearParam = parseInt(<string>routeParams.year)
+
+	yearNum.value = yearParam
+	monthNum.value = monthParam
 
 	monthName.value = getMonthName(monthParam)
 	year.value = yearParam.toString()
