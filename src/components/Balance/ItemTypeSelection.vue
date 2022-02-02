@@ -1,5 +1,8 @@
 <template>
-	<div class="flex gap-4 items-center overflow-x-auto pb-3 pageScrollbar">
+	<div
+		class="flex gap-4 items-center pb-3 overflow-x-auto pageScrollbar"
+		:class="{ 'mx-auto': !isExpenditure }"
+	>
 		<div
 			v-for="itemType in typeList"
 			:key="itemType"

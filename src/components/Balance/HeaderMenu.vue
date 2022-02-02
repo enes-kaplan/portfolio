@@ -9,7 +9,7 @@
 		:aria-hidden="showOptions === false"
 	>
 		<li>
-			<button class="btn-option" @click="editItem">
+			<button class="btn-option" @click="edit">
 				<PencilAltIcon class="w-6 h-6" />
 				<span>Edit</span>
 			</button>
@@ -26,6 +26,7 @@
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type { BalanceItem } from '@/functions/firebase_types'
+import { useBalanceStore } from '@/store/balance'
 import { PencilAltIcon, TrashIcon } from '@heroicons/vue/outline'
 
 const props = defineProps({
@@ -40,7 +41,11 @@ const props = defineProps({
 })
 const emit = defineEmits(['close'])
 
-const editItem = () => {
+const store = useBalanceStore()
+const { editItem } = store
+
+const edit = () => {
+	editItem(props.item)
 	emit('close')
 }
 const deleteItem = () => {

@@ -4,7 +4,8 @@ import { Timestamp } from 'firebase/firestore'
 import { BalanceType } from '@/static/enums'
 import {
 	getSummariesOfYear,
-	getItemsOfMonth
+	getItemsOfMonth,
+	isExpenditure
 } from '@/functions/firebase_balance'
 
 interface State {
@@ -99,6 +100,10 @@ export const useBalanceStore = defineStore('balance', {
 				UpdateDate: currentTimestamp,
 				isDeleted: false
 			}
+		},
+		editItem(item: BalanceItem) {
+			this.isExpenditure = isExpenditure(item.Type)
+			this.editedItem = item
 		},
 		clearEditedItem() {
 			this.editedItem = undefined
