@@ -3,7 +3,7 @@
 		class="absolute top-full right-0 flex flex-col w-32 bg-indigo-100 dark:bg-gray-500 border-2 border-indigo-300 dark:border-gray-400 rounded shadow-theme transition-default transform overflow-hidden z-10"
 		:class="{
 			'translate-y-0': showOptions,
-			'translate-y-6 opacity-0': !showOptions
+			'translate-y-6 opacity-0 z-hide': !showOptions
 		}"
 		role="menu"
 		:aria-hidden="showOptions === false"
@@ -68,6 +68,9 @@ const deleteItem = () => {
 </script>
 
 <style scoped>
+.z-hide {
+	z-index: -1;
+}
 .btn-option {
 	@apply flex items-center gap-4 w-full p-2 font-medium hover:bg-indigo-200 dark:hover:bg-gray-600;
 }
