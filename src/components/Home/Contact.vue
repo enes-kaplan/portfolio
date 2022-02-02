@@ -10,6 +10,7 @@
 		>
 			Email Me
 		</a>
+		<h2 class="mx-auto mt-12">Made with 💖.</h2>
 	</section>
 </template>
 
