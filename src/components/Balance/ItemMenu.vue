@@ -21,13 +21,24 @@
 			</button>
 		</li>
 	</ul>
+	<teleport to="body">
+		<transition name="fade">
+			<DeleteModal
+				v-if="showModal"
+				:item="item"
+				@close="showModal = false"
+			/>
+		</transition>
+	</teleport>
 </template>
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
 import type { BalanceItem } from '@/functions/firebase_types'
+import { ref } from 'vue'
 import { useBalanceStore } from '@/store/balance'
 import { PencilAltIcon, TrashIcon } from '@heroicons/vue/outline'
+import DeleteModal from './DeleteModal.vue'
 
 const props = defineProps({
 	showOptions: {
@@ -48,7 +59,10 @@ const edit = () => {
 	editItem(props.item)
 	emit('close')
 }
+
+const showModal = ref(false)
 const deleteItem = () => {
+	showModal.value = true
 	emit('close')
 }
 </script>

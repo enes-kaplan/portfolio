@@ -6,7 +6,8 @@ import {
 	getSummariesOfYear,
 	getItemsOfMonth,
 	isExpenditure,
-	saveItem
+	saveItem,
+	deleteItem
 } from '@/functions/firebase_balance'
 
 interface State {
@@ -119,6 +120,20 @@ export const useBalanceStore = defineStore('balance', {
 		},
 		clearEditedItem() {
 			this.editedItem = undefined
+		},
+		async deleteBalanceItem(
+			item: BalanceItem,
+			year: number,
+			month: number
+		) {
+			item.isDeleted = false
+			const deletedItem = await deleteItem(item, year, month)
+			if (deletedItem) {
+				this.itemsOfMonth = this.itemsOfMonth.filter(
+					f => f.Id !== item.Id
+				)
+			}
+			this.clearEditedItem()
 		}
 	}
 })

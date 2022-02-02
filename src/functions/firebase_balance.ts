@@ -119,7 +119,6 @@ export const saveItem = async (
 	year: number,
 	month: number
 ): Promise<BalanceItem | undefined> => {
-	let docRef: DocumentReference<BalanceItem>
 	if (!auth?.currentUser?.uid) {
 		return
 	}
@@ -175,4 +174,28 @@ export const saveItem = async (
 	const docData = docSnapshot.data()
 	docData!.Id = itemRef.id
 	return docData
+}
+
+export const deleteItem = async (
+	item: BalanceItem,
+	year: number,
+	month: number
+): Promise<BalanceItem | undefined> => {
+	if (auth?.currentUser?.uid) {
+		const itemsRef = createSubCollectionFromDocId<BalanceItem>(
+			balanceCol,
+			createDocId(auth.currentUser.uid, year, month),
+			'Item'
+		)
+		const itemRef = doc(itemsRef, item.Id)
+		item.isDeleted = true
+		await setDoc(itemRef, item)
+
+		const docSnapshot = await getDoc(itemRef)
+		const docData = docSnapshot.data()
+		docData!.Id = itemRef.id
+		if (docData?.isDeleted) {
+			return docData
+		}
+	}
 }
