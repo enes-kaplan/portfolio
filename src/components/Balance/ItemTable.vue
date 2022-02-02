@@ -1,8 +1,10 @@
 <template>
 	<table
-		class="w-full max-w-table mx-auto border border-dark dark:border-light rounded-lg border-collapse overflow-y-auto tableScrollbar"
+		class="w-full max-w-table mx-auto mb-12 bg-gray-100 dark:bg-gray-600 rounded-lg overflow-hidden"
 	>
-		<thead class="border-b-2 border-dark dark:border-light">
+		<thead
+			class="border-b-2 border-dark dark:border-light border-opacity-40 dark:border-opacity-40"
+		>
 			<tr>
 				<th class="text-center py-4">Type</th>
 				<th class="text-left">Name</th>
@@ -31,6 +33,6 @@ const props = defineProps({
 
 <style>
 .max-w-table {
-	max-width: 600px;
+	max-width: min(600px, 90vw);
 }
 </style>
