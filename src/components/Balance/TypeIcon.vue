@@ -1,8 +1,8 @@
 <template>
 	<div
-		class="flex justify-center items-center w-8 h-8 p-1 rounded-sm transition-default"
+		class="flex justify-center items-center w-8 h-8 min-w-8 min-h-8 p-1 rounded-sm transition-default"
 		:class="bgColor"
-		:title="title"
+		:title="getTypeName(type)"
 	>
 		<component :is="iconComponent" />
 	</div>
@@ -10,8 +10,10 @@
 
 <script setup lang="ts">
 import type { PropType } from 'vue'
-import { BalanceType } from '@/static/enums'
 import { computed } from 'vue'
+import { storeToRefs } from 'pinia'
+import { useBalanceStore } from '@/store/balance'
+import { BalanceType } from '@/static/enums'
 import ElectricitySVG from '@/components/SVG/Balance/Electricity.vue'
 import WaterSVG from '@/components/SVG/Balance/Water.vue'
 import GasSVG from '@/components/SVG/Balance/Gas.vue'
@@ -32,34 +34,9 @@ const props = defineProps({
 	}
 })
 
-const title = computed(() => {
-	switch (props.type) {
-		case BalanceType.ELECTRICITY:
-			return 'Electricity'
-		case BalanceType.WATER:
-			return 'Water'
-		case BalanceType.GAS:
-			return 'Gas'
-		case BalanceType.INTERNET:
-			return 'Internet'
-		case BalanceType.PHONE:
-			return 'Phone'
-		case BalanceType.RENT:
-			return 'Rent'
-		case BalanceType.CREDIT:
-			return 'Credit Card'
-		case BalanceType.MARKET:
-			return 'Market'
-		case BalanceType.EXPENDITURE:
-			return 'Custom Expenditure'
-		case BalanceType.SALARY:
-			return 'Salary'
-		case BalanceType.INCOME:
-			return 'Income'
-		default:
-			return 'Other'
-	}
-})
+const store = useBalanceStore()
+const { getTypeName } = storeToRefs(store)
+
 const bgColor = computed(() => {
 	switch (props.type) {
 		case BalanceType.ELECTRICITY:

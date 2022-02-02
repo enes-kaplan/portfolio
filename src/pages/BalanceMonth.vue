@@ -3,6 +3,7 @@
 		<div class="flex justify-center my-8 font-semibold text-2xl">
 			{{ monthName }} {{ year }}
 		</div>
+		<ItemButtons />
 		<ItemTable :items="itemsOfMonth" />
 	</AuthorizedContent>
 </template>
@@ -14,6 +15,7 @@ import { useBalanceStore } from '@/store/balance'
 import { storeToRefs } from 'pinia'
 import AuthorizedContent from '@/components/layout/AuthorizedContent.vue'
 import ItemTable from '@/components/Balance/ItemTable.vue'
+import ItemButtons from '@/components/Balance/ItemButtons.vue'
 
 const router = useRouter()
 const store = useBalanceStore()
