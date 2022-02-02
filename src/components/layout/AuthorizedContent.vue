@@ -38,7 +38,9 @@ watch(
 	}
 )
 onMounted(() => {
-	if (getCurrentUser.value !== null && getCurrentUser.value !== 'LOADING') {
+	if (getCurrentUser.value === null) {
+		startFirebaseAuthUI()
+	} else if (getCurrentUser.value !== 'LOADING') {
 		emit('authorized')
 	}
 })
