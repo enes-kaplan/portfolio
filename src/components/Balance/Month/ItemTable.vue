@@ -13,7 +13,14 @@
 			</tr>
 		</thead>
 		<tbody>
-			<ItemRow v-for="item in items" :key="item.Id" :item="item" />
+			<template v-if="items.length > 0">
+				<ItemRow v-for="item in items" :key="item.Id" :item="item" />
+			</template>
+			<tr>
+				<td colspan="4" class="py-4 text-center font-medium">
+					No expense/income registered yet.
+				</td>
+			</tr>
 		</tbody>
 	</table>
 </template>
