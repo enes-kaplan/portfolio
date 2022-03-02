@@ -113,7 +113,13 @@ export const useBalanceStore = defineStore('balance', {
 		},
 		async saveItem(year: number, month: number) {
 			const initialId = this?.editedItem?.Id
-			const item = await saveItem(this.editedItem!, year, month)
+			const originalItem = this.itemsOfMonth.find(f => f.Id === initialId)
+			const item = await saveItem(
+				this.editedItem!,
+				year,
+				month,
+				originalItem
+			)
 			if (item) {
 				if (initialId) {
 					let itemIndex = this.itemsOfMonth.findIndex(
