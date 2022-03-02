@@ -35,7 +35,7 @@ export const getTodos = async (): Promise<Todo[] | undefined> => {
 
 export const saveTodo = async (todo: Todo): Promise<Todo | undefined> => {
 	let docRef: DocumentReference<Todo>
-	if (todo?.Id) {
+	if (todo.Id) {
 		// If editing an existing todo, just update the changed fields
 		docRef = doc(todoCol, todo.Id)
 		await setDoc(

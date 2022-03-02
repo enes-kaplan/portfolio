@@ -109,6 +109,43 @@ export const isExpenditure = (type: BalanceType) => {
 	}
 }
 
+/** Updates the saved item's parent collection's summary values */
+export const saveParentItem = async (
+	item: BalanceItem,
+	year: number,
+	month: number,
+	originalItem?: BalanceItem
+) => {
+	const parentDocRef = doc(
+		balanceCol,
+		createDocId(auth!.currentUser!.uid, year, month)
+	)
+	const parentDocSnapshot = await getDoc(parentDocRef)
+	const parentDoc = parentDocSnapshot.data()
+
+	if (item.isDeleted) {
+		// If deleting the item, decrement TotalExpenditure/TotalIncome accordingly
+		if (isExpenditure(item.Type)) {
+			parentDoc!.TotalExpenditure -= item.Amount
+		} else {
+			parentDoc!.TotalIncome -= item.Amount
+		}
+	} else {
+		// If adding/updating the item, increment TotalExpenditure/TotalIncome accordingly
+		let shift = item.Amount
+		if (originalItem) {
+			// If updating an existing item, shift the TotalExpenditure/TotalIncome depending on diff between new and old values
+			shift -= originalItem.Amount
+		}
+		if (isExpenditure(item.Type)) {
+			parentDoc!.TotalExpenditure += shift
+		} else {
+			parentDoc!.TotalIncome += shift
+		}
+	}
+	await setDoc(parentDocRef, parentDoc)
+}
+
 /** Checks if there is an existing document for the given year-month
  * If it exists, adds the balance item into the document's 'Item' collection
  * Otherwise, creates a new 'Item' collection and saves the balance item in it
@@ -117,7 +154,8 @@ export const isExpenditure = (type: BalanceType) => {
 export const saveItem = async (
 	item: BalanceItem,
 	year: number,
-	month: number
+	month: number,
+	originalItem?: BalanceItem
 ): Promise<BalanceItem | undefined> => {
 	if (!auth?.currentUser?.uid) {
 		return
@@ -156,19 +194,7 @@ export const saveItem = async (
 		itemRef = await addDoc(itemsRef, item)
 	}
 
-	// Update the summary values
-	const parentDocRef = doc(
-		balanceCol,
-		createDocId(auth.currentUser.uid, year, month)
-	)
-	const parentDocSnapshot = await getDoc(parentDocRef)
-	const parentDoc = parentDocSnapshot.data()
-	if (isExpenditure(item.Type)) {
-		parentDoc!.TotalExpenditure += item.Amount
-	} else {
-		parentDoc!.TotalIncome += item.Amount
-	}
-	await setDoc(parentDocRef, parentDoc)
+	saveParentItem(item, year, month, originalItem)
 
 	const docSnapshot = await getDoc(itemRef)
 	const docData = docSnapshot.data()
@@ -190,6 +216,8 @@ export const deleteItem = async (
 		const itemRef = doc(itemsRef, item.Id)
 		item.isDeleted = true
 		await setDoc(itemRef, item)
+
+		saveParentItem(item, year, month)
 
 		const docSnapshot = await getDoc(itemRef)
 		const docData = docSnapshot.data()

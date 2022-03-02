@@ -1,8 +1,7 @@
 <template>
 	<div class="sm:hidden flex items-center gap-4">
-		<!-- TODO: Fix navigation from non-homepage -->
 		<button
-			class="flex active:outline outline-gray-600 transition-transform ease-out duration-100"
+			class="flex active:outline outline-gray-600 transition-default"
 			:class="{ '-translate-x-32': isMenuOpen }"
 			aria-haspopup="true"
 			aria-label="Open menu"
@@ -13,7 +12,7 @@
 		<ThemeChanger :current-theme="currentTheme" @set-theme="setTheme" />
 	</div>
 	<div
-		class="sm:hidden fixed right-0 top-0 bottom-0 w-48 px-4 py-8 border-l z-50 border-gray-400 bg-light dark:bg-dark transition-all duration-300"
+		class="sm:hidden fixed right-0 top-0 bottom-0 w-48 px-4 py-8 border-l z-50 border-gray-400 bg-light dark:bg-dark transition-default"
 		role="menu"
 		:class="{ 'translate-x-0': isMenuOpen, 'translate-x-48': !isMenuOpen }"
 		:aria-hidden="isMenuOpen === false"
