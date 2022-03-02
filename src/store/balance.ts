@@ -43,6 +43,13 @@ export const useBalanceStore = defineStore('balance', {
 		isExpenditure: false
 	}),
 	getters: {
+		getSortedItems: state => {
+			return state.itemsOfMonth.sort((a, b) => {
+				if (isExpenditure(a.Type) && !isExpenditure(b.Type)) return 1
+				if (!isExpenditure(a.Type) && isExpenditure(b.Type)) return -1
+				return b.Amount - a.Amount
+			})
+		},
 		getSummary: state => (month: number) => {
 			return state.summariesOfYear.find(
 				f => f.Year === state.selectedYear && f.Month === month

@@ -16,7 +16,7 @@
 			<template v-if="items.length > 0">
 				<ItemRow v-for="item in items" :key="item.Id" :item="item" />
 			</template>
-			<tr>
+			<tr v-else>
 				<td colspan="4" class="py-4 text-center font-medium">
 					No expense/income registered yet.
 				</td>

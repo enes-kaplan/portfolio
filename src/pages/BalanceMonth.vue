@@ -4,7 +4,7 @@
 			{{ monthName }} {{ selectedYear }}
 		</div>
 		<ItemButtons />
-		<ItemTable :items="itemsOfMonth" />
+		<ItemTable :items="getSortedItems" />
 	</AuthorizedContent>
 </template>
 
@@ -20,7 +20,8 @@ import ItemButtons from '@/components/Balance/Month/ItemButtons.vue'
 const router = useRouter()
 const store = useBalanceStore()
 const { getMonthName, getItemsOfMonth } = store
-const { selectedYear, selectedMonth, itemsOfMonth } = storeToRefs(store)
+const { selectedYear, selectedMonth, itemsOfMonth, getSortedItems } =
+	storeToRefs(store)
 
 const monthName = ref('')
 const getItems = () => {
